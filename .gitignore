@@ -1,0 +1,41 @@
+# Ignoruj pliki kompilowane
+*.exe
+*.dll
+*.pdb
+
+# Ignoruj pliki tymczasowe
+*.user
+*.vscode
+*.vs
+*.suo
+*.cache
+
+# Ignoruj katalogi
+bin/
+obj/
+packages/
+
+# Ignoruj pliki plików projektu i rozwiązania Visual Studio
+*.csproj.user
+*.sln.docstates
+*.sln.ide
+*.suo
+*.sln.ide-shm
+*.sln.ide-wal
+*.sln.ide-wal-int
+
+# Ignoruj katalogi i pliki utworzone przez narzędzia budowania
+_build/
+msbuild.log
+msbuild*.binlog
+TestResults/
+
+# Ignoruj pliki konfiguracyjne
+*.config
+
+# Ignoruj katalogi środowiska
+/.vs/
+/.idea/
+/.vscode/
+/.nyc_output/
+*.code-workspace
