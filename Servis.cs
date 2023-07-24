@@ -9,7 +9,7 @@ namespace MediaWIiR_APP
 {
     internal class Servis
     {
- /*       public void validating_selectors(ComboBox comboBox, Label errorLabel) { 
+        public void validating_selectors(ComboBox comboBox, Label errorLabel) { 
         if (comboBox.SelectedIndex != -1)
             {
                 errorLabel.Visible = false;
@@ -42,6 +42,6 @@ namespace MediaWIiR_APP
                 // Kod pocztowy jest nieprawidłowy - zmień kolor tekstu na czerwony
                 zip_code.ForeColor = Color.Red;
             }
-        }*/
+        }
     }
 }

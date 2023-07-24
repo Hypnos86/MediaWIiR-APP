@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            TextBox city_input;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            city_input = new TextBox();
             save_to_pdf_click = new Button();
             estimate_click = new Button();
             unit_info_groubpox = new GroupBox();
@@ -47,7 +47,6 @@
             media_type_groupbox = new GroupBox();
             select_media_error = new Label();
             media_type_input = new ComboBox();
-            city_input = new TextBox();
             unit_info_groubpox.SuspendLayout();
             media_type_groupbox.SuspendLayout();
             SuspendLayout();
@@ -58,6 +57,7 @@
             city_input.Name = "city_input";
             city_input.Size = new Size(149, 23);
             city_input.TabIndex = 8;
+            city_input.TextChanged += city_input_TextChanged;
             // 
             // save_to_pdf_click
             // 

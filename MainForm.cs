@@ -19,14 +19,14 @@ namespace MediaWIiR_APP
         {
             Servis servis = new Servis();
             //Walidacja kodu pocztowego
-           // servis.validating_zip_code(zip_code_input);
+            servis.validating_zip_code(zip_code_input);
         }
 
         private void unit_type_input_SelectedIndexChanged(object sender, EventArgs e)
         {
             Servis servis = new Servis();
             //Walidacja usupenionych selektów
-           // servis.validating_selectors(unit_type_input, select_county_error);
+            servis.validating_selectors(unit_type_input, select_county_error);
         }
 
         private void estimate_click_Click(object sender, EventArgs e)
@@ -39,14 +39,14 @@ namespace MediaWIiR_APP
         {
             Servis servis = new Servis();
             //Walidacja usupenionych selektów
-            //servis.validating_selectors(county_input, select_county_error);
+            servis.validating_selectors(county_input, select_county_error);
         }
 
         private void media_type_input_SelectedIndexChanged(object sender, EventArgs e)
         {
             Servis servis = new Servis();
             //Walidacja usupenionych selektów
-            //servis.validating_selectors(media_type_input, select_county_error);
+            servis.validating_selectors(media_type_input, select_county_error);
         }
 
         private void select_media_error_Click(object sender, EventArgs e)
@@ -88,9 +88,9 @@ namespace MediaWIiR_APP
                   // pocz¹tek y (margines górny)
                   (int)(page.Height * 0.1),
                   // wysokoœæ pola
-                  (int)(page.Width * 0.1),
+                  (int)(page.Width * 0.8),
                   // szerokoœæ pola
-                  (int)(page.Height * 0.1)),
+                  (int)(page.Height * 0.8)),
                   // gdzie ma zacz¹æ
                   PdfSharp.Drawing.XStringFormat.TopLeft);
 
@@ -101,11 +101,18 @@ namespace MediaWIiR_APP
             // Save the document...
             string filename = "Szacowanie.pdf";
             document.Save(filename);
+            MessageBox.Show($"Twój plik {filename} jest gotowy");
             // ...and start a viewer.
-            //System.Diagnostics.Process.Start(filename);
+            // System.Diagnostics.Process.Start(filename);
+
         }
 
         private void address_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void city_input_TextChanged(object sender, EventArgs e)
         {
 
         }
