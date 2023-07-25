@@ -9,7 +9,7 @@ namespace MediaWIiR_APP
 {
     internal class Servis
     {
-        public void validating_selectors(ComboBox comboBox, Label errorLabel) { 
+        public bool validating_selectors(ComboBox comboBox, Label errorLabel) { 
         if (comboBox.SelectedIndex != -1)
             {
                 errorLabel.Visible = false;
@@ -18,10 +18,30 @@ namespace MediaWIiR_APP
             {
                 errorLabel.Visible = true;
                 errorLabel.Text = "Wybież element z listy";
+                errorLabel.BackColor = Color.Aquamarine; 
+                
+                return false;
             }
+        return true;
         }
 
-        public void validating_zip_code(TextBox zip_code)
+        public bool validating_text(TextBox textBox, Label errorLabel)
+        {
+            if (!string.IsNullOrEmpty(textBox.Text))
+            {
+                errorLabel.Visible = false;
+                return true;
+            }
+            else
+            { 
+                errorLabel.Visible = true;
+                errorLabel.Text = "Uzupełni pole";
+                errorLabel.BackColor = Color.Aquamarine;
+                return false;  
+            }      
+        }
+
+        public bool validating_zip_code(TextBox zip_code, Label zip_code_error)
         {
             string zipCode = zip_code.Text.Trim();
 
@@ -36,12 +56,21 @@ namespace MediaWIiR_APP
             {
                 // Kod pocztowy jest prawidłowy - zmień kolor tekstu na zielony
                 zip_code.ForeColor = Color.Green;
+                zip_code_error.Visible = false;
+
+                return true;
             }
             else
             {
                 // Kod pocztowy jest nieprawidłowy - zmień kolor tekstu na czerwony
                 zip_code.ForeColor = Color.Red;
+                zip_code_error.Visible = true;
+                zip_code_error.Text = "Użyj prawidłowego formatu";
+                zip_code_error.BackColor = Color.Aquamarine;
+
+                return false;
             }
+            
         }
     }
 }

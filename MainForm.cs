@@ -1,10 +1,13 @@
 using System.Text.RegularExpressions;
 using MediaWIiR_APP;
+using MediaWIiR_APP.Models;
 
 namespace MediaWIiR_APP
 {
     public partial class MainForm : Form
     {
+        internal Unit Unit { get; set; }
+
         public MainForm()
         {
             InitializeComponent();
@@ -14,39 +17,56 @@ namespace MediaWIiR_APP
         {
 
         }
+        private void unit_type_input_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void zip_code_input_TextChanged(object sender, EventArgs e)
         {
-            Servis servis = new Servis();
-            //Walidacja kodu pocztowego
-            servis.validating_zip_code(zip_code_input);
-        }
 
-        private void unit_type_input_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Servis servis = new Servis();
-            //Walidacja usupenionych selektów
-            servis.validating_selectors(unit_type_input, select_county_error);
         }
 
         private void estimate_click_Click(object sender, EventArgs e)
         {
+            Servis servis = new Servis();
+            //Walidacja usupenionych selektów
+            bool unit_validator = servis.validating_selectors(unit_type_input, select_unit_type_error);
+            bool media_type_validator = servis.validating_selectors(media_type_input, select_media_error);
+            bool county_validator = servis.validating_selectors(county_input, select_county_error);
+            bool zip_code_validator = servis.validating_zip_code(zip_code_input, zip_code_error);
+            bool city_validator = servis.validating_text(city_input, city_error);
+            bool address_validator = servis.validating_text(address_input, address_error);
 
+
+
+            if (unit_validator && media_type_validator && county_validator && zip_code_validator && city_validator && address_validator)
+            {
+                this.Unit = new Unit();
+                Unit.City = city_input.Text;
+                Unit.Address = address_input.Text;
+                Unit.ZipCode = zip_code_input.Text;
+                Unit.County = county_input.Text;
+                Unit.UnitType = unit_type_input.Text;
+
+                save_to_pdf_click.Enabled = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Uzupe³nij brakuj¹ce pola", "Upss", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
         private void county_input_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Servis servis = new Servis();
-            //Walidacja usupenionych selektów
-            servis.validating_selectors(county_input, select_county_error);
+
         }
 
         private void media_type_input_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Servis servis = new Servis();
-            //Walidacja usupenionych selektów
-            servis.validating_selectors(media_type_input, select_county_error);
+
         }
 
         private void select_media_error_Click(object sender, EventArgs e)
@@ -113,6 +133,11 @@ namespace MediaWIiR_APP
         }
 
         private void city_input_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void unit_info_groubpox_Enter(object sender, EventArgs e)
         {
 
         }
