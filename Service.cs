@@ -9,24 +9,26 @@ namespace MediaWIiR_APP
 {
     internal class Service
     {
-        public bool validating_selectors(ComboBox comboBox, Label errorLabel) { 
-        if (comboBox.SelectedIndex != -1)
+        public bool validating_selectors(ComboBox comboBox, Label errorLabel) 
+        { 
+            if (comboBox.SelectedIndex != -1)
             {
                 errorLabel.Visible = false;
             }
             else
             {
                 errorLabel.Visible = true;
-                errorLabel.Text = "Wybież element z listy";
+                errorLabel.Text = "Wybierz element z listy";
                 errorLabel.BackColor = Color.Aquamarine; 
-                
+ 
                 return false;
             }
-        return true;
+            return true;
         }
 
         public bool validating_text(TextBox textBox, Label errorLabel)
-        {
+        {   
+            //sprawdz czy textbox jest uzupelniony
             if (!string.IsNullOrEmpty(textBox.Text))
             {
                 errorLabel.Visible = false;
@@ -35,7 +37,7 @@ namespace MediaWIiR_APP
             else
             { 
                 errorLabel.Visible = true;
-                errorLabel.Text = "Uzupełni pole";
+                errorLabel.Text = "Uzupełnij pole";
                 errorLabel.BackColor = Color.Aquamarine;
                 return false;  
             }      
@@ -71,6 +73,43 @@ namespace MediaWIiR_APP
                 return false;
             }
             
+        }
+
+        public bool validating_data_forms(TextBox textBox, Label label_error, out int validateed_data )
+        {
+            string inputValue = textBox.Text.Trim();
+       
+            if(!string.IsNullOrEmpty(textBox.Text) && int.TryParse(inputValue, out validateed_data))
+            {
+                label_error.Visible = false;
+                return true;
+            }
+            else
+            {
+                label_error.Visible= true;
+                label_error.Text = "Uzupełnij pole";
+                label_error.BackColor = Color.Aquamarine;
+                validateed_data = 0;
+            }
+            return false;
+        }
+
+        public bool validating_data_fee(TextBox textBox, Label label_error, out decimal validateed_fee)
+        {
+            string inputValue = textBox.Text.Trim().Replace(",",".");
+            if(!string.IsNullOrEmpty(textBox.Text) && decimal.TryParse(inputValue, out validateed_fee))
+            {
+                label_error.Visible = false;
+                return true;
+            }
+            else
+            { 
+                label_error.Visible= true;
+                label_error.Text = "Uzupełnij pole";
+                label_error.BackColor= Color.Aquamarine;
+                validateed_fee = 0;
+            }
+            return false;
         }
     }
 }

@@ -8,13 +8,14 @@ namespace MediaWIiR_APP.Models
 {
     internal class EnergyTariff
     {
-        decimal FixedNetworkFee { get; set; } //opłata stała sieciowa
-        decimal TransitionFee { get; set; } //opłata przejściowa
-        decimal CapacirtFee { get; set; } //opłata mocowa
-        decimal NetworkVariableFee { get; set; } //opłata zmienna sieciowa
-        decimal QualityFee { get; set; } //opłata jakościowa
-        decimal RenewableEnergySourcesFee { get; set; } //opłata oze
-        decimal CogenerationFee { get; set; } //opłata kogeneracyjna
-        decimal SubscriptionFee { get; set; } //opłata abonamentowa
+        public string Tariff { get; set; } //taryfa
+        public decimal FixedNetworkFee { get; set; } //opłata stała sieciowa
+        public decimal TransitionFee { get; set; } //opłata przejściowa
+        public decimal CapacirtFee { get; set; } //opłata mocowa
+        public decimal NetworkVariableFee { get; set; } //opłata zmienna sieciowa
+        public decimal QualityFee { get; set; } //opłata jakościowa
+        public decimal RenewableEnergySourcesFee { get; set; } //opłata oze
+        public decimal CogenerationFee { get; set; } //opłata kogeneracyjna
+        public decimal SubscriptionFee { get; set; } //opłata abonamentowa
     }
 }

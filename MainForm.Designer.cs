@@ -49,24 +49,14 @@
             unit_type_label = new Label();
             media_type_groupbox = new GroupBox();
             select_media_error = new Label();
-            media_type_input = new ComboBox();
+            media_type_select = new ComboBox();
             estimation_date = new DateTimePicker();
             estimation_date_groupbox = new GroupBox();
-            estimated_data_groupbox = new GroupBox();
-            text_error_month = new Label();
-            text_error_power = new Label();
-            text_error_kwh = new Label();
-            month_need_label = new Label();
-            month_input = new TextBox();
-            power_need_label = new Label();
-            power_input = new TextBox();
-            kwh_need_label = new Label();
-            kwh_input = new TextBox();
             add_fee_button = new Button();
+            add_data_button = new Button();
             unit_info_groubpox.SuspendLayout();
             media_type_groupbox.SuspendLayout();
             estimation_date_groupbox.SuspendLayout();
-            estimated_data_groupbox.SuspendLayout();
             SuspendLayout();
             // 
             // city_input
@@ -80,9 +70,9 @@
             // save_to_pdf_click
             // 
             save_to_pdf_click.Enabled = false;
-            save_to_pdf_click.Location = new Point(513, 422);
+            save_to_pdf_click.Location = new Point(480, 214);
             save_to_pdf_click.Name = "save_to_pdf_click";
-            save_to_pdf_click.Size = new Size(119, 27);
+            save_to_pdf_click.Size = new Size(150, 25);
             save_to_pdf_click.TabIndex = 15;
             save_to_pdf_click.Text = "Zapisz do PDF";
             save_to_pdf_click.UseVisualStyleBackColor = true;
@@ -90,9 +80,9 @@
             // 
             // estimate_click
             // 
-            estimate_click.Location = new Point(513, 389);
+            estimate_click.Location = new Point(324, 214);
             estimate_click.Name = "estimate_click";
-            estimate_click.Size = new Size(119, 27);
+            estimate_click.Size = new Size(150, 25);
             estimate_click.TabIndex = 14;
             estimate_click.Text = "Szacuj koszty";
             estimate_click.UseVisualStyleBackColor = true;
@@ -148,9 +138,9 @@
             zip_code_error.AutoSize = true;
             zip_code_error.Location = new Point(161, 148);
             zip_code_error.Name = "zip_code_error";
-            zip_code_error.Size = new Size(88, 15);
+            zip_code_error.Size = new Size(98, 15);
             zip_code_error.TabIndex = 2;
-            zip_code_error.Text = "select_from_list";
+            zip_code_error.Text = "select_from_error";
             zip_code_error.Visible = false;
             // 
             // select_county_error
@@ -158,9 +148,9 @@
             select_county_error.AutoSize = true;
             select_county_error.Location = new Point(267, 148);
             select_county_error.Name = "select_county_error";
-            select_county_error.Size = new Size(88, 15);
+            select_county_error.Size = new Size(98, 15);
             select_county_error.TabIndex = 3;
-            select_county_error.Text = "select_from_list";
+            select_county_error.Text = "select_from_error";
             select_county_error.Visible = false;
             // 
             // select_unit_type_error
@@ -232,7 +222,7 @@
             // unit_type_input
             // 
             unit_type_input.FormattingEnabled = true;
-            unit_type_input.Items.AddRange(new object[] { "Komenda Wojewdzka Policji", "Komenda Miejska Policji", "Komenda Powiatowa Policji", "Komisariat Policji", "Posterunek Policji", "Rewir Dzielnicowych" });
+            unit_type_input.Items.AddRange(new object[] { "Komenda Wojewdzka Policji", "Komenda Miejska Policji", "Komenda Powiatowa Policji", "Komisariat Policji", "Posterunek Policji", "Rewir Dzielnicowych", "Anteny", "Inny" });
             unit_type_input.Location = new Point(6, 46);
             unit_type_input.Name = "unit_type_input";
             unit_type_input.Size = new Size(190, 23);
@@ -259,10 +249,10 @@
             // media_type_groupbox
             // 
             media_type_groupbox.Controls.Add(select_media_error);
-            media_type_groupbox.Controls.Add(media_type_input);
-            media_type_groupbox.Location = new Point(450, 87);
+            media_type_groupbox.Controls.Add(media_type_select);
+            media_type_groupbox.Location = new Point(450, 112);
             media_type_groupbox.Name = "media_type_groupbox";
-            media_type_groupbox.Size = new Size(180, 80);
+            media_type_groupbox.Size = new Size(180, 85);
             media_type_groupbox.TabIndex = 13;
             media_type_groupbox.TabStop = false;
             media_type_groupbox.Text = "Rodzaj mediów";
@@ -272,30 +262,30 @@
             select_media_error.AutoSize = true;
             select_media_error.Location = new Point(6, 48);
             select_media_error.Name = "select_media_error";
-            select_media_error.Size = new Size(88, 15);
+            select_media_error.Size = new Size(98, 15);
             select_media_error.TabIndex = 0;
-            select_media_error.Text = "select_from_list";
+            select_media_error.Text = "select_from_error";
             select_media_error.Visible = false;
             select_media_error.Click += select_media_error_Click;
             // 
-            // media_type_input
+            // media_type_select
             // 
-            media_type_input.FormattingEnabled = true;
-            media_type_input.Items.AddRange(new object[] { "Energia elektryczna", "Energia cieplna", "Woda", "Gaz" });
-            media_type_input.Location = new Point(6, 22);
-            media_type_input.Name = "media_type_input";
-            media_type_input.Size = new Size(160, 23);
-            media_type_input.TabIndex = 4;
-            media_type_input.SelectedIndexChanged += media_type_input_SelectedIndexChanged;
+            media_type_select.FormattingEnabled = true;
+            media_type_select.Items.AddRange(new object[] { "Energia elektryczna", "Energia cieplna", "Woda", "Gaz" });
+            media_type_select.Location = new Point(6, 22);
+            media_type_select.Name = "media_type_select";
+            media_type_select.Size = new Size(160, 23);
+            media_type_select.TabIndex = 4;
+            media_type_select.SelectedIndexChanged += media_type_select_SelectedIndexChanged;
             // 
             // estimation_date
             // 
             estimation_date.Format = DateTimePickerFormat.Short;
-            estimation_date.Location = new Point(27, 29);
+            estimation_date.Location = new Point(6, 29);
             estimation_date.MaxDate = new DateTime(2025, 12, 31, 0, 0, 0, 0);
             estimation_date.MinDate = new DateTime(2019, 1, 1, 0, 0, 0, 0);
             estimation_date.Name = "estimation_date";
-            estimation_date.Size = new Size(114, 23);
+            estimation_date.Size = new Size(160, 23);
             estimation_date.TabIndex = 20;
             estimation_date.Value = new DateTime(2023, 7, 26, 0, 0, 0, 0);
             // 
@@ -304,124 +294,40 @@
             estimation_date_groupbox.Controls.Add(estimation_date);
             estimation_date_groupbox.Location = new Point(450, 12);
             estimation_date_groupbox.Name = "estimation_date_groupbox";
-            estimation_date_groupbox.Size = new Size(180, 69);
+            estimation_date_groupbox.Size = new Size(180, 85);
             estimation_date_groupbox.TabIndex = 12;
             estimation_date_groupbox.TabStop = false;
             estimation_date_groupbox.Text = "Data szacowania";
             // 
-            // estimated_data_groupbox
-            // 
-            estimated_data_groupbox.Controls.Add(text_error_month);
-            estimated_data_groupbox.Controls.Add(text_error_power);
-            estimated_data_groupbox.Controls.Add(text_error_kwh);
-            estimated_data_groupbox.Controls.Add(month_need_label);
-            estimated_data_groupbox.Controls.Add(month_input);
-            estimated_data_groupbox.Controls.Add(power_need_label);
-            estimated_data_groupbox.Controls.Add(power_input);
-            estimated_data_groupbox.Controls.Add(kwh_need_label);
-            estimated_data_groupbox.Controls.Add(kwh_input);
-            estimated_data_groupbox.Location = new Point(12, 203);
-            estimated_data_groupbox.Name = "estimated_data_groupbox";
-            estimated_data_groupbox.Size = new Size(196, 246);
-            estimated_data_groupbox.TabIndex = 16;
-            estimated_data_groupbox.TabStop = false;
-            estimated_data_groupbox.Text = "Dane do szacowania";
-            // 
-            // text_error_month
-            // 
-            text_error_month.AutoSize = true;
-            text_error_month.Location = new Point(6, 219);
-            text_error_month.Name = "text_error_month";
-            text_error_month.Size = new Size(57, 15);
-            text_error_month.TabIndex = 23;
-            text_error_month.Text = "text_error";
-            text_error_month.Visible = false;
-            // 
-            // text_error_power
-            // 
-            text_error_power.AutoSize = true;
-            text_error_power.Location = new Point(6, 143);
-            text_error_power.Name = "text_error_power";
-            text_error_power.Size = new Size(57, 15);
-            text_error_power.TabIndex = 22;
-            text_error_power.Text = "text_error";
-            text_error_power.Visible = false;
-            // 
-            // text_error_kwh
-            // 
-            text_error_kwh.AutoSize = true;
-            text_error_kwh.Location = new Point(6, 63);
-            text_error_kwh.Name = "text_error_kwh";
-            text_error_kwh.Size = new Size(57, 15);
-            text_error_kwh.TabIndex = 17;
-            text_error_kwh.Text = "text_error";
-            text_error_kwh.Visible = false;
-            // 
-            // month_need_label
-            // 
-            month_need_label.AutoSize = true;
-            month_need_label.Location = new Point(6, 175);
-            month_need_label.Name = "month_need_label";
-            month_need_label.Size = new Size(89, 15);
-            month_need_label.TabIndex = 21;
-            month_need_label.Text = "Liczba miesięcy";
-            // 
-            // month_input
-            // 
-            month_input.Location = new Point(6, 193);
-            month_input.Name = "month_input";
-            month_input.Size = new Size(100, 23);
-            month_input.TabIndex = 20;
-            // 
-            // power_need_label
-            // 
-            power_need_label.AutoSize = true;
-            power_need_label.Location = new Point(6, 99);
-            power_need_label.Name = "power_need_label";
-            power_need_label.Size = new Size(135, 15);
-            power_need_label.TabIndex = 19;
-            power_need_label.Text = "Zpotrzebowanie na moc";
-            // 
-            // power_input
-            // 
-            power_input.Location = new Point(6, 117);
-            power_input.Name = "power_input";
-            power_input.Size = new Size(100, 23);
-            power_input.TabIndex = 18;
-            // 
-            // kwh_need_label
-            // 
-            kwh_need_label.AutoSize = true;
-            kwh_need_label.Location = new Point(6, 19);
-            kwh_need_label.Name = "kwh_need_label";
-            kwh_need_label.Size = new Size(153, 15);
-            kwh_need_label.TabIndex = 17;
-            kwh_need_label.Text = "Szacowane miesięczne kWh";
-            // 
-            // kwh_input
-            // 
-            kwh_input.Location = new Point(6, 37);
-            kwh_input.Name = "kwh_input";
-            kwh_input.Size = new Size(100, 23);
-            kwh_input.TabIndex = 17;
-            // 
             // add_fee_button
             // 
-            add_fee_button.Location = new Point(450, 173);
+            add_fee_button.Enabled = false;
+            add_fee_button.Location = new Point(168, 214);
             add_fee_button.Name = "add_fee_button";
-            add_fee_button.Size = new Size(180, 23);
+            add_fee_button.Size = new Size(150, 25);
             add_fee_button.TabIndex = 17;
             add_fee_button.Text = "Dodaj opłaty";
             add_fee_button.UseVisualStyleBackColor = true;
             add_fee_button.Click += add_fee_button_Click;
             // 
+            // add_data_button
+            // 
+            add_data_button.Enabled = false;
+            add_data_button.Location = new Point(12, 214);
+            add_data_button.Name = "add_data_button";
+            add_data_button.Size = new Size(150, 25);
+            add_data_button.TabIndex = 18;
+            add_data_button.Text = "Dodaj dane";
+            add_data_button.UseVisualStyleBackColor = true;
+            add_data_button.Click += add_data_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(644, 461);
+            ClientSize = new Size(644, 251);
+            Controls.Add(add_data_button);
             Controls.Add(add_fee_button);
-            Controls.Add(estimated_data_groupbox);
             Controls.Add(estimation_date_groupbox);
             Controls.Add(media_type_groupbox);
             Controls.Add(unit_info_groubpox);
@@ -437,8 +343,6 @@
             media_type_groupbox.ResumeLayout(false);
             media_type_groupbox.PerformLayout();
             estimation_date_groupbox.ResumeLayout(false);
-            estimated_data_groupbox.ResumeLayout(false);
-            estimated_data_groupbox.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -458,7 +362,7 @@
         private TextBox zip_code_input;
         private ComboBox county_input;
         private GroupBox media_type_groupbox;
-        private ComboBox media_type_input;
+        private ComboBox media_type_select;
         private Label select_county_error;
         private Label select_unit_type_error;
         private Label select_media_error;
@@ -467,16 +371,7 @@
         private Label address_error;
         private DateTimePicker estimation_date;
         private GroupBox estimation_date_groupbox;
-        private GroupBox estimated_data_groupbox;
-        private Label kwh_need_label;
-        private TextBox kwh_input;
-        private Label power_need_label;
-        private TextBox power_input;
-        private Label text_error_month;
-        private Label text_error_power;
-        private Label text_error_kwh;
-        private Label month_need_label;
-        private TextBox month_input;
         private Button add_fee_button;
+        private Button add_data_button;
     }
 }
