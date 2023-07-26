@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using MediaWIiR_APP;
 using MediaWIiR_APP.Models;
@@ -29,7 +30,7 @@ namespace MediaWIiR_APP
 
         private void estimate_click_Click(object sender, EventArgs e)
         {
-            Servis servis = new Servis();
+            Service servis = new Service();
             //Walidacja usupenionych selektów
             bool unit_validator = servis.validating_selectors(unit_type_input, select_unit_type_error);
             bool media_type_validator = servis.validating_selectors(media_type_input, select_media_error);
@@ -37,10 +38,13 @@ namespace MediaWIiR_APP
             bool zip_code_validator = servis.validating_zip_code(zip_code_input, zip_code_error);
             bool city_validator = servis.validating_text(city_input, city_error);
             bool address_validator = servis.validating_text(address_input, address_error);
+            bool kwh_validator = servis.validating_text(kwh_input, text_error_kwh);
+            bool power_validator = servis.validating_text(power_input, text_error_power);
+            bool month_validator = servis.validating_text(month_input, text_error_month);
 
 
 
-            if (unit_validator && media_type_validator && county_validator && zip_code_validator && city_validator && address_validator)
+            if (unit_validator && media_type_validator && county_validator && zip_code_validator && city_validator && address_validator && kwh_validator && power_validator && month_validator)
             {
                 this.Unit = new Unit();
                 Unit.City = city_input.Text;
@@ -76,6 +80,7 @@ namespace MediaWIiR_APP
 
         private void save_to_pdf_click_Click(object sender, EventArgs e)
         {
+
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
             PdfSharp.Pdf.PdfDocument document = new PdfSharp.Pdf.PdfDocument(); // Create a new PDF doc ument
@@ -84,10 +89,8 @@ namespace MediaWIiR_APP
             PdfSharp.Drawing.XFont font = new PdfSharp.Drawing.XFont("Arial", 12, PdfSharp.Drawing.XFontStyle.Regular); // Create a font
 
             //Elementy na stronie
-            //string county = string.Format("Powiat: {0}", county_input.Text);
-            //string unit_type = string.Format("Rodzaj jednostki: {0}", unit_type_input.Text);
-            //string address = string.Format("Adres: {0}, {1} {2}", address_input.Text, zip_code_input.Text, city_input.Text);
-
+            DateTime estimateDate = estimation_date.Value;
+            string title = $"Za³¹cznik do notatki z szacowania kosztów mediów {estimateDate.ToString("dd.MM.yyyy")}";
             string county = $"Powiat: {county_input.Text}";
             string unit_type = $"Rodzaj jednostki: {unit_type_input.Text}";
             string address = $"Adres: {address_input.Text}, {zip_code_input.Text} {city_input.Text}";
@@ -95,7 +98,7 @@ namespace MediaWIiR_APP
 
 
             // po³¹czone stringi z enterem miêdzy wierszami
-            string wroteText = string.Join("\n", county, unit_type, address);
+            string wroteText = string.Join("\n", title, county, unit_type, address);
 
             // Draw the text
             // formatowanie tekstu, bez tego nie wstawi entera
@@ -119,7 +122,7 @@ namespace MediaWIiR_APP
             //    PdfSharp.Drawing.XStringFormat.TopLeft);
 
             // Save the document...
-            string filename = "Szacowanie.pdf";
+            string filename = $"Szacowanie z dnia {estimateDate.ToString("dd.MM.yyyy")}.pdf";
             document.Save(filename);
             MessageBox.Show($"Twój plik {filename} jest gotowy");
             // ...and start a viewer.
@@ -140,6 +143,12 @@ namespace MediaWIiR_APP
         private void unit_info_groubpox_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void add_fee_button_Click(object sender, EventArgs e)
+        {
+            FeeForm feeForm = new FeeForm();
+            feeForm.ShowDialog();
         }
     }
 }

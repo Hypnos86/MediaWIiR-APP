@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MediaWIiR_APP
 {
-    internal class Servis
+    internal class Service
     {
         public bool validating_selectors(ComboBox comboBox, Label errorLabel) { 
         if (comboBox.SelectedIndex != -1)
