@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MediaWIiR_APP
 {
-    public partial class EnergyFeeForm : Form
+    public partial class FormEnergyFee : Form
     {
-        public EnergyFeeForm()
+        public FormEnergyFee()
         {
             InitializeComponent();
         }

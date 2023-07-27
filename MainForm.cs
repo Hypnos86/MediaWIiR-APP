@@ -49,9 +49,7 @@ namespace MediaWIiR_APP
                 Unit.ZipCode = zip_code_input.Text;
                 Unit.County = county_input.Text;
                 Unit.UnitType = unit_type_input.Text;
-
                 save_to_pdf_click.Enabled = true;
-
             }
             else
             {
@@ -125,7 +123,7 @@ namespace MediaWIiR_APP
             // Save the document...
             string filename = $"Szacowanie z dnia {estimateDate.ToString("dd.MM.yyyy")}.pdf";
             document.Save(filename);
-            MessageBox.Show($"Twój plik {filename} jest gotowy","Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Twój plik {filename} jest gotowy", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
             // ...and start a viewer.
             // System.Diagnostics.Process.Start(filename);
 
@@ -148,16 +146,66 @@ namespace MediaWIiR_APP
 
         private void add_fee_button_Click(object sender, EventArgs e)
         {
-            EnergyFeeForm energyFeeForm = new EnergyFeeForm();
-            energyFeeForm.ShowDialog();
+            int option = media_type_select.SelectedIndex;
+
+            switch (option)
+            {
+                case 0: //energia elektryczna
+                    FormEnergyFee formEnergyFee = new FormEnergyFee();
+                    formEnergyFee.ShowDialog();
+                    break;
+
+                case 1://co
+                    FormHeatingFee formHeatingFee = new FormHeatingFee();
+                    formHeatingFee.ShowDialog();
+                    break;
+
+                case 2: //woda
+                    FormWaterFee formWaterFee = new FormWaterFee();
+                    formWaterFee.ShowDialog();
+                    break;
+
+                case 3: //gaz
+                    FormGasFee formGasFee = new FormGasFee();
+                    formGasFee.ShowDialog();
+                    break;
+            }
         }
 
         private void add_data_Click(object sender, EventArgs e)
         {
+            int option = media_type_select.SelectedIndex;
 
-            EnergyDataForm energyDataForm = new EnergyDataForm();
-            energyDataForm.ShowDialog();
+            switch (option)
+            {
+                case 0: //energia elektryczna
+                    EnergyData energyData = new EnergyData();
 
+                   
+
+                    FormEnergyData formEnergyData = new FormEnergyData();
+
+                    if (formEnergyData.ShowDialog() == DialogResult.OK)
+                    {
+                        
+                        formEnergyData.ShowDialog();
+
+                    }
+
+                    break;
+                case 1: //co
+                    FormHeatingData formHeatingData = new FormHeatingData();
+                    formHeatingData.ShowDialog();
+                    break;
+                case 2: //woda
+                    FormWaterData formWaterData = new FormWaterData();
+                    formWaterData.ShowDialog();
+                    break;
+                case 3: //gaz
+                    FormGasData formGasData = new FormGasData();
+                    formGasData.ShowDialog();
+                    break;
+            }
         }
     }
 }

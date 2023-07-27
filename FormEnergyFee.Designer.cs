@@ -1,6 +1,6 @@
 ﻿namespace MediaWIiR_APP
 {
-    partial class EnergyFeeForm
+    partial class FormEnergyFee
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnergyFeeForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEnergyFee));
             cancel_button = new Button();
             add_tariff_button = new Button();
             data_tariff = new GroupBox();

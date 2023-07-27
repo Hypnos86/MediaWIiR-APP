@@ -1,6 +1,6 @@
 ﻿namespace MediaWIiR_APP
 {
-    partial class EnergyDataForm
+    partial class FormEnergyData
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EnergyDataForm));
-            estimated_data_groupbox = new GroupBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEnergyData));
+            energy_data_groupbox = new GroupBox();
             text_error_month = new Label();
             text_error_power = new Label();
             text_error_kwh = new Label();
@@ -41,26 +41,26 @@
             kwh_input = new TextBox();
             accept_button = new Button();
             cancel_button = new Button();
-            estimated_data_groupbox.SuspendLayout();
+            energy_data_groupbox.SuspendLayout();
             SuspendLayout();
             // 
-            // estimated_data_groupbox
+            // energy_data_groupbox
             // 
-            estimated_data_groupbox.Controls.Add(text_error_month);
-            estimated_data_groupbox.Controls.Add(text_error_power);
-            estimated_data_groupbox.Controls.Add(text_error_kwh);
-            estimated_data_groupbox.Controls.Add(month_need_label);
-            estimated_data_groupbox.Controls.Add(month_input);
-            estimated_data_groupbox.Controls.Add(power_need_label);
-            estimated_data_groupbox.Controls.Add(power_input);
-            estimated_data_groupbox.Controls.Add(kwh_need_label);
-            estimated_data_groupbox.Controls.Add(kwh_input);
-            estimated_data_groupbox.Location = new Point(12, 12);
-            estimated_data_groupbox.Name = "estimated_data_groupbox";
-            estimated_data_groupbox.Size = new Size(380, 130);
-            estimated_data_groupbox.TabIndex = 17;
-            estimated_data_groupbox.TabStop = false;
-            estimated_data_groupbox.Text = "Dane do szacowania";
+            energy_data_groupbox.Controls.Add(text_error_month);
+            energy_data_groupbox.Controls.Add(text_error_power);
+            energy_data_groupbox.Controls.Add(text_error_kwh);
+            energy_data_groupbox.Controls.Add(month_need_label);
+            energy_data_groupbox.Controls.Add(month_input);
+            energy_data_groupbox.Controls.Add(power_need_label);
+            energy_data_groupbox.Controls.Add(power_input);
+            energy_data_groupbox.Controls.Add(kwh_need_label);
+            energy_data_groupbox.Controls.Add(kwh_input);
+            energy_data_groupbox.Location = new Point(12, 12);
+            energy_data_groupbox.Name = "energy_data_groupbox";
+            energy_data_groupbox.Size = new Size(380, 130);
+            energy_data_groupbox.TabIndex = 17;
+            energy_data_groupbox.TabStop = false;
+            energy_data_groupbox.Text = "Dane do szacowania";
             // 
             // text_error_month
             // 
@@ -163,25 +163,25 @@
             cancel_button.UseVisualStyleBackColor = true;
             cancel_button.Click += cancel_button_Click;
             // 
-            // EnergyDataForm
+            // FormEnergyData
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(404, 188);
             Controls.Add(cancel_button);
             Controls.Add(accept_button);
-            Controls.Add(estimated_data_groupbox);
+            Controls.Add(energy_data_groupbox);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "EnergyDataForm";
+            Name = "FormEnergyData";
             Text = "Dane do szacowania - Energia elektryczna";
-            estimated_data_groupbox.ResumeLayout(false);
-            estimated_data_groupbox.PerformLayout();
+            energy_data_groupbox.ResumeLayout(false);
+            energy_data_groupbox.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox estimated_data_groupbox;
+        private GroupBox energy_data_groupbox;
         private Label text_error_month;
         private Label text_error_power;
         private Label text_error_kwh;

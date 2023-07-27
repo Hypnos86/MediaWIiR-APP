@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MediaWIiR_APP.Models
 {
-    internal class EstimatedData
+    internal class EnergyData
     {
-        int Kwh { get; set; }
-        int Power { get; set; }
-        int Month { get; set; }
+        public int Kwh { get; set; }
+        public int Power { get; set; }
+        public int Month { get; set; }
     }
 }
