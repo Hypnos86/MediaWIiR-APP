@@ -96,7 +96,8 @@ namespace MediaWIiR_APP
 
         public bool validating_data_fee(TextBox textBox, Label label_error, out decimal validateed_fee)
         {
-            string inputValue = textBox.Text.Trim().Replace(",", ".");
+            string inputValue = textBox.Text.Trim();
+            // nie robic .replace(",",".") - nowy VS sam zamienia separatory
             if (!string.IsNullOrEmpty(textBox.Text) && decimal.TryParse(inputValue, out validateed_fee))
             {
                 label_error.Visible = false;
@@ -110,6 +111,11 @@ namespace MediaWIiR_APP
                 validateed_fee = 0;
             }
             return false;
+        }
+
+        public void estimating_energy()
+        {
+
         }
     }
 }

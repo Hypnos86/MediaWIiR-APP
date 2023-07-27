@@ -145,7 +145,7 @@
             // 
             // accept_button
             // 
-            accept_button.Location = new Point(12, 148);
+            accept_button.Location = new Point(12, 154);
             accept_button.Name = "accept_button";
             accept_button.Size = new Size(150, 25);
             accept_button.TabIndex = 18;
@@ -155,7 +155,7 @@
             // 
             // cancel_button
             // 
-            cancel_button.Location = new Point(242, 148);
+            cancel_button.Location = new Point(242, 154);
             cancel_button.Name = "cancel_button";
             cancel_button.Size = new Size(150, 25);
             cancel_button.TabIndex = 19;
@@ -167,7 +167,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(404, 188);
+            ClientSize = new Size(404, 191);
             Controls.Add(cancel_button);
             Controls.Add(accept_button);
             Controls.Add(energy_data_groupbox);

@@ -16,9 +16,16 @@ namespace MediaWIiR_APP
     public partial class FormEnergyData : Form
     {
 
-        public FormEnergyData()
+        public FormEnergyData(EnergyData energyData)
         {
             InitializeComponent();
+
+            if (energyData != null)
+            {
+                kwh_input.Text = energyData.Kwh.ToString();
+                power_input.Text = energyData.Power.ToString();
+                month_input.Text = energyData.Month.ToString();
+            }
 
         }
 
@@ -46,12 +53,16 @@ namespace MediaWIiR_APP
 
             if (kwh && power && month)
             {
+                MainForm.EnergyData = new EnergyData();
+                MainForm.EnergyData.Kwh = kwhValue;
+                MainForm.EnergyData.Power = powerValue;
+                MainForm.EnergyData.Month = monthValue;
+
                 //EnergyData energyData = new EnergyData();
                 // Dane zostały wczytane do prywatnych pól, możemy je wykorzystać np. do zapisania do bazy danych
                 // W tym przypadku wykorzystujemy tylko MessageBox do pokazania komunikatu
                 MessageBox.Show("Dane zostały zapisane", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
-                this.Close();
             }
         }
 

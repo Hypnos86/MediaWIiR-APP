@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaWIiR_APP.Models
 {
-    internal class EnergyData
+    public class EnergyData
     {
         public int Kwh { get; set; }
         public int Power { get; set; }

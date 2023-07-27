@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaWIiR_APP.Models
 {
-    internal class EnergyTariff
+    public class EnergyTariff
     {
         public string Tariff { get; set; } //taryfa
         public decimal FixedNetworkFee { get; set; } //opłata stała sieciowa

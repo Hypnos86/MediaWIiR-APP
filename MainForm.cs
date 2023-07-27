@@ -9,6 +9,9 @@ namespace MediaWIiR_APP
     {
         internal Unit Unit { get; set; }
 
+        public static EnergyData? EnergyData { get; set; } = null;
+        public static EnergyTariff? EnergyTariff { get; set; } = null;
+
         public MainForm()
         {
             InitializeComponent();
@@ -49,7 +52,10 @@ namespace MediaWIiR_APP
                 Unit.ZipCode = zip_code_input.Text;
                 Unit.County = county_input.Text;
                 Unit.UnitType = unit_type_input.Text;
-                save_to_pdf_click.Enabled = true;
+
+                FormEnergyEstimation formEnergyEstimation = new FormEnergyEstimation();
+                formEnergyEstimation.Show();
+
             }
             else
             {
@@ -77,58 +83,6 @@ namespace MediaWIiR_APP
 
         }
 
-        private void save_to_pdf_click_Click(object sender, EventArgs e)
-        {
-
-            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-
-            PdfSharp.Pdf.PdfDocument document = new PdfSharp.Pdf.PdfDocument(); // Create a new PDF doc ument
-            PdfSharp.Pdf.PdfPage page = document.AddPage(); // Create an empty page
-            PdfSharp.Drawing.XGraphics gfx = PdfSharp.Drawing.XGraphics.FromPdfPage(page); // Get an XGraphics object for drawing
-            PdfSharp.Drawing.XFont font = new PdfSharp.Drawing.XFont("Arial", 12, PdfSharp.Drawing.XFontStyle.Regular); // Create a font
-
-            //Elementy na stronie
-            DateTime estimateDate = estimation_date.Value;
-            string title = $"Za³¹cznik do notatki z szacowania kosztów mediów {estimateDate.ToString("dd.MM.yyyy")}";
-            string county = $"Powiat: {county_input.Text}";
-            string unit_type = $"Rodzaj jednostki: {unit_type_input.Text}";
-            string address = $"Adres: {address_input.Text}, {zip_code_input.Text} {city_input.Text}";
-
-
-
-            // po³¹czone stringi z enterem miêdzy wierszami
-            string wroteText = string.Join("\n", title, county, unit_type, address);
-
-            // Draw the text
-            // formatowanie tekstu, bez tego nie wstawi entera
-            PdfSharp.Drawing.Layout.XTextFormatter tf = new PdfSharp.Drawing.Layout.XTextFormatter(gfx);
-
-            tf.DrawString(wroteText, font, PdfSharp.Drawing.XBrushes.Black,
-              new PdfSharp.Drawing.XRect(
-                  // pocz¹tek x (margines lewy)
-                  (int)(page.Width * 0.1),
-                  // pocz¹tek y (margines górny)
-                  (int)(page.Height * 0.1),
-                  // wysokoœæ pola
-                  (int)(page.Width * 0.8),
-                  // szerokoœæ pola
-                  (int)(page.Height * 0.8)),
-                  // gdzie ma zacz¹æ
-                  PdfSharp.Drawing.XStringFormat.TopLeft);
-
-            //gfx.DrawString(textToWrite2, font, PdfSharp.Drawing.XBrushes.Black,
-            //    new PdfSharp.Drawing.XRect(0, 0, page.Width, page.Height),
-            //    PdfSharp.Drawing.XStringFormat.TopLeft);
-
-            // Save the document...
-            string filename = $"Szacowanie z dnia {estimateDate.ToString("dd.MM.yyyy")}.pdf";
-            document.Save(filename);
-            MessageBox.Show($"Twój plik {filename} jest gotowy", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // ...and start a viewer.
-            // System.Diagnostics.Process.Start(filename);
-
-        }
-
         private void address_input_TextChanged(object sender, EventArgs e)
         {
 
@@ -151,7 +105,7 @@ namespace MediaWIiR_APP
             switch (option)
             {
                 case 0: //energia elektryczna
-                    FormEnergyFee formEnergyFee = new FormEnergyFee();
+                    FormEnergyFee formEnergyFee = new FormEnergyFee(EnergyTariff);
                     formEnergyFee.ShowDialog();
                     break;
 
@@ -179,20 +133,10 @@ namespace MediaWIiR_APP
             switch (option)
             {
                 case 0: //energia elektryczna
-                    EnergyData energyData = new EnergyData();
-
-                   
-
-                    FormEnergyData formEnergyData = new FormEnergyData();
-
-                    if (formEnergyData.ShowDialog() == DialogResult.OK)
-                    {
-                        
-                        formEnergyData.ShowDialog();
-
-                    }
-
+                    FormEnergyData formEnergyData = new FormEnergyData(EnergyData);
+                    formEnergyData.ShowDialog(); //otwieranie okienka
                     break;
+
                 case 1: //co
                     FormHeatingData formHeatingData = new FormHeatingData();
                     formHeatingData.ShowDialog();
@@ -206,6 +150,21 @@ namespace MediaWIiR_APP
                     formGasData.ShowDialog();
                     break;
             }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

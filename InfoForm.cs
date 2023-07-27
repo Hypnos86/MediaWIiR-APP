@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace MediaWIiR_APP
 {
-    public partial class FormWaterData : Form
+    public partial class InfoForm : Form
     {
-        public FormWaterData()
+        public InfoForm()
         {
             InitializeComponent();
-        }
-
-        private void cancel_button_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
-
-        private void FormWaterData_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

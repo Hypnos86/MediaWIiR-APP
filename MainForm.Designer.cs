@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             city_input = new TextBox();
-            save_to_pdf_click = new Button();
             estimate_click = new Button();
             unit_info_groubpox = new GroupBox();
             city_error = new Label();
@@ -54,9 +53,13 @@
             estimation_date_groupbox = new GroupBox();
             add_fee_button = new Button();
             add_data_button = new Button();
+            stripMenu = new MenuStrip();
+            MenuStrip = new ToolStripMenuItem();
+            StripMenuItem = new ToolStripMenuItem();
             unit_info_groubpox.SuspendLayout();
             media_type_groupbox.SuspendLayout();
             estimation_date_groupbox.SuspendLayout();
+            stripMenu.SuspendLayout();
             SuspendLayout();
             // 
             // city_input
@@ -67,22 +70,11 @@
             city_input.TabIndex = 3;
             city_input.TextChanged += city_input_TextChanged;
             // 
-            // save_to_pdf_click
-            // 
-            save_to_pdf_click.Enabled = false;
-            save_to_pdf_click.Location = new Point(480, 214);
-            save_to_pdf_click.Name = "save_to_pdf_click";
-            save_to_pdf_click.Size = new Size(150, 25);
-            save_to_pdf_click.TabIndex = 15;
-            save_to_pdf_click.Text = "Zapisz do PDF";
-            save_to_pdf_click.UseVisualStyleBackColor = true;
-            save_to_pdf_click.Click += save_to_pdf_click_Click;
-            // 
             // estimate_click
             // 
-            estimate_click.Location = new Point(324, 214);
+            estimate_click.Location = new Point(452, 244);
             estimate_click.Name = "estimate_click";
-            estimate_click.Size = new Size(150, 25);
+            estimate_click.Size = new Size(180, 25);
             estimate_click.TabIndex = 14;
             estimate_click.Text = "Szacuj koszty";
             estimate_click.UseVisualStyleBackColor = true;
@@ -105,7 +97,7 @@
             unit_info_groubpox.Controls.Add(unit_type_input);
             unit_info_groubpox.Controls.Add(address_input);
             unit_info_groubpox.Controls.Add(unit_type_label);
-            unit_info_groubpox.Location = new Point(12, 12);
+            unit_info_groubpox.Location = new Point(12, 41);
             unit_info_groubpox.Name = "unit_info_groubpox";
             unit_info_groubpox.Size = new Size(432, 185);
             unit_info_groubpox.TabIndex = 0;
@@ -250,7 +242,7 @@
             // 
             media_type_groupbox.Controls.Add(select_media_error);
             media_type_groupbox.Controls.Add(media_type_select);
-            media_type_groupbox.Location = new Point(450, 112);
+            media_type_groupbox.Location = new Point(450, 141);
             media_type_groupbox.Name = "media_type_groupbox";
             media_type_groupbox.Size = new Size(180, 85);
             media_type_groupbox.TabIndex = 13;
@@ -292,7 +284,7 @@
             // estimation_date_groupbox
             // 
             estimation_date_groupbox.Controls.Add(estimation_date);
-            estimation_date_groupbox.Location = new Point(450, 12);
+            estimation_date_groupbox.Location = new Point(450, 43);
             estimation_date_groupbox.Name = "estimation_date_groupbox";
             estimation_date_groupbox.Size = new Size(180, 85);
             estimation_date_groupbox.TabIndex = 12;
@@ -302,9 +294,9 @@
             // add_fee_button
             // 
             add_fee_button.Enabled = false;
-            add_fee_button.Location = new Point(168, 214);
+            add_fee_button.Location = new Point(232, 244);
             add_fee_button.Name = "add_fee_button";
-            add_fee_button.Size = new Size(150, 25);
+            add_fee_button.Size = new Size(180, 25);
             add_fee_button.TabIndex = 17;
             add_fee_button.Text = "Dodaj opłaty";
             add_fee_button.UseVisualStyleBackColor = true;
@@ -313,27 +305,52 @@
             // add_data_button
             // 
             add_data_button.Enabled = false;
-            add_data_button.Location = new Point(12, 214);
+            add_data_button.Location = new Point(12, 244);
             add_data_button.Name = "add_data_button";
-            add_data_button.Size = new Size(150, 25);
+            add_data_button.Size = new Size(180, 25);
             add_data_button.TabIndex = 18;
             add_data_button.Text = "Dodaj dane";
             add_data_button.UseVisualStyleBackColor = true;
             add_data_button.Click += add_data_Click;
             // 
+            // stripMenu
+            // 
+            stripMenu.Items.AddRange(new ToolStripItem[] { MenuStrip });
+            stripMenu.Location = new Point(0, 0);
+            stripMenu.Name = "stripMenu";
+            stripMenu.Size = new Size(644, 24);
+            stripMenu.TabIndex = 19;
+            stripMenu.Text = "menuStrip1";
+            stripMenu.ItemClicked += menuStrip1_ItemClicked;
+            // 
+            // MenuStrip
+            // 
+            MenuStrip.DropDownItems.AddRange(new ToolStripItem[] { StripMenuItem });
+            MenuStrip.Name = "MenuStrip";
+            MenuStrip.Size = new Size(76, 20);
+            MenuStrip.Text = "Informacje";
+            // 
+            // StripMenuItem
+            // 
+            StripMenuItem.Name = "StripMenuItem";
+            StripMenuItem.Size = new Size(141, 22);
+            StripMenuItem.Text = "O Programie";
+            StripMenuItem.Click += toolStripMenuItem_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(644, 251);
+            ClientSize = new Size(644, 281);
             Controls.Add(add_data_button);
             Controls.Add(add_fee_button);
             Controls.Add(estimation_date_groupbox);
             Controls.Add(media_type_groupbox);
             Controls.Add(unit_info_groubpox);
             Controls.Add(estimate_click);
-            Controls.Add(save_to_pdf_click);
+            Controls.Add(stripMenu);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = stripMenu;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "WIiR - Szacowanie kosztów mediów";
@@ -343,12 +360,13 @@
             media_type_groupbox.ResumeLayout(false);
             media_type_groupbox.PerformLayout();
             estimation_date_groupbox.ResumeLayout(false);
+            stripMenu.ResumeLayout(false);
+            stripMenu.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Button save_to_pdf_click;
         private Button estimate_click;
         private GroupBox unit_info_groubpox;
         private Label unit_type_label;
@@ -373,5 +391,8 @@
         private GroupBox estimation_date_groupbox;
         private Button add_fee_button;
         private Button add_data_button;
+        private MenuStrip stripMenu;
+        private ToolStripMenuItem MenuStrip;
+        private ToolStripMenuItem StripMenuItem;
     }
 }
