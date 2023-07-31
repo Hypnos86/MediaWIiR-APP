@@ -174,5 +174,12 @@ namespace MediaWIiR_APP
 
             return waterResult;
         }
+
+        public string genering_date_now()
+        {
+            DateTime now = DateTime.Now;
+            string date = now.ToString("dd.MM.yyyy");
+            return date;
+        }
     }
 }

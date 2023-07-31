@@ -56,6 +56,21 @@ namespace MediaWIiR_APP
 
         private void save_to_pdf_click_Click(object sender, EventArgs e)
         {
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Pliki PDF (*.pdf)|*.pdf|Wszystkie pliki (*.*)|*.*";
+            saveFileDialog.Title = "Wymirz miejsce";
+            saveFileDialog.FileName = "Nazwa pliku.pdf";
+
+            DialogResult result = saveFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string filePath = saveFileDialog.FileName;
+                // Tutaj możesz użyć ścieżki `filePath` do zapisania danych do wybranego pliku.
+                // Na przykład:
+                // File.WriteAllText(filePath, "To jest zawartość pliku.");
+            }
+            /*
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
             PdfSharp.Pdf.PdfDocument document = new PdfSharp.Pdf.PdfDocument(); // Create a new PDF doc ument
@@ -104,6 +119,7 @@ namespace MediaWIiR_APP
             // ...and start a viewer.
             // System.Diagnostics.Process.Start(filename);
 
+            */
 
         }
 

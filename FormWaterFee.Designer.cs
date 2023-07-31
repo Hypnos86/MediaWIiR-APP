@@ -58,7 +58,7 @@
             cancel_button.Location = new Point(292, 264);
             cancel_button.Name = "cancel_button";
             cancel_button.Size = new Size(130, 25);
-            cancel_button.TabIndex = 0;
+            cancel_button.TabIndex = 8;
             cancel_button.Text = "Anuluj";
             cancel_button.UseVisualStyleBackColor = true;
             cancel_button.Click += cancel_button_Click;
@@ -68,7 +68,7 @@
             accept_button.Location = new Point(12, 264);
             accept_button.Name = "accept_button";
             accept_button.Size = new Size(130, 25);
-            accept_button.TabIndex = 1;
+            accept_button.TabIndex = 7;
             accept_button.Text = "Dodaj";
             accept_button.UseVisualStyleBackColor = true;
             accept_button.Click += accept_button_Click;
@@ -96,7 +96,7 @@
             water_data_froupbox.Location = new Point(12, 12);
             water_data_froupbox.Name = "water_data_froupbox";
             water_data_froupbox.Size = new Size(410, 240);
-            water_data_froupbox.TabIndex = 2;
+            water_data_froupbox.TabIndex = 0;
             water_data_froupbox.TabStop = false;
             water_data_froupbox.Text = "Dane do szacowania";
             // 
@@ -126,7 +126,7 @@
             vat_input.Location = new Point(160, 197);
             vat_input.Name = "vat_input";
             vat_input.Size = new Size(100, 23);
-            vat_input.TabIndex = 29;
+            vat_input.TabIndex = 6;
             // 
             // label1
             // 
@@ -152,7 +152,7 @@
             tariff_input.Location = new Point(161, 22);
             tariff_input.Name = "tariff_input";
             tariff_input.Size = new Size(100, 23);
-            tariff_input.TabIndex = 12;
+            tariff_input.TabIndex = 1;
             // 
             // subscriptionSewage_error
             // 
@@ -235,28 +235,28 @@
             subscriptionSewage_input.Location = new Point(160, 161);
             subscriptionSewage_input.Name = "subscriptionSewage_input";
             subscriptionSewage_input.Size = new Size(100, 23);
-            subscriptionSewage_input.TabIndex = 3;
+            subscriptionSewage_input.TabIndex = 5;
             // 
             // subscriptionWater_input
             // 
             subscriptionWater_input.Location = new Point(160, 127);
             subscriptionWater_input.Name = "subscriptionWater_input";
             subscriptionWater_input.Size = new Size(100, 23);
-            subscriptionWater_input.TabIndex = 2;
+            subscriptionWater_input.TabIndex = 4;
             // 
             // sewage_input
             // 
             sewage_input.Location = new Point(160, 93);
             sewage_input.Name = "sewage_input";
             sewage_input.Size = new Size(100, 23);
-            sewage_input.TabIndex = 1;
+            sewage_input.TabIndex = 3;
             // 
             // water_input
             // 
             water_input.Location = new Point(160, 58);
             water_input.Name = "water_input";
             water_input.Size = new Size(100, 23);
-            water_input.TabIndex = 0;
+            water_input.TabIndex = 2;
             // 
             // FormWaterFee
             // 

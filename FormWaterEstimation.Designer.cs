@@ -375,38 +375,38 @@
             // water
             // 
             water.AutoSize = true;
-            water.Location = new Point(90, 30);
+            water.Location = new Point(118, 30);
             water.Name = "water";
-            water.Size = new Size(136, 15);
+            water.Size = new Size(108, 15);
             water.TabIndex = 20;
-            water.Text = "Woda - m3 - cene netto:";
+            water.Text = "Woda - m3 - netto:";
             // 
             // water_subscription
             // 
             water_subscription.AutoSize = true;
-            water_subscription.Location = new Point(111, 90);
+            water_subscription.Location = new Point(80, 90);
             water_subscription.Name = "water_subscription";
-            water_subscription.Size = new Size(116, 15);
+            water_subscription.Size = new Size(146, 15);
             water_subscription.TabIndex = 24;
-            water_subscription.Text = "Woda - abonament: ";
+            water_subscription.Text = "Abonament Woda - netto:";
             // 
             // sewage
             // 
             sewage.AutoSize = true;
-            sewage.Location = new Point(91, 60);
+            sewage.Location = new Point(120, 60);
             sewage.Name = "sewage";
-            sewage.Size = new Size(135, 15);
+            sewage.Size = new Size(107, 15);
             sewage.TabIndex = 22;
-            sewage.Text = "Ścieki - m3 - cene netto:";
+            sewage.Text = "Ścieki - m3 - netto:";
             // 
             // sewage_subscription
             // 
             sewage_subscription.AutoSize = true;
-            sewage_subscription.Location = new Point(112, 120);
+            sewage_subscription.Location = new Point(82, 120);
             sewage_subscription.Name = "sewage_subscription";
-            sewage_subscription.Size = new Size(115, 15);
+            sewage_subscription.Size = new Size(145, 15);
             sewage_subscription.TabIndex = 26;
-            sewage_subscription.Text = "Ścieki - abonament: ";
+            sewage_subscription.Text = "Abonament Ścieki - netto:";
             // 
             // cancel_button
             // 
