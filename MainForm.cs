@@ -7,28 +7,17 @@ namespace MediaWIiR_APP
 {
     public partial class MainForm : Form
     {
-        internal Unit Unit { get; set; }
-
+        public static Unit Unit { get; set; }
         public static EnergyData? EnergyData { get; set; } = null;
         public static EnergyTariff? EnergyTariff { get; set; } = null;
+        public static WaterData? WaterData { get; set; } = null;
+        public static WaterTariff? WaterTariff { get; set; } = null;
 
         public MainForm()
         {
             InitializeComponent();
-        }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void unit_type_input_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void zip_code_input_TextChanged(object sender, EventArgs e)
-        {
-
+            estimation_date.Value = DateTime.Now;
         }
 
         private void estimate_click_Click(object sender, EventArgs e)
@@ -42,65 +31,49 @@ namespace MediaWIiR_APP
             bool zip_code_validator = servis.validating_zip_code(zip_code_input, zip_code_error);
             bool city_validator = servis.validating_text(city_input, city_error);
             bool address_validator = servis.validating_text(address_input, address_error);
+            int option = media_type_select.SelectedIndex;
 
-
-            if (unit_validator && media_type_validator && county_validator && zip_code_validator && city_validator && address_validator)
+            if (unit_validator && media_type_validator && county_validator && zip_code_validator && city_validator && address_validator && ((option == 0 && EnergyData != null && EnergyTariff != null) || (option == 2 && WaterData != null && WaterTariff != null)))
             {
-                this.Unit = new Unit();
+                Unit = new Unit();
                 Unit.City = city_input.Text;
                 Unit.Address = address_input.Text;
                 Unit.ZipCode = zip_code_input.Text;
                 Unit.County = county_input.Text;
                 Unit.UnitType = unit_type_input.Text;
+                
 
-                FormEnergyEstimation formEnergyEstimation = new FormEnergyEstimation();
-                formEnergyEstimation.Show();
+                switch (option)
+                {
+                    case 0:
+                        FormEnergyEstimation formEnergyEstimation = new FormEnergyEstimation();
+                        formEnergyEstimation.Show();
+                        break;
 
+                    case 2:
+                        FormWaterEstimation formWaterEstimation = new FormWaterEstimation();
+                        formWaterEstimation.Show();
+                        break;
+                }
             }
             else
             {
-                MessageBox.Show("Uzupe³nij brakuj¹ce pola", "Upss", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Uzupe³nij wszystkie pola i formularze - Dane i Op³aty", "Upss", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
-
-        private void county_input_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void media_type_select_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (media_type_select.SelectedIndex != -1)
             {
                 add_data_button.Enabled = true;
                 add_fee_button.Enabled = true;
+                estimate_click.Enabled = true;
             }
         }
-
-        private void select_media_error_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void address_input_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void city_input_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void unit_info_groubpox_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void add_fee_button_Click(object sender, EventArgs e)
         {
             int option = media_type_select.SelectedIndex;
+            Service service = new Service();
 
             switch (option)
             {
@@ -115,7 +88,7 @@ namespace MediaWIiR_APP
                     break;
 
                 case 2: //woda
-                    FormWaterFee formWaterFee = new FormWaterFee();
+                    FormWaterFee formWaterFee = new FormWaterFee(WaterTariff);
                     formWaterFee.ShowDialog();
                     break;
 
@@ -125,7 +98,6 @@ namespace MediaWIiR_APP
                     break;
             }
         }
-
         private void add_data_Click(object sender, EventArgs e)
         {
             int option = media_type_select.SelectedIndex;
@@ -142,7 +114,9 @@ namespace MediaWIiR_APP
                     formHeatingData.ShowDialog();
                     break;
                 case 2: //woda
-                    FormWaterData formWaterData = new FormWaterData();
+
+
+                    FormWaterData formWaterData = new FormWaterData(WaterData);
                     formWaterData.ShowDialog();
                     break;
                 case 3: //gaz
@@ -152,19 +126,10 @@ namespace MediaWIiR_APP
             }
         }
 
-        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        private void StripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            InfoForm infoForm = new InfoForm();
+            infoForm.ShowDialog();
         }
     }
 }

@@ -17,5 +17,6 @@ namespace MediaWIiR_APP.Models
         public decimal RenewableEnergySourcesFee { get; set; } //opłata oze
         public decimal CogenerationFee { get; set; } //opłata kogeneracyjna
         public decimal SubscriptionFee { get; set; } //opłata abonamentowa
+        public int VatValue { get; set; }
     }
 }

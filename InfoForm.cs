@@ -15,6 +15,16 @@ namespace MediaWIiR_APP
         public InfoForm()
         {
             InitializeComponent();
+
+            string versionProgram = "1.0";
+            version.Text = string.Format("Wersja programu: {0}", versionProgram);
+            string authorProgram = "Kamil Kubiak";
+            author.Text = string.Format("Autor: {0}", authorProgram);
+        }
+
+        private void version_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

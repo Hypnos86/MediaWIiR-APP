@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaWIiR_APP.Models
 {
-    internal class Unit
+    public class Unit
     {
         public string UnitType { get; set; }
         public string Address { get; set; }

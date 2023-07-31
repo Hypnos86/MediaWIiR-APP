@@ -28,196 +28,134 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWaterData));
             cancel_button = new Button();
-            accept_button = new Button();
-            water_data_froupbox = new GroupBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            add_button = new Button();
+            water_input = new TextBox();
+            month_input = new TextBox();
+            groupBox1 = new GroupBox();
             label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            water_data_froupbox.SuspendLayout();
+            water_label = new Label();
+            month_error = new Label();
+            water_error = new Label();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // cancel_button
             // 
-            cancel_button.Location = new Point(256, 189);
+            cancel_button.Location = new Point(262, 124);
             cancel_button.Name = "cancel_button";
-            cancel_button.Size = new Size(136, 25);
+            cancel_button.Size = new Size(130, 25);
             cancel_button.TabIndex = 0;
             cancel_button.Text = "Anuluj";
             cancel_button.UseVisualStyleBackColor = true;
             cancel_button.Click += cancel_button_Click;
             // 
-            // accept_button
+            // add_button
             // 
-            accept_button.Location = new Point(12, 189);
-            accept_button.Name = "accept_button";
-            accept_button.Size = new Size(132, 25);
-            accept_button.TabIndex = 1;
-            accept_button.Text = "Dodaj";
-            accept_button.UseVisualStyleBackColor = true;
+            add_button.Location = new Point(12, 124);
+            add_button.Name = "add_button";
+            add_button.Size = new Size(130, 25);
+            add_button.TabIndex = 1;
+            add_button.Text = "Dodaj";
+            add_button.UseVisualStyleBackColor = true;
+            add_button.Click += add_button_Click;
             // 
-            // water_data_froupbox
+            // water_input
             // 
-            water_data_froupbox.Controls.Add(label8);
-            water_data_froupbox.Controls.Add(label7);
-            water_data_froupbox.Controls.Add(label6);
-            water_data_froupbox.Controls.Add(label5);
-            water_data_froupbox.Controls.Add(label4);
-            water_data_froupbox.Controls.Add(label3);
-            water_data_froupbox.Controls.Add(label2);
-            water_data_froupbox.Controls.Add(label1);
-            water_data_froupbox.Controls.Add(textBox4);
-            water_data_froupbox.Controls.Add(textBox3);
-            water_data_froupbox.Controls.Add(textBox2);
-            water_data_froupbox.Controls.Add(textBox1);
-            water_data_froupbox.Location = new Point(12, 12);
-            water_data_froupbox.Name = "water_data_froupbox";
-            water_data_froupbox.Size = new Size(380, 160);
-            water_data_froupbox.TabIndex = 2;
-            water_data_froupbox.TabStop = false;
-            water_data_froupbox.Text = "Dane do szacowania";
+            water_input.Location = new Point(175, 21);
+            water_input.Name = "water_input";
+            water_input.Size = new Size(100, 23);
+            water_input.TabIndex = 2;
             // 
-            // textBox4
+            // month_input
             // 
-            textBox4.Location = new Point(138, 125);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 3;
+            month_input.Location = new Point(175, 59);
+            month_input.Name = "month_input";
+            month_input.Size = new Size(100, 23);
+            month_input.TabIndex = 3;
             // 
-            // textBox3
+            // groupBox1
             // 
-            textBox3.Location = new Point(138, 91);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(138, 57);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(138, 22);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(94, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 4;
-            label1.Text = "label1";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(94, 60);
-            label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 5;
-            label2.Text = "label2";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(94, 128);
-            label3.Name = "label3";
-            label3.Size = new Size(38, 15);
-            label3.TabIndex = 6;
-            label3.Text = "label3";
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(water_label);
+            groupBox1.Controls.Add(month_error);
+            groupBox1.Controls.Add(water_error);
+            groupBox1.Controls.Add(water_input);
+            groupBox1.Controls.Add(month_input);
+            groupBox1.Location = new Point(12, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(380, 106);
+            groupBox1.TabIndex = 4;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Dane do szacowania";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(94, 94);
+            label4.Location = new Point(74, 62);
             label4.Name = "label4";
-            label4.Size = new Size(38, 15);
+            label4.Size = new Size(95, 15);
             label4.TabIndex = 7;
-            label4.Text = "label4";
+            label4.Text = "Liczba miesięcy: ";
             // 
-            // label5
+            // water_label
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(244, 25);
-            label5.Name = "label5";
-            label5.Size = new Size(57, 15);
-            label5.TabIndex = 8;
-            label5.Text = "text_error";
+            water_label.AutoSize = true;
+            water_label.Location = new Point(6, 24);
+            water_label.Name = "water_label";
+            water_label.Size = new Size(163, 15);
+            water_label.TabIndex = 6;
+            water_label.Text = "Szacowanie miesięczne - m3: ";
             // 
-            // label6
+            // month_error
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(244, 60);
-            label6.Name = "label6";
-            label6.Size = new Size(57, 15);
-            label6.TabIndex = 9;
-            label6.Text = "text_error";
+            month_error.AutoSize = true;
+            month_error.Location = new Point(281, 62);
+            month_error.Name = "month_error";
+            month_error.Size = new Size(57, 15);
+            month_error.TabIndex = 5;
+            month_error.Text = "text_error";
+            month_error.Visible = false;
             // 
-            // label7
+            // water_error
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(244, 94);
-            label7.Name = "label7";
-            label7.Size = new Size(57, 15);
-            label7.TabIndex = 10;
-            label7.Text = "text_error";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(244, 128);
-            label8.Name = "label8";
-            label8.Size = new Size(57, 15);
-            label8.TabIndex = 11;
-            label8.Text = "text_error";
+            water_error.AutoSize = true;
+            water_error.Location = new Point(281, 24);
+            water_error.Name = "water_error";
+            water_error.Size = new Size(57, 15);
+            water_error.TabIndex = 4;
+            water_error.Text = "text_error";
+            water_error.Visible = false;
             // 
             // FormWaterData
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(404, 226);
-            Controls.Add(water_data_froupbox);
+            ClientSize = new Size(404, 161);
+            Controls.Add(groupBox1);
+            Controls.Add(add_button);
             Controls.Add(cancel_button);
-            Controls.Add(accept_button);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormWaterData";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Dane do szacowania - Woda";
-            Load += FormWaterData_Load;
-            water_data_froupbox.ResumeLayout(false);
-            water_data_froupbox.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button cancel_button;
-        private Button accept_button;
-        private GroupBox water_data_froupbox;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private Label label8;
-        private Label label7;
-        private Label label6;
-        private Label label5;
+        private Button add_button;
+        private TextBox water_input;
+        private TextBox month_input;
+        private GroupBox groupBox1;
         private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
+        private Label water_label;
+        private Label month_error;
+        private Label water_error;
     }
 }

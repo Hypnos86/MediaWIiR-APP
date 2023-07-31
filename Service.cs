@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaWIiR_APP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -113,9 +114,65 @@ namespace MediaWIiR_APP
             return false;
         }
 
-        public void estimating_energy()
+        public EnergyResult estimating_energy(EnergyData energyData, EnergyTariff energyTariff)
         {
+            EnergyResult energyResult = new EnergyResult();
 
+            if (energyTariff.Tariff != null)
+            {
+                energyResult.Tariff = "BRAK";
+            }
+            else
+            {
+                energyResult.Tariff = energyTariff.Tariff.Trim();
+            }
+
+            //Obliczanie zmiennych z mocą 
+            energyResult.FixedNetworkFee = Math.Round((energyTariff.FixedNetworkFee * energyData.Power) * energyData.Month, 2);
+            energyResult.TransitionFee = Math.Round((energyTariff.TransitionFee * energyData.Power) * energyData.Month, 2);
+
+            //oplata mocowa
+            energyResult.CapacirtFee = Math.Round(energyTariff.CapacirtFee * energyData.Month, 2);
+
+            //obliczanie zmiennych z kwh
+            energyResult.NetworkVariableFee = Math.Round((energyTariff.NetworkVariableFee * energyData.Kwh) * energyData.Month, 2);
+            energyResult.QualityFee = Math.Round((energyTariff.QualityFee * energyData.Kwh) * energyData.Month, 2);
+            energyResult.RenewableEnergySourcesFee = Math.Round(energyTariff.RenewableEnergySourcesFee * (energyData.Kwh * energyData.Month), 2);
+            energyResult.CogenerationFee = Math.Round((energyTariff.CogenerationFee * energyData.Kwh) * energyData.Month, 2);
+
+            //obliczanie abonamentu
+            energyResult.SubscriptionFee = Math.Round(energyTariff.SubscriptionFee * energyData.Month, 2);
+
+            //suma netto
+            energyResult.SumNetto = Math.Round(energyResult.FixedNetworkFee + energyResult.CapacirtFee + energyResult.TransitionFee + energyResult.NetworkVariableFee + energyResult.QualityFee + energyResult.RenewableEnergySourcesFee + energyResult.CogenerationFee + energyResult.SubscriptionFee, 2);
+            energyResult.SumVat = Math.Round(energyResult.SumNetto + (energyResult.SumNetto * (energyTariff.VatValue * 0.01m)), 2);
+            energyResult.SumKwh = energyData.Kwh * energyData.Month;
+
+            return energyResult;
+        }
+
+        public WaterResult estimating_water(WaterData waterData, WaterTariff waterTariff)
+        {
+            WaterResult waterResult = new WaterResult();
+
+            if (waterTariff.Tariff != null)
+            {
+                waterResult.Tariff = "BRAK";
+            }
+            else
+            {
+                waterResult.Tariff = waterTariff.Tariff.Trim();
+            }
+            waterResult.Water = Math.Round((waterTariff.Water * waterData.WaterAmount) * waterData.Month, 2);
+            waterResult.Sewage = Math.Round((waterTariff.Sewage * waterData.WaterAmount) * waterData.Month, 2);
+            waterResult.SubscriptionWater = Math.Round(waterTariff.SubscriptionWater * waterData.Month, 2);
+            waterResult.SubscriptionSewage = Math.Round(waterTariff.SubscriptionSewage * waterData.Month, 2);
+
+            waterResult.SumNetto = Math.Round(waterResult.Water + waterResult.Sewage + waterResult.SubscriptionWater + waterResult.SubscriptionSewage, 2);
+            waterResult.SumVat = Math.Round(waterResult.SumNetto + (waterResult.SumNetto * (waterTariff.VatValue * 0.01m)), 2);
+            waterResult.SumWater = waterData.WaterAmount * waterData.Month;
+
+            return waterResult;
         }
     }
 }

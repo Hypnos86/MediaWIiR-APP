@@ -27,13 +27,12 @@ namespace MediaWIiR_APP
                 renewable_energy_sources_fee_input.Text = energyTariff.RenewableEnergySourcesFee.ToString();
                 cogeneration_fee_input.Text = energyTariff.CogenerationFee.ToString();
                 subscription_fee_input.Text = energyTariff.SubscriptionFee.ToString();
+                vatComboBox.SelectedItem = energyTariff.VatValue.ToString();
+
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void cancel_button_Click(object sender, EventArgs e)
         {
@@ -58,8 +57,9 @@ namespace MediaWIiR_APP
             bool renewable_energy_sources_fee = service.validating_data_fee(renewable_energy_sources_fee_input, oze_error, out decimal renewable_energy_sources_fee_value);
             bool cogeneration_fee = service.validating_data_fee(cogeneration_fee_input, cogeneration_error, out decimal cogeneration_fee_value);
             bool subscription_fee = service.validating_data_fee(subscription_fee_input, subscription_error, out decimal subscription_fee_value);
+            bool vat_fee = service.validating_selectors(vatComboBox, vat_error);
 
-            if (fixed_network_fee && transition_fee && capacirt_fee && network_variable_fee && quality_fee && renewable_energy_sources_fee && cogeneration_fee && subscription_fee)
+            if (fixed_network_fee && transition_fee && capacirt_fee && network_variable_fee && quality_fee && renewable_energy_sources_fee && cogeneration_fee && subscription_fee && vat_fee)
             {
                 MainForm.EnergyTariff = new EnergyTariff();
                 MainForm.EnergyTariff.Tariff = tariff_input.Text;
@@ -69,8 +69,9 @@ namespace MediaWIiR_APP
                 MainForm.EnergyTariff.NetworkVariableFee = network_variable_fee_value;
                 MainForm.EnergyTariff.QualityFee = quality_fee_value;
                 MainForm.EnergyTariff.RenewableEnergySourcesFee = renewable_energy_sources_fee_value;
-                MainForm.EnergyTariff.CogenerationFee = capacirt_fee_value;
+                MainForm.EnergyTariff.CapacirtFee = capacirt_fee_value;
                 MainForm.EnergyTariff.SubscriptionFee = subscription_fee_value;
+                MainForm.EnergyTariff.VatValue = Convert.ToInt32(vatComboBox.SelectedItem);
 
                 MessageBox.Show("Dane zostałyzapisane", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;

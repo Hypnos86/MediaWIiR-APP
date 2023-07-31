@@ -28,12 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "InfoForm";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoForm));
+            version = new Label();
+            information = new Label();
+            author = new Label();
+            SuspendLayout();
+            // 
+            // version
+            // 
+            resources.ApplyResources(version, "version");
+            version.Name = "version";
+            version.Click += version_Click;
+            // 
+            // information
+            // 
+            resources.ApplyResources(information, "information");
+            information.Name = "information";
+            // 
+            // author
+            // 
+            resources.ApplyResources(author, "author");
+            author.Name = "author";
+            // 
+            // InfoForm
+            // 
+            resources.ApplyResources(this, "$this");
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(author);
+            Controls.Add(information);
+            Controls.Add(version);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Name = "InfoForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label version;
+        private Label information;
+        private Label author;
     }
 }
