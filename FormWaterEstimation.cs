@@ -1,17 +1,6 @@
 ﻿using MediaWIiR_APP.Models;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.DataFormats;
 using Unit = MigraDoc.DocumentObjectModel.Unit;
 
 namespace MediaWIiR_APP
@@ -64,13 +53,13 @@ namespace MediaWIiR_APP
             title.Format.Alignment = ParagraphAlignment.Center;
             title.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 16); // Nazwa fontu (bez rozszerzenia)
             title.AddText(string.Format("Załącznik do notatki z szacowania z dnia {0} r.", MainForm.estimationDate));
-            title.Format.SpaceAfter = Unit.FromPoint(50); //puste miejscemiedzy elementami
+            title.Format.SpaceAfter = Unit.FromPoint(40); //puste miejscemiedzy elementami
 
             // Dodawanie paragrafu z danymi doszacowania
             Paragraph unit = section.AddParagraph();
             unit.Format.Alignment = ParagraphAlignment.Left;
-            unit.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 14); ;
-            unit.AddText(string.Format("Jednostka: {0} {1}, {2} {3}\nPowiat: {4}", MainForm.Unit.UnitType, MainForm.Unit.Address, MainForm.Unit.ZipCode, MainForm.Unit.City, MainForm.Unit.County));
+            unit.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12); ;
+            unit.AddText(string.Format("Szacowanie kosztów wody dla jednostki:\n{0} {1}, {2} {3}\nPowiat: {4}", MainForm.Unit.UnitType, MainForm.Unit.Address, MainForm.Unit.ZipCode, MainForm.Unit.City, MainForm.Unit.County));
             unit.Format.SpaceAfter = Unit.FromPoint(30); //puste miejscemiedzy elementami
 
             // Dane do szacowania
@@ -101,7 +90,7 @@ namespace MediaWIiR_APP
             feeData.AddText(string.Format("Koszt m3 ścieków netto: {0} zł\n", MainForm.WaterTariff.Sewage.ToString()));
             feeData.AddText(string.Format("Abonament Woda 1 mc netto: {0} zł\n", MainForm.WaterTariff.SubscriptionWater.ToString()));
             feeData.AddText(string.Format("Abonament Ścieki 1 mc netto: {0} zł\n", MainForm.WaterTariff.SubscriptionSewage.ToString()));
-            feeData.Format.SpaceAfter = Unit.FromPoint(40);
+            feeData.Format.SpaceAfter = Unit.FromPoint(30);
 
             //Dodanie tytulu kolejnego akapitu
             Paragraph estimationTitle = section.AddParagraph();
@@ -114,15 +103,15 @@ namespace MediaWIiR_APP
             Paragraph estimationResult = section.AddParagraph();
             estimationResult = section.AddParagraph();
             estimationResult.Format.Alignment = ParagraphAlignment.Left;
-            estimationResult.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
+            estimationResult.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
             estimationResult.AddText(string.Format("Koszt wody: {0} zł netto\n", waterResult.Water.ToString()));
             estimationResult.AddText(string.Format("Koszt ścieków: {0} zł netto\n", waterResult.Sewage.ToString()));
             estimationResult.AddText(string.Format("Koszt abonamentu wody: {0} zł netto\n", waterResult.SubscriptionWater.ToString()));
             estimationResult.AddText(string.Format("Koszt abonamentu Ścieków: {0} zł netto\n", waterResult.SubscriptionSewage.ToString()));
             estimationResult.Format.SpaceAfter = Unit.FromPoint(30); //puste miejscemiedzy elementami
-            estimationResult.AddText(string.Format("Koszt netto: {0} zł\n", waterResult.SumNetto.ToString()));
+            estimationResult.AddText(string.Format("Całkowity koszt netto: {0} zł\n", waterResult.SumNetto.ToString()));
             estimationResult.AddText(string.Format("Vat: {0}%\n", MainForm.WaterTariff.VatValue.ToString()));
-            estimationResult.AddText(string.Format("Koszt Brutto: {0} zł", waterResult.SumVat.ToString()));
+            estimationResult.AddText(string.Format("Całkowity koszt brutto: {0} zł", waterResult.SumVat.ToString()));
             estimationResult.Format.SpaceAfter = Unit.FromPoint(100); //puste miejscemiedzy elementami
             // podpis prcownika
             Paragraph author = new Paragraph();
@@ -130,7 +119,7 @@ namespace MediaWIiR_APP
             author.Format.Alignment = ParagraphAlignment.Left;
             author.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
             author.AddText("...................................................................\n");
-            author.AddSpace(5);
+            author.AddSpace(3);
             author.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 10);
             author.AddText("(podpis pracownika szacującego koszty)");
 

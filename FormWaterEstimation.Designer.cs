@@ -312,11 +312,11 @@
             // brutto
             // 
             brutto.AutoSize = true;
-            brutto.Location = new Point(427, 60);
+            brutto.Location = new Point(431, 60);
             brutto.Name = "brutto";
-            brutto.Size = new Size(126, 15);
+            brutto.Size = new Size(122, 15);
             brutto.TabIndex = 30;
-            brutto.Text = "Suma wartości Brutto: ";
+            brutto.Text = "Suma kosztów brutto:";
             // 
             // netto_label
             // 
@@ -330,11 +330,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(425, 30);
+            label2.Location = new Point(436, 30);
             label2.Name = "label2";
-            label2.Size = new Size(128, 15);
+            label2.Size = new Size(117, 15);
             label2.TabIndex = 28;
-            label2.Text = "Suma szacunku Netto: ";
+            label2.Text = "Suma kosztów netto:";
             // 
             // sewage_subscribtion_result
             // 

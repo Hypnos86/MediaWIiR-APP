@@ -144,7 +144,6 @@
             power_label.Size = new Size(206, 15);
             power_label.TabIndex = 21;
             power_label.Text = "Szacowane zapotrzebowanie na moc: ";
-            power_label.Click += power_label_Click;
             // 
             // month_label
             // 
@@ -454,11 +453,11 @@
             // brutto
             // 
             brutto.AutoSize = true;
-            brutto.Location = new Point(427, 49);
+            brutto.Location = new Point(431, 49);
             brutto.Name = "brutto";
-            brutto.Size = new Size(126, 15);
+            brutto.Size = new Size(122, 15);
             brutto.TabIndex = 50;
-            brutto.Text = "Suma wartości Brutto: ";
+            brutto.Text = "Suma kosztów brutto:";
             // 
             // netto_label
             // 
@@ -472,11 +471,11 @@
             // nettto
             // 
             nettto.AutoSize = true;
-            nettto.Location = new Point(425, 19);
+            nettto.Location = new Point(433, 19);
             nettto.Name = "nettto";
-            nettto.Size = new Size(128, 15);
+            nettto.Size = new Size(120, 15);
             nettto.TabIndex = 48;
-            nettto.Text = "Suma szacunku Netto: ";
+            nettto.Text = "Suma kosztów netto: ";
             // 
             // subscriptionFee_result
             // 
@@ -558,7 +557,6 @@
             fixedNetworkFee_result.Size = new Size(44, 15);
             fixedNetworkFee_result.TabIndex = 39;
             fixedNetworkFee_result.Text = "label10";
-            fixedNetworkFee_result.Click += fixedNetworkFee_result_Click;
             // 
             // cogenerationFee
             // 

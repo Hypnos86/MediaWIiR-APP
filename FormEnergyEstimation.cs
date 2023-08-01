@@ -1,13 +1,7 @@
 ﻿using MediaWIiR_APP.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.Rendering;
+using Unit = MigraDoc.DocumentObjectModel.Unit;
 
 namespace MediaWIiR_APP
 {
@@ -56,70 +50,134 @@ namespace MediaWIiR_APP
 
         private void save_to_pdf_click_Click(object sender, EventArgs e)
         {
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            // Tworzenie konstruktora serwisu
+            Service service = new Service();
 
+            // Tworzenie konsuktora dla wyników szacowania
+            EnergyResult energyResult = service.estimating_energy(MainForm.EnergyData, MainForm.EnergyTariff);
+
+            // Tworzenie dokumentu
+            MigraDoc.DocumentObjectModel.Document document = new MigraDoc.DocumentObjectModel.Document();
+            Section section = document.AddSection();
+
+            // Dodawanie paragrafu z tytulem
+            Paragraph title = section.AddParagraph();
+            title.Format.Alignment = ParagraphAlignment.Center;
+            title.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 16); // Nazwa fontu (bez rozszerzenia)
+            title.AddText(string.Format("Załącznik do notatki z szacowania z dnia {0} r.", MainForm.estimationDate));
+            title.Format.SpaceAfter = Unit.FromPoint(40); //puste miejscemiedzy elementami
+
+            // Dodawanie paragrafu z danymi doszacowania
+            Paragraph unit = section.AddParagraph();
+            unit.Format.Alignment = ParagraphAlignment.Left;
+            unit.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 14); ;
+            unit.AddText(string.Format("Szacowanie kosztów energii elektrycznej dla jednostki:\n{0} {1}, {2} {3}\nPowiat: {4}", MainForm.Unit.UnitType, MainForm.Unit.Address, MainForm.Unit.ZipCode, MainForm.Unit.City, MainForm.Unit.County));
+            unit.Format.SpaceAfter = Unit.FromPoint(30); //puste miejscemiedzy elementami
+
+            // Dane do szacowania
+            Paragraph estimationData = section.AddParagraph();
+            estimationData.Format.Alignment = ParagraphAlignment.Left;
+            estimationData.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
+            estimationData.AddText(string.Format("Szacunkowe zużycie na miesiąć: {0} kWh\n", MainForm.EnergyData.Kwh.ToString()));
+            estimationData.AddText(string.Format("Szacunkowe zapotrzebowanie na moc: {0} kW\n", MainForm.EnergyData.Power.ToString()));
+            estimationData.AddText(string.Format("Szacowanie na okres {0} miesięcy\n", MainForm.EnergyData.Month.ToString()));
+            estimationData.AddText(string.Format("Zużycie w ciągu {0} miesięcy: {1} kWh ", MainForm.EnergyData.Month, energyResult.SumKwh.ToString()));
+            estimationData.Format.SpaceAfter = Unit.FromPoint(40); //puste miejscemiedzy elementami
+
+            // Dane do obliczenia - tytul
+            Paragraph feeDataTitle = section.AddParagraph();
+            feeDataTitle.Format.Alignment = ParagraphAlignment.Left;
+            feeDataTitle.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
+            feeDataTitle.AddText(string.Format("Wartości kosztów przyjęte do szacowania"));
+            feeDataTitle.Format.Font.Bold = true;
+
+            //Dane do obliczen
+            Paragraph feeData = section.AddParagraph();
+            feeData.Format.Alignment = ParagraphAlignment.Left;
+            feeData.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
+            if (MainForm.EnergyTariff.Tariff != null)
+            {
+                feeData.AddText(string.Format("Na podstawie taryfy: {0}\n", MainForm.EnergyTariff.Tariff.ToString()));
+            }
+            feeData.AddText(string.Format("Opłata stała sieciowa: {0} zł netto\n", MainForm.EnergyTariff.FixedNetworkFee.ToString()));
+            feeData.AddText(string.Format("Opłata przejściowa: {0} zł netto\n", MainForm.EnergyTariff.TransitionFee.ToString()));
+            feeData.AddText(string.Format("Opłata mocowa: {0} zł netto\n", MainForm.EnergyTariff.CapacirtFee.ToString()));
+            feeData.AddText(string.Format("Opłata zmienna sieciowa: {0} zł netto\n", MainForm.EnergyTariff.NetworkVariableFee.ToString()));
+            feeData.AddText(string.Format("Opłata jakościowa: {0} zł netto\n", MainForm.EnergyTariff.QualityFee.ToString()));
+            feeData.AddText(string.Format("Opłata OZE: {0} zł netto\n", MainForm.EnergyTariff.RenewableEnergySourcesFee.ToString()));
+            feeData.AddText(string.Format("Opłata kogeneracyjna: {0} zł netto\n", MainForm.EnergyTariff.CogenerationFee.ToString()));
+            feeData.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", MainForm.EnergyTariff.SubscriptionFee.ToString()));
+            feeData.Format.SpaceAfter = Unit.FromPoint(30);
+
+            //Dodanie tytulu kolejnego akapitu
+            Paragraph estimationTitle = section.AddParagraph();
+            estimationTitle.Format.Alignment = ParagraphAlignment.Left;
+            estimationTitle.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
+            estimationTitle.AddText(string.Format("Oszacowanie kosztów"));
+            estimationTitle.Format.Font.Bold = true;
+
+            // Obliczenia szacunku
+            Paragraph estimationResult = section.AddParagraph();
+            estimationResult = section.AddParagraph();
+            estimationResult.Format.Alignment = ParagraphAlignment.Left;
+            estimationResult.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
+
+            cogenerationFee_result.Text = energyResult.CogenerationFee.ToString();      
+            networkVariableFee_result.Text = energyResult.NetworkVariableFee.ToString();
+            qualityFee_result.Text = energyResult.QualityFee.ToString();
+            subscriptionFee_result.Text = energyResult.SubscriptionFee.ToString();
+            renewableEnergySourcesFee_result.Text = energyResult.RenewableEnergySourcesFee.ToString();
+
+            estimationResult.AddText(string.Format("Opłata stała sieciowa: {0} zł netto\n", energyResult.FixedNetworkFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata przejściowa {0} zł netto\n", energyResult.TransitionFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata mocowa: {0} zł netto\n", energyResult.CapacirtFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata zmienna sieciowa: {0} zł netto\n", MainForm.EnergyTariff.NetworkVariableFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata jakościowa netto: {0} zł netto\n", MainForm.EnergyTariff.QualityFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata OZE: {0} zł netto\n", MainForm.EnergyTariff.RenewableEnergySourcesFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata kogeneracyjna: {0} zł netto\n", MainForm.EnergyTariff.CogenerationFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", MainForm.EnergyTariff.SubscriptionFee.ToString()));
+
+            estimationResult.Format.SpaceAfter = Unit.FromPoint(30); //puste miejscemiedzy elementami
+            estimationResult.AddText(string.Format("Całkowity koszt netto: {0} zł\n", energyResult.SumNetto.ToString()));
+            estimationResult.AddText(string.Format("Vat: {0}%\n", MainForm.EnergyTariff.VatValue.ToString()));
+            estimationResult.AddText(string.Format("Całkowity koszt brutto: {0} zł", energyResult.SumVat.ToString()));
+            estimationResult.Format.SpaceAfter = Unit.FromPoint(100); //puste miejscemiedzy elementami
+            // podpis prcownika
+            Paragraph author = new Paragraph();
+            author = section.AddParagraph();
+            author.Format.Alignment = ParagraphAlignment.Left;
+            author.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
+            author.AddText("...................................................................\n");
+            author.AddSpace(3);
+            author.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 10);
+            author.AddText("(podpis pracownika szacującego koszty)");
+
+
+            // Zapisywanie dokumentu do formatu PDF
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true); // true - włączenie UTF-8
+            pdfRenderer.Document = document;
+            pdfRenderer.RenderDocument();
+
+            // Okno dialogowe wyboru ścieżki do zapisu pliku PDF
+            string now = service.genering_date_now();
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Pliki PDF (*.pdf)|*.pdf|Wszystkie pliki (*.*)|*.*";
-            saveFileDialog.Title = "Wymirz miejsce";
-            saveFileDialog.FileName = "Nazwa pliku.pdf";
+            saveFileDialog.Title = "Wybierz miejsce zapisu";
+            saveFileDialog.FileName = String.Format("Szacowanie kosztów energii elektrycznej dla {0} {1} - {2}.pdf", MainForm.Unit.UnitType, MainForm.Unit.City, now);
 
             DialogResult result = saveFileDialog.ShowDialog();
+
             if (result == DialogResult.OK)
             {
                 string filePath = saveFileDialog.FileName;
-                // Tutaj możesz użyć ścieżki `filePath` do zapisania danych do wybranego pliku.
-                // Na przykład:
-                // File.WriteAllText(filePath, "To jest zawartość pliku.");
+
+                // Zapisywanie pliku PDF
+                pdfRenderer.PdfDocument.Save(filePath);
+                MessageBox.Show("Plik został zapisany", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
-            /*
-            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
-            PdfSharp.Pdf.PdfDocument document = new PdfSharp.Pdf.PdfDocument(); // Create a new PDF doc ument
-            PdfSharp.Pdf.PdfPage page = document.AddPage(); // Create an empty page
-            PdfSharp.Drawing.XGraphics gfx = PdfSharp.Drawing.XGraphics.FromPdfPage(page); // Get an XGraphics object for drawing
-            PdfSharp.Drawing.XFont font = new PdfSharp.Drawing.XFont("Arial", 12, PdfSharp.Drawing.XFontStyle.Regular); // Create a font
-
-
-            //Elementy na stronie
-            DateTime date = DateTime.Now;
-            string title = $"Załącznik do notatki z szacowania kosztów mediów {date.ToString("dd.MM.yyyy")}";
-            string county = $"Powiat: {MainForm.Unit.County}";
-            string unit_type = $"Rodzaj jednostki: {MainForm.Unit.UnitType}";
-            string address = $"Adres: {MainForm.Unit.Address}, {MainForm.Unit.ZipCode} {MainForm.Unit.City}";
-
-
-
-            // połączone stringi z enterem między wierszami
-            string wroteText = string.Join("\n", title, county, unit_type, address);
-
-            // Draw the text
-            // formatowanie tekstu, bez tego nie wstawi entera
-            PdfSharp.Drawing.Layout.XTextFormatter tf = new PdfSharp.Drawing.Layout.XTextFormatter(gfx);
-
-            tf.DrawString(wroteText, font, PdfSharp.Drawing.XBrushes.Black,
-              new PdfSharp.Drawing.XRect(
-                  // początek x (margines lewy)
-                  (int)(page.Width * 0.1),
-                  // początek y (margines górny)
-                  (int)(page.Height * 0.1),
-                  // wysokość pola
-                  (int)(page.Width * 0.8),
-                  // szerokość pola
-                  (int)(page.Height * 0.8)),
-                  // gdzie ma zacząć
-                  PdfSharp.Drawing.XStringFormat.TopLeft);
-
-            gfx.DrawString(wroteText, font, PdfSharp.Drawing.XBrushes.Black,
-               new PdfSharp.Drawing.XRect(0, 0, page.Width, page.Height),
-                PdfSharp.Drawing.XStringFormat.TopLeft);
-
-            // Save the document...
-            string filename = $"Szacowanie z dnia {date.ToString("dd.MM.yyyy")}.pdf";
-            document.Save(filename);
-            MessageBox.Show($"Twój plik {filename} jest gotowy", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            // ...and start a viewer.
-            // System.Diagnostics.Process.Start(filename);
-
-            */
 
         }
 
@@ -129,14 +187,5 @@ namespace MediaWIiR_APP
             this.Close();
         }
 
-        private void power_label_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void fixedNetworkFee_result_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
