@@ -46,7 +46,7 @@ namespace MediaWIiR_APP
                 MainForm.WaterTariff.SubscriptionWater = subscriptionWaterValue;
                 MainForm.WaterTariff.VatValue = Convert.ToInt32(vat_input.SelectedItem);
 
-                MessageBox.Show("Dane zostałyzapisane", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Dane zostały zapisane", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
             }
         }

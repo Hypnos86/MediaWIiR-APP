@@ -12,11 +12,12 @@ namespace MediaWIiR_APP
         public static EnergyTariff? EnergyTariff { get; set; } = null;
         public static WaterData? WaterData { get; set; } = null;
         public static WaterTariff? WaterTariff { get; set; } = null;
-        public static string estimationDate {get; set;} = null;
+        public static string estimationDate { get; set; } = null;
 
         public MainForm()
         {
             InitializeComponent();
+
 
             estimation_date.Value = DateTime.Now;
             estimationDate = estimation_date.Value.ToString("dd.MM.yyyy");
@@ -43,17 +44,20 @@ namespace MediaWIiR_APP
                 Unit.ZipCode = zip_code_input.Text;
                 Unit.County = county_input.Text;
                 Unit.UnitType = unit_type_input.Text;
+                estimationDate = estimation_date.Value.ToString("dd.MM.yyyy");
 
 
                 switch (option)
                 {
                     case 0:
                         FormEnergyEstimation formEnergyEstimation = new FormEnergyEstimation();
+                        this.DialogResult = DialogResult.OK;
                         formEnergyEstimation.Show();
                         break;
 
                     case 2:
                         FormWaterEstimation formWaterEstimation = new FormWaterEstimation();
+                        this.DialogResult = DialogResult.OK;
                         formWaterEstimation.Show();
                         break;
                 }
