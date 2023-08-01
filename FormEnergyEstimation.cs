@@ -96,7 +96,7 @@ namespace MediaWIiR_APP
             Paragraph feeData = section.AddParagraph();
             feeData.Format.Alignment = ParagraphAlignment.Left;
             feeData.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
-            if (MainForm.EnergyTariff.Tariff != null)
+            if (!String.IsNullOrEmpty(MainForm.EnergyTariff.Tariff))
             {
                 feeData.AddText(string.Format("Na podstawie taryfy: {0}\n", MainForm.EnergyTariff.Tariff.ToString()));
             }

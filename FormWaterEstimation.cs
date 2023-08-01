@@ -82,7 +82,7 @@ namespace MediaWIiR_APP
             Paragraph feeData = section.AddParagraph();
             feeData.Format.Alignment = ParagraphAlignment.Left;
             feeData.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
-            if (MainForm.WaterTariff.Tariff != null)
+            if (!String.IsNullOrEmpty(MainForm.WaterTariff.Tariff))
             {
                 feeData.AddText(string.Format("Na podstawie taryfy: {0}\n", MainForm.WaterTariff.Tariff.ToString()));
             }
