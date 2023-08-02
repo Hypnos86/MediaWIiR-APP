@@ -8,8 +8,10 @@ namespace MediaWIiR_APP.Models
 {
     public class EnergyResult: EnergyTariff
     {
-        public decimal SumNetto { get; set; }
-        public decimal SumVat { get; set; }
+        public decimal SumNettoOsd { get; set; }
+        public decimal SumBruttoOsd { get; set; }
+        public decimal SumNettoSell { get; set; }
+        public decimal SumBruttoSell { get; set; }
         public int SumKwh { get; set; }
     }
 }

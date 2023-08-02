@@ -118,7 +118,7 @@ namespace MediaWIiR_APP
         {
             EnergyResult energyResult = new EnergyResult();
 
-            if (energyTariff.Tariff != null)
+            if (string.IsNullOrEmpty(energyTariff.Tariff))
             {
                 energyResult.Tariff = "BRAK";
             }
@@ -143,9 +143,13 @@ namespace MediaWIiR_APP
             //obliczanie abonamentu
             energyResult.SubscriptionFee = Math.Round(energyTariff.SubscriptionFee * energyData.Month, 2);
 
-            //suma netto
-            energyResult.SumNetto = Math.Round(energyResult.FixedNetworkFee + energyResult.CapacirtFee + energyResult.TransitionFee + energyResult.NetworkVariableFee + energyResult.QualityFee + energyResult.RenewableEnergySourcesFee + energyResult.CogenerationFee + energyResult.SubscriptionFee, 2);
-            energyResult.SumVat = Math.Round(energyResult.SumNetto + (energyResult.SumNetto * (energyTariff.VatValue * 0.01m)), 2);
+            // obliczanie sumy netto i brutto dla sprzedazy
+            energyResult.SumNettoSell = Math.Round((energyTariff.KwhSell * energyData.Kwh)*energyData.Month, 2);
+            energyResult.SumBruttoSell = Math.Round(energyResult.SumNettoSell + (energyResult.SumNettoSell * (energyTariff.VatValue * 0.01m)),2);
+
+            // obliczanie sumy netto i brutto dla OSD
+            energyResult.SumNettoOsd = Math.Round(energyResult.FixedNetworkFee + energyResult.CapacirtFee + energyResult.TransitionFee + energyResult.NetworkVariableFee + energyResult.QualityFee + energyResult.RenewableEnergySourcesFee + energyResult.CogenerationFee + energyResult.SubscriptionFee, 2);
+            energyResult.SumBruttoOsd = Math.Round(energyResult.SumNettoOsd + (energyResult.SumNettoOsd * (energyTariff.VatValue * 0.01m)), 2);
             energyResult.SumKwh = energyData.Kwh * energyData.Month;
 
             return energyResult;

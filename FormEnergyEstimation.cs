@@ -29,6 +29,7 @@ namespace MediaWIiR_APP
             renewableEnergySourcesFee_text.Text = MainForm.EnergyTariff.QualityFee.ToString();
             cogenerationFee_text.Text = MainForm.EnergyTariff.CogenerationFee.ToString();
             subscriptionFee_text.Text = MainForm.EnergyTariff.SubscriptionFee.ToString();
+            kwhSell_text.Text = MainForm.EnergyTariff.KwhSell.ToString();
 
             //przypisywanie wynikow do wyswietlenia
             cogenerationFee_result.Text = energyResult.CogenerationFee.ToString();
@@ -39,9 +40,10 @@ namespace MediaWIiR_APP
             subscriptionFee_result.Text = energyResult.SubscriptionFee.ToString();
             renewableEnergySourcesFee_result.Text = energyResult.RenewableEnergySourcesFee.ToString();
             transitionFee_result.Text = energyResult.TransitionFee.ToString();
-
-            netto_label.Text = String.Format("{0} zł", energyResult.SumNetto.ToString());
-            brutto_label.Text = String.Format("{0} zł", energyResult.SumVat.ToString());
+            kwhSellResultNetto.Text = string.Format("{0} zł", energyResult.SumNettoSell.ToString());
+            kwhSellResultBrutto.Text = string.Format("{0} zł", energyResult.SumBruttoSell.ToString());
+            kwhOsdResultNetto.Text = string.Format("{0} zł", energyResult.SumNettoOsd.ToString());
+            kwhOsdResultBrutto.Text = string.Format("{0} zł", energyResult.SumBruttoOsd.ToString());
             kwh_sum_text.Text = energyResult.SumKwh.ToString();
 
             unit_text.Text = String.Format("Jednostka: {0}\n{1}, {2} {3}\nPowiat:{4}", MainForm.Unit.UnitType, MainForm.Unit.Address, MainForm.Unit.ZipCode, MainForm.Unit.City, MainForm.Unit.County);
@@ -60,36 +62,38 @@ namespace MediaWIiR_APP
             // Tworzenie dokumentu
             MigraDoc.DocumentObjectModel.Document document = new MigraDoc.DocumentObjectModel.Document();
             Section section = document.AddSection();
+            section.PageSetup.TopMargin = Unit.FromCentimeter(1.25); // Ustawienie marginesow strony
+            section.PageSetup.BottomMargin = Unit.FromCentimeter(1.25);
 
             // Dodawanie paragrafu z tytulem
             Paragraph title = section.AddParagraph();
             title.Format.Alignment = ParagraphAlignment.Center;
-            title.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 16); // Nazwa fontu (bez rozszerzenia)
+            title.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 15); // Nazwa fontu (bez rozszerzenia)
             title.AddText(string.Format("Załącznik do notatki z szacowania z dnia {0} r.", MainForm.estimationDate));
             title.Format.SpaceAfter = Unit.FromPoint(40); //puste miejscemiedzy elementami
 
             // Dodawanie paragrafu z danymi doszacowania
             Paragraph unit = section.AddParagraph();
             unit.Format.Alignment = ParagraphAlignment.Left;
-            unit.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 14); ;
+            unit.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13); ;
             unit.AddText(string.Format("Szacowanie kosztów energii elektrycznej dla jednostki:\n{0} {1}, {2} {3}\nPowiat: {4}", MainForm.Unit.UnitType, MainForm.Unit.Address, MainForm.Unit.ZipCode, MainForm.Unit.City, MainForm.Unit.County));
-            unit.Format.SpaceAfter = Unit.FromPoint(30); //puste miejscemiedzy elementami
+            unit.Format.SpaceAfter = Unit.FromPoint(20); //puste miejscemiedzy elementami
 
             // Dane do szacowania
             Paragraph estimationData = section.AddParagraph();
             estimationData.Format.Alignment = ParagraphAlignment.Left;
-            estimationData.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
+            estimationData.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
             estimationData.AddText(string.Format("Szacunkowe zużycie na miesiąć: {0} kWh\n", MainForm.EnergyData.Kwh.ToString()));
             estimationData.AddText(string.Format("Szacunkowe zapotrzebowanie na moc: {0} kW\n", MainForm.EnergyData.Power.ToString()));
             estimationData.AddText(string.Format("Szacowanie na okres {0} miesięcy\n", MainForm.EnergyData.Month.ToString()));
             estimationData.AddText(string.Format("Zużycie w ciągu {0} miesięcy: {1} kWh ", MainForm.EnergyData.Month, energyResult.SumKwh.ToString()));
-            estimationData.Format.SpaceAfter = Unit.FromPoint(40); //puste miejscemiedzy elementami
+            estimationData.Format.SpaceAfter = Unit.FromPoint(20); //puste miejscemiedzy elementami
 
             // Dane do obliczenia - tytul
             Paragraph feeDataTitle = section.AddParagraph();
             feeDataTitle.Format.Alignment = ParagraphAlignment.Left;
             feeDataTitle.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
-            feeDataTitle.AddText(string.Format("Wartości kosztów przyjęte do szacowania"));
+            feeDataTitle.AddText(string.Format("Składniki kosztów Operatora Systemu Dystrybucji przyjęte do szacowania: "));
             feeDataTitle.Format.Font.Bold = true;
 
             //Dane do obliczen
@@ -108,45 +112,52 @@ namespace MediaWIiR_APP
             feeData.AddText(string.Format("Opłata OZE: {0} zł netto\n", MainForm.EnergyTariff.RenewableEnergySourcesFee.ToString()));
             feeData.AddText(string.Format("Opłata kogeneracyjna: {0} zł netto\n", MainForm.EnergyTariff.CogenerationFee.ToString()));
             feeData.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", MainForm.EnergyTariff.SubscriptionFee.ToString()));
-            feeData.Format.SpaceAfter = Unit.FromPoint(30);
+            feeData.Format.SpaceAfter = Unit.FromPoint(20);
 
-            //Dodanie tytulu kolejnego akapitu
+            //Dodanie tytulu kolejnego akapitu - OSD
             Paragraph estimationTitle = section.AddParagraph();
             estimationTitle.Format.Alignment = ParagraphAlignment.Left;
             estimationTitle.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
-            estimationTitle.AddText(string.Format("Oszacowanie kosztów"));
+            estimationTitle.AddText(string.Format("Oszacowanie kosztów OSD:"));
             estimationTitle.Format.Font.Bold = true;
 
-            // Obliczenia szacunku
+            // Obliczenia szacunku - OSD
             Paragraph estimationResult = section.AddParagraph();
-            estimationResult = section.AddParagraph();
             estimationResult.Format.Alignment = ParagraphAlignment.Left;
             estimationResult.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
-
-            cogenerationFee_result.Text = energyResult.CogenerationFee.ToString();      
-            networkVariableFee_result.Text = energyResult.NetworkVariableFee.ToString();
-            qualityFee_result.Text = energyResult.QualityFee.ToString();
-            subscriptionFee_result.Text = energyResult.SubscriptionFee.ToString();
-            renewableEnergySourcesFee_result.Text = energyResult.RenewableEnergySourcesFee.ToString();
-
             estimationResult.AddText(string.Format("Opłata stała sieciowa: {0} zł netto\n", energyResult.FixedNetworkFee.ToString()));
             estimationResult.AddText(string.Format("Opłata przejściowa {0} zł netto\n", energyResult.TransitionFee.ToString()));
             estimationResult.AddText(string.Format("Opłata mocowa: {0} zł netto\n", energyResult.CapacirtFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata zmienna sieciowa: {0} zł netto\n", MainForm.EnergyTariff.NetworkVariableFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata jakościowa netto: {0} zł netto\n", MainForm.EnergyTariff.QualityFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata OZE: {0} zł netto\n", MainForm.EnergyTariff.RenewableEnergySourcesFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata kogeneracyjna: {0} zł netto\n", MainForm.EnergyTariff.CogenerationFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", MainForm.EnergyTariff.SubscriptionFee.ToString()));
-
-            estimationResult.Format.SpaceAfter = Unit.FromPoint(30); //puste miejscemiedzy elementami
-            estimationResult.AddText(string.Format("Całkowity koszt netto: {0} zł\n", energyResult.SumNetto.ToString()));
+            estimationResult.AddText(string.Format("Opłata zmienna sieciowa: {0} zł netto\n", energyResult.NetworkVariableFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata jakościowa netto: {0} zł netto\n", energyResult.QualityFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata OZE: {0} zł netto\n", energyResult.RenewableEnergySourcesFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata kogeneracyjna: {0} zł netto\n", energyResult.CogenerationFee.ToString()));
+            estimationResult.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", energyResult.SubscriptionFee.ToString()));
+            estimationResult.AddText(string.Format("Całkowity koszt netto: {0} zł\n", energyResult.SumNettoOsd.ToString()));
             estimationResult.AddText(string.Format("Vat: {0}%\n", MainForm.EnergyTariff.VatValue.ToString()));
-            estimationResult.AddText(string.Format("Całkowity koszt brutto: {0} zł", energyResult.SumVat.ToString()));
-            estimationResult.Format.SpaceAfter = Unit.FromPoint(100); //puste miejscemiedzy elementami
+            estimationResult.AddText(string.Format("Całkowity koszt brutto: {0} zł", energyResult.SumBruttoOsd.ToString()));
+            estimationResult.Format.SpaceAfter = Unit.FromPoint(20); //puste miejscemiedzy elementami
+
+            //Dodanie tytulu kolejnego akapitu - sprzedaż
+            Paragraph estimationTitleSell = section.AddParagraph();
+            estimationTitleSell.Format.Alignment = ParagraphAlignment.Left;
+            estimationTitleSell.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
+            estimationTitleSell.AddText(string.Format("Oszacowanie kosztów kWh - sprzedaż:"));
+            estimationTitleSell.Format.Font.Bold = true;
+
+
+            // Obliczenia szacunku - sprzedaż
+            Paragraph estimationResultSell = section.AddParagraph();
+            estimationResultSell.Format.Alignment = ParagraphAlignment.Left;
+            estimationResultSell.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
+            estimationResultSell.AddText(string.Format("Koszt 1 kWh: {0} zł netto\n", MainForm.EnergyTariff.KwhSell.ToString()));
+            estimationResultSell.AddText(string.Format("Całkowity koszt energii netto: {0} zł\n", energyResult.SumNettoSell.ToString()));
+            estimationResultSell.AddText(string.Format("Całkowity koszt energii brutto: {0} zł\n", energyResult.SumBruttoSell.ToString()));
+            estimationResultSell.Format.SpaceAfter = Unit.FromPoint(80); //puste miejsce miedzy elementami
+
             // podpis prcownika
-            Paragraph author = new Paragraph();
-            author = section.AddParagraph();
-            author.Format.Alignment = ParagraphAlignment.Left;
+            Paragraph author = section.AddParagraph();
+            author.Format.Alignment = ParagraphAlignment.Right;
             author.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
             author.AddText("...................................................................\n");
             author.AddSpace(3);
@@ -177,8 +188,6 @@ namespace MediaWIiR_APP
                 MessageBox.Show("Plik został zapisany", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
-
-
         }
 
         private void cancel_button_Click(object sender, EventArgs e)
@@ -186,6 +195,5 @@ namespace MediaWIiR_APP
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
     }
 }

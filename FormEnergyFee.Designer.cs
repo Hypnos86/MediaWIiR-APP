@@ -61,12 +61,17 @@
             quality_fee_input = new TextBox();
             network_variable_fee_input = new TextBox();
             tariff_input = new TextBox();
+            sell_tariff = new GroupBox();
+            kwh_sell_error = new Label();
+            kwh_sell_label = new Label();
+            kWh_sell_input = new TextBox();
             data_tariff.SuspendLayout();
+            sell_tariff.SuspendLayout();
             SuspendLayout();
             // 
             // cancel_button
             // 
-            cancel_button.Location = new Point(262, 359);
+            cancel_button.Location = new Point(262, 430);
             cancel_button.Name = "cancel_button";
             cancel_button.Size = new Size(150, 25);
             cancel_button.TabIndex = 11;
@@ -77,7 +82,7 @@
             // add_button
             // 
             add_button.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            add_button.Location = new Point(12, 359);
+            add_button.Location = new Point(12, 430);
             add_button.Name = "add_button";
             add_button.Size = new Size(150, 25);
             add_button.TabIndex = 10;
@@ -121,7 +126,7 @@
             data_tariff.Size = new Size(400, 330);
             data_tariff.TabIndex = 2;
             data_tariff.TabStop = false;
-            data_tariff.Text = "Dane taryfy";
+            data_tariff.Text = "Dane taryfy - OSD";
             // 
             // vat_error
             // 
@@ -375,11 +380,50 @@
             tariff_input.Size = new Size(100, 23);
             tariff_input.TabIndex = 0;
             // 
+            // sell_tariff
+            // 
+            sell_tariff.Controls.Add(kwh_sell_error);
+            sell_tariff.Controls.Add(kwh_sell_label);
+            sell_tariff.Controls.Add(kWh_sell_input);
+            sell_tariff.Location = new Point(12, 348);
+            sell_tariff.Name = "sell_tariff";
+            sell_tariff.Size = new Size(400, 66);
+            sell_tariff.TabIndex = 12;
+            sell_tariff.TabStop = false;
+            sell_tariff.Text = "Dane dotyczące sprzedaży";
+            // 
+            // kwh_sell_error
+            // 
+            kwh_sell_error.AutoSize = true;
+            kwh_sell_error.Location = new Point(266, 25);
+            kwh_sell_error.Name = "kwh_sell_error";
+            kwh_sell_error.Size = new Size(65, 15);
+            kwh_sell_error.TabIndex = 22;
+            kwh_sell_error.Text = "input_error";
+            kwh_sell_error.Visible = false;
+            // 
+            // kwh_sell_label
+            // 
+            kwh_sell_label.AutoSize = true;
+            kwh_sell_label.Location = new Point(77, 25);
+            kwh_sell_label.Name = "kwh_sell_label";
+            kwh_sell_label.Size = new Size(77, 15);
+            kwh_sell_label.TabIndex = 21;
+            kwh_sell_label.Text = "Koszt 1 kWh: ";
+            // 
+            // kWh_sell_input
+            // 
+            kWh_sell_input.Location = new Point(160, 22);
+            kWh_sell_input.Name = "kWh_sell_input";
+            kWh_sell_input.Size = new Size(100, 23);
+            kWh_sell_input.TabIndex = 20;
+            // 
             // FormEnergyFee
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(424, 396);
+            ClientSize = new Size(424, 471);
+            Controls.Add(sell_tariff);
             Controls.Add(data_tariff);
             Controls.Add(add_button);
             Controls.Add(cancel_button);
@@ -390,6 +434,8 @@
             Text = "Energia elektryczna - Taryfa";
             data_tariff.ResumeLayout(false);
             data_tariff.PerformLayout();
+            sell_tariff.ResumeLayout(false);
+            sell_tariff.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -427,5 +473,9 @@
         private ComboBox vatComboBox;
         private Label vat_label;
         private Label vat_error;
+        private GroupBox sell_tariff;
+        private Label kwh_sell_error;
+        private Label kwh_sell_label;
+        private TextBox kWh_sell_input;
     }
 }

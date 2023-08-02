@@ -18,5 +18,6 @@ namespace MediaWIiR_APP.Models
         public decimal CogenerationFee { get; set; } //opłata kogeneracyjna
         public decimal SubscriptionFee { get; set; } //opłata abonamentowa
         public int VatValue { get; set; }
+        public decimal KwhSell { get; set; }
     }
 }

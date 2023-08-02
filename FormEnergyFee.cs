@@ -28,6 +28,7 @@ namespace MediaWIiR_APP
                 cogeneration_fee_input.Text = energyTariff.CogenerationFee.ToString();
                 subscription_fee_input.Text = energyTariff.SubscriptionFee.ToString();
                 vatComboBox.SelectedItem = energyTariff.VatValue.ToString();
+                kWh_sell_input.Text = energyTariff.KwhSell.ToString();
 
             }
         }
@@ -58,8 +59,9 @@ namespace MediaWIiR_APP
             bool cogeneration_fee = service.validating_data_fee(cogeneration_fee_input, cogeneration_error, out decimal cogeneration_fee_value);
             bool subscription_fee = service.validating_data_fee(subscription_fee_input, subscription_error, out decimal subscription_fee_value);
             bool vat_fee = service.validating_selectors(vatComboBox, vat_error);
+            bool kwh_fee = service.validating_data_fee(kWh_sell_input, kwh_sell_error, out decimal kwh_fee_value);
 
-            if (fixed_network_fee && transition_fee && capacirt_fee && network_variable_fee && quality_fee && renewable_energy_sources_fee && cogeneration_fee && subscription_fee && vat_fee)
+            if (fixed_network_fee && transition_fee && capacirt_fee && network_variable_fee && quality_fee && renewable_energy_sources_fee && cogeneration_fee && subscription_fee && vat_fee && kwh_fee)
             {
                 MainForm.EnergyTariff = new EnergyTariff();
                 MainForm.EnergyTariff.Tariff = tariff_input.Text;
@@ -71,6 +73,7 @@ namespace MediaWIiR_APP
                 MainForm.EnergyTariff.RenewableEnergySourcesFee = renewable_energy_sources_fee_value;
                 MainForm.EnergyTariff.CapacirtFee = capacirt_fee_value;
                 MainForm.EnergyTariff.SubscriptionFee = subscription_fee_value;
+                MainForm.EnergyTariff.KwhSell = kwh_fee_value;
                 MainForm.EnergyTariff.VatValue = Convert.ToInt32(vatComboBox.SelectedItem);
 
                 MessageBox.Show("Dane zostałyzapisane", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
