@@ -118,235 +118,171 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="text_error_power.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="add_button.Text" xml:space="preserve">
-    <value>Dodaj</value>
-  </data>
-  <data name="&gt;&gt;kwh_need_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="text_error_power.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="month_need_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 15</value>
-  </data>
-  <data name="text_error_month.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 15</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>404, 191</value>
-  </data>
-  <data name="&gt;&gt;kwh_input.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FormEnergyData</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="power_need_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 57</value>
-  </data>
-  <data name="month_need_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 96</value>
-  </data>
-  <data name="&gt;&gt;cancel_button.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="add_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 25</value>
-  </data>
-  <data name="kwh_need_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 15</value>
-  </data>
-  <data name="&gt;&gt;power_input.Parent" xml:space="preserve">
-    <value>energy_data_groupbox</value>
-  </data>
-  <data name="&gt;&gt;power_need_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="text_error_kwh.Text" xml:space="preserve">
-    <value>text_error</value>
-  </data>
-  <data name="&gt;&gt;month_input.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="&gt;&gt;power_need_label.Name" xml:space="preserve">
-    <value>power_need_label</value>
-  </data>
-  <data name="&gt;&gt;add_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;text_error_month.Name" xml:space="preserve">
-    <value>text_error_month</value>
-  </data>
-  <data name="&gt;&gt;text_error_kwh.Name" xml:space="preserve">
-    <value>text_error_kwh</value>
-  </data>
-  <data name="&gt;&gt;month_input.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;text_error_kwh.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="kwh_need_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="text_error_power.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="cancel_button.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 25</value>
-  </data>
-  <data name="&gt;&gt;power_input.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="kwh_input.TabIndex" type="System.Int32, mscorlib">
+  <data name="text_error_kwh.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
-  </data>
-  <data name="month_need_label.Text" xml:space="preserve">
-    <value>Liczba miesięcy</value>
-  </data>
-  <data name="text_error_power.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 57</value>
-  </data>
-  <data name="&gt;&gt;month_need_label.Name" xml:space="preserve">
-    <value>month_need_label</value>
-  </data>
-  <data name="&gt;&gt;power_need_label.Parent" xml:space="preserve">
-    <value>energy_data_groupbox</value>
-  </data>
-  <data name="text_error_kwh.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;add_button.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="month_need_label.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="power_need_label.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="&gt;&gt;cancel_button.Name" xml:space="preserve">
-    <value>cancel_button</value>
-  </data>
-  <data name="&gt;&gt;kwh_need_label.Parent" xml:space="preserve">
-    <value>energy_data_groupbox</value>
-  </data>
-  <data name="&gt;&gt;text_error_month.Parent" xml:space="preserve">
-    <value>energy_data_groupbox</value>
-  </data>
-  <data name="&gt;&gt;add_button.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;add_button.Name" xml:space="preserve">
-    <value>add_button</value>
-  </data>
-  <data name="month_input.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
   </data>
   <data name="&gt;&gt;month_need_label.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="cancel_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>262, 154</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>404, 191</value>
   </data>
-  <data name="add_button.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 154</value>
-  </data>
-  <data name="power_need_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;text_error_kwh.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;kwh_input.Parent" xml:space="preserve">
-    <value>energy_data_groupbox</value>
-  </data>
-  <data name="text_error_month.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="text_error_power.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 15</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Dane do szacowania - Energia elektryczna</value>
+  <data name="&gt;&gt;month_input.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;month_input.Name" xml:space="preserve">
     <value>month_input</value>
   </data>
-  <data name="&gt;&gt;power_need_label.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;add_button.Name" xml:space="preserve">
+    <value>add_button</value>
   </data>
-  <data name="&gt;&gt;energy_data_groupbox.Name" xml:space="preserve">
-    <value>energy_data_groupbox</value>
+  <data name="&gt;&gt;cancel_button.Name" xml:space="preserve">
+    <value>cancel_button</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="&gt;&gt;cancel_button.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="energy_data_groupbox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>380, 130</value>
-  </data>
-  <data name="month_need_label.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="&gt;&gt;text_error_power.Name" xml:space="preserve">
-    <value>text_error_power</value>
-  </data>
-  <data name="&gt;&gt;month_input.Parent" xml:space="preserve">
-    <value>energy_data_groupbox</value>
-  </data>
-  <data name="kwh_need_label.Text" xml:space="preserve">
-    <value>Szacowane miesięczne - kWh</value>
-  </data>
-  <data name="power_input.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 54</value>
-  </data>
-  <data name="&gt;&gt;cancel_button.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;power_input.Name" xml:space="preserve">
-    <value>power_input</value>
-  </data>
-  <data name="&gt;&gt;kwh_input.Name" xml:space="preserve">
-    <value>kwh_input</value>
-  </data>
-  <data name="kwh_need_label.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;power_input.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="text_error_kwh.Visible" type="System.Boolean, mscorlib">
+  <data name="text_error_month.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="kwh_input.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 16</value>
+  <data name="&gt;&gt;energy_data_groupbox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;add_button.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="power_input.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
   </data>
-  <data name="text_error_month.Text" xml:space="preserve">
+  <data name="text_error_month.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;month_input.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="kwh_need_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 15</value>
+  </data>
+  <data name="&gt;&gt;text_error_power.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="cancel_button.Text" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="&gt;&gt;power_need_label.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="month_input.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="kwh_need_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 19</value>
+  </data>
+  <data name="text_error_kwh.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;kwh_need_label.Name" xml:space="preserve">
+    <value>kwh_need_label</value>
+  </data>
+  <data name="&gt;&gt;power_input.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;text_error_kwh.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="month_need_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="power_need_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;energy_data_groupbox.Name" xml:space="preserve">
+    <value>energy_data_groupbox</value>
+  </data>
+  <data name="&gt;&gt;kwh_need_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;energy_data_groupbox.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="text_error_month.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;text_error_kwh.Name" xml:space="preserve">
+    <value>text_error_kwh</value>
+  </data>
+  <data name="add_button.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="energy_data_groupbox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="&gt;&gt;estimationGroupBox.Name" xml:space="preserve">
+    <value>estimationGroupBox</value>
+  </data>
+  <data name="&gt;&gt;power_need_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="month_need_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>78, 96</value>
+  </data>
+  <data name="month_need_label.Text" xml:space="preserve">
+    <value>Liczba miesięcy</value>
+  </data>
+  <data name="add_button.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 25</value>
+  </data>
+  <data name="text_error_kwh.Text" xml:space="preserve">
     <value>text_error</value>
   </data>
-  <data name="energy_data_groupbox.Text" xml:space="preserve">
-    <value>Dane do szacowania</value>
+  <data name="&gt;&gt;power_input.Parent" xml:space="preserve">
+    <value>estimationGroupBox</value>
   </data>
-  <data name="cancel_button.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="&gt;&gt;text_error_month.Name" xml:space="preserve">
+    <value>text_error_month</value>
+  </data>
+  <data name="&gt;&gt;power_need_label.Name" xml:space="preserve">
+    <value>power_need_label</value>
+  </data>
+  <data name="&gt;&gt;month_need_label.Name" xml:space="preserve">
+    <value>month_need_label</value>
+  </data>
+  <data name="power_need_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 15</value>
+  </data>
+  <data name="&gt;&gt;cancel_button.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;kwh_input.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;text_error_power.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="kwh_input.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="text_error_power.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 15</value>
+  </data>
+  <data name="&gt;&gt;energy_data_groupbox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="estimationGroupBox.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="text_error_power.Location" type="System.Drawing.Point, System.Drawing">
+    <value>281, 57</value>
+  </data>
+  <data name="month_need_label.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 15</value>
+  </data>
+  <data name="cancel_button.Size" type="System.Drawing.Size, System.Drawing">
+    <value>130, 25</value>
+  </data>
+  <data name="energy_data_groupbox.Text" xml:space="preserve">
+    <value>Dane do szacowania</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -376,56 +312,74 @@
         AACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAAA=
 </value>
   </data>
-  <data name="&gt;&gt;text_error_kwh.Parent" xml:space="preserve">
-    <value>energy_data_groupbox</value>
+  <data name="text_error_month.Location" type="System.Drawing.Point, System.Drawing">
+    <value>281, 96</value>
   </data>
-  <data name="&gt;&gt;energy_data_groupbox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FormEnergyData</value>
   </data>
-  <data name="add_button.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="&gt;&gt;estimationGroupBox.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="text_error_kwh.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 19</value>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="text_error_power.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="&gt;&gt;power_need_label.Parent" xml:space="preserve">
+    <value>estimationGroupBox</value>
   </data>
   <data name="power_need_label.Text" xml:space="preserve">
     <value>Zpotrzebowanie na moc - kW</value>
   </data>
-  <data name="text_error_kwh.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;text_error_month.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="text_error_month.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 96</value>
-  </data>
-  <data name="&gt;&gt;kwh_need_label.Name" xml:space="preserve">
-    <value>kwh_need_label</value>
-  </data>
-  <data name="energy_data_groupbox.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="&gt;&gt;kwh_input.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;energy_data_groupbox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="text_error_kwh.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="text_error_month.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 15</value>
   </data>
-  <data name="kwh_need_label.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 19</value>
+  <data name="&gt;&gt;kwh_input.Name" xml:space="preserve">
+    <value>kwh_input</value>
   </data>
-  <data name="month_input.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
-  </data>
-  <data name="month_input.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 93</value>
+  <data name="text_error_month.Text" xml:space="preserve">
+    <value>text_error</value>
   </data>
   <data name="kwh_input.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
+  </data>
+  <data name="&gt;&gt;text_error_month.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="kwh_input.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 16</value>
+  </data>
+  <data name="&gt;&gt;month_need_label.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="text_error_kwh.Location" type="System.Drawing.Point, System.Drawing">
+    <value>281, 19</value>
+  </data>
+  <data name="&gt;&gt;text_error_month.Parent" xml:space="preserve">
+    <value>estimationGroupBox</value>
+  </data>
+  <data name="cancel_button.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="kwh_need_label.Text" xml:space="preserve">
+    <value>Szacowane miesięczne - kWh</value>
+  </data>
+  <data name="&gt;&gt;text_error_power.Parent" xml:space="preserve">
+    <value>estimationGroupBox</value>
+  </data>
+  <data name="&gt;&gt;add_button.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>7, 15</value>
+  </data>
+  <data name="estimationGroupBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 12</value>
+  </data>
+  <data name="kwh_need_label.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="&gt;&gt;kwh_need_label.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -433,44 +387,108 @@
   <data name="power_input.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
   </data>
-  <data name="&gt;&gt;text_error_month.Type" xml:space="preserve">
+  <data name="text_error_power.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="text_error_kwh.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;add_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="month_need_label.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="power_input.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 54</value>
+  </data>
+  <data name="month_input.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="energy_data_groupbox.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;kwh_input.Parent" xml:space="preserve">
+    <value>estimationGroupBox</value>
+  </data>
+  <data name="&gt;&gt;month_need_label.Parent" xml:space="preserve">
+    <value>estimationGroupBox</value>
+  </data>
+  <data name="&gt;&gt;cancel_button.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;estimationGroupBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;text_error_kwh.Parent" xml:space="preserve">
+    <value>estimationGroupBox</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Dane do szacowania - Energia elektryczna</value>
+  </data>
+  <data name="add_button.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 154</value>
+  </data>
+  <data name="kwh_need_label.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;month_input.Parent" xml:space="preserve">
+    <value>estimationGroupBox</value>
+  </data>
+  <data name="&gt;&gt;text_error_kwh.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="power_need_label.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 15</value>
+  <data name="&gt;&gt;estimationGroupBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;month_need_label.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="power_need_label.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;text_error_month.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="month_input.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 93</value>
+  </data>
+  <data name="&gt;&gt;text_error_power.Name" xml:space="preserve">
+    <value>text_error_power</value>
+  </data>
+  <data name="&gt;&gt;power_input.Name" xml:space="preserve">
+    <value>power_input</value>
+  </data>
+  <data name="power_need_label.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 57</value>
+  </data>
+  <data name="energy_data_groupbox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>380, 130</value>
+  </data>
+  <data name="text_error_kwh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 15</value>
+  </data>
+  <data name="&gt;&gt;power_input.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="add_button.Text" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="&gt;&gt;kwh_need_label.Parent" xml:space="preserve">
+    <value>estimationGroupBox</value>
+  </data>
+  <data name="&gt;&gt;kwh_input.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="text_error_power.Text" xml:space="preserve">
     <value>text_error</value>
   </data>
-  <data name="&gt;&gt;text_error_power.Parent" xml:space="preserve">
-    <value>energy_data_groupbox</value>
+  <data name="cancel_button.Location" type="System.Drawing.Point, System.Drawing">
+    <value>262, 154</value>
   </data>
-  <data name="&gt;&gt;month_need_label.Parent" xml:space="preserve">
-    <value>energy_data_groupbox</value>
-  </data>
-  <data name="cancel_button.Text" xml:space="preserve">
-    <value>Anuluj</value>
-  </data>
-  <data name="&gt;&gt;energy_data_groupbox.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="text_error_month.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="&gt;&gt;text_error_power.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cancel_button.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="energy_data_groupbox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="text_error_month.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="text_error_power.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <metadata name="$this.Language" type="System.Globalization.CultureInfo, System.Private.CoreLib, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
     <value>pl-PL</value>

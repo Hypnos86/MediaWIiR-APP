@@ -144,8 +144,8 @@ namespace MediaWIiR_APP
             energyResult.SubscriptionFee = Math.Round(energyTariff.SubscriptionFee * energyData.Month, 2);
 
             // obliczanie sumy netto i brutto dla sprzedazy
-            energyResult.SumNettoSell = Math.Round((energyTariff.KwhSell * energyData.Kwh)*energyData.Month, 2);
-            energyResult.SumBruttoSell = Math.Round(energyResult.SumNettoSell + (energyResult.SumNettoSell * (energyTariff.VatValue * 0.01m)),2);
+            energyResult.SumNettoSell = Math.Round((energyTariff.KwhSell * energyData.Kwh) * energyData.Month, 2);
+            energyResult.SumBruttoSell = Math.Round(energyResult.SumNettoSell + (energyResult.SumNettoSell * (energyTariff.VatValue * 0.01m)), 2);
 
             // obliczanie sumy netto i brutto dla OSD
             energyResult.SumNettoOsd = Math.Round(energyResult.FixedNetworkFee + energyResult.CapacirtFee + energyResult.TransitionFee + energyResult.NetworkVariableFee + energyResult.QualityFee + energyResult.RenewableEnergySourcesFee + energyResult.CogenerationFee + energyResult.SubscriptionFee, 2);
@@ -159,7 +159,7 @@ namespace MediaWIiR_APP
         {
             WaterResult waterResult = new WaterResult();
 
-            if (waterTariff.Tariff != null)
+            if (string.IsNullOrEmpty(waterTariff.Tariff))
             {
                 waterResult.Tariff = "BRAK";
             }
@@ -177,6 +177,22 @@ namespace MediaWIiR_APP
             waterResult.SumWater = waterData.WaterAmount * waterData.Month;
 
             return waterResult;
+        }
+        public HeatResult estimating_heat(HeatData heatData, HeatTariff heatTariff)
+        {
+            HeatResult heatResult = new HeatResult();
+            if (string.IsNullOrEmpty(heatResult.Tariff))
+            {
+                heatResult.Tariff = "BRAK";
+            }
+            else
+            {
+                heatResult.Tariff = heatResult.Tariff.Trim();
+            }
+            heatResult.HeatFee = Math.Round((heatTariff.HeatFee * heatData.Heat) * heatData.Month, 2);
+            heatResult.FixedShippingFee = Math.Round((heatTariff.FixedShippingFee*heatData.Power)*heatData.Month,2);
+            //TOO dokończyć przeliczanie kosztów
+            return heatResult;
         }
 
         public string genering_date_now()

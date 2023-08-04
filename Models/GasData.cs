@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaWIiR_APP.Models
 {
-    internal class GasData
+    public class GasData
     {
     }
 }

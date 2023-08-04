@@ -33,12 +33,12 @@
             add_button = new Button();
             water_input = new TextBox();
             month_input = new TextBox();
-            groupBox1 = new GroupBox();
+            estimationgroupBox = new GroupBox();
             label4 = new Label();
             water_label = new Label();
             month_error = new Label();
             water_error = new Label();
-            groupBox1.SuspendLayout();
+            estimationgroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // cancel_button
@@ -75,20 +75,20 @@
             month_input.Size = new Size(100, 23);
             month_input.TabIndex = 3;
             // 
-            // groupBox1
+            // estimationgroupBox
             // 
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(water_label);
-            groupBox1.Controls.Add(month_error);
-            groupBox1.Controls.Add(water_error);
-            groupBox1.Controls.Add(water_input);
-            groupBox1.Controls.Add(month_input);
-            groupBox1.Location = new Point(12, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(380, 106);
-            groupBox1.TabIndex = 4;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Dane do szacowania";
+            estimationgroupBox.Controls.Add(label4);
+            estimationgroupBox.Controls.Add(water_label);
+            estimationgroupBox.Controls.Add(month_error);
+            estimationgroupBox.Controls.Add(water_error);
+            estimationgroupBox.Controls.Add(water_input);
+            estimationgroupBox.Controls.Add(month_input);
+            estimationgroupBox.Location = new Point(12, 12);
+            estimationgroupBox.Name = "estimationgroupBox";
+            estimationgroupBox.Size = new Size(380, 106);
+            estimationgroupBox.TabIndex = 4;
+            estimationgroupBox.TabStop = false;
+            estimationgroupBox.Text = "Dane do szacowania";
             // 
             // label4
             // 
@@ -133,7 +133,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(404, 161);
-            Controls.Add(groupBox1);
+            Controls.Add(estimationgroupBox);
             Controls.Add(add_button);
             Controls.Add(cancel_button);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -141,8 +141,8 @@
             Name = "FormWaterData";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Dane do szacowania - Woda";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            estimationgroupBox.ResumeLayout(false);
+            estimationgroupBox.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -152,7 +152,7 @@
         private Button add_button;
         private TextBox water_input;
         private TextBox month_input;
-        private GroupBox groupBox1;
+        private GroupBox estimationgroupBox;
         private Label label4;
         private Label water_label;
         private Label month_error;

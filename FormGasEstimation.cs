@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MediaWIiR_APP
 {
-    public partial class FormHeatingData : Form
+    public partial class FormGasEstimation : Form
     {
-        public FormHeatingData()
+        public FormGasEstimation()
         {
             InitializeComponent();
         }

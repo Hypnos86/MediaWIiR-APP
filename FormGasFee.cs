@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaWIiR_APP.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace MediaWIiR_APP
 {
     public partial class FormGasFee : Form
     {
-        public FormGasFee()
+        public FormGasFee(GasTariff gasTariff)
         {
             InitializeComponent();
         }

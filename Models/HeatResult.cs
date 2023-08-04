@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace MediaWIiR_APP.Models
 {
-    public class GasResult
+    public class HeatResult: HeatTariff
     {
         public decimal SumNetto { get; set; }
         public decimal SumBrutto { get; set; }
-        public int SumKwh { get; set; }
+        public int SumMw { get; set; }
     }
 }

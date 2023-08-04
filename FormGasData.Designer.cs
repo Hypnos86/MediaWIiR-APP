@@ -28,13 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            estimationGroupBox = new GroupBox();
             SuspendLayout();
+            // 
+            // estimationGroupBox
+            // 
+            estimationGroupBox.Location = new Point(30, 22);
+            estimationGroupBox.Name = "estimationGroupBox";
+            estimationGroupBox.Size = new Size(200, 100);
+            estimationGroupBox.TabIndex = 0;
+            estimationGroupBox.TabStop = false;
+            estimationGroupBox.Text = "groupBox1";
             // 
             // FormGasData
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(estimationGroupBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormGasData";
             StartPosition = FormStartPosition.CenterScreen;
@@ -43,5 +54,7 @@
         }
 
         #endregion
+
+        private GroupBox estimationGroupBox;
     }
 }

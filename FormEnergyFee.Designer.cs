@@ -133,15 +133,15 @@
             vat_error.AutoSize = true;
             vat_error.Location = new Point(266, 293);
             vat_error.Name = "vat_error";
-            vat_error.Size = new Size(65, 15);
+            vat_error.Size = new Size(57, 15);
             vat_error.TabIndex = 29;
-            vat_error.Text = "input_error";
+            vat_error.Text = "text_error";
             vat_error.Visible = false;
             // 
             // vat_label
             // 
             vat_label.AutoSize = true;
-            vat_label.Location = new Point(125, 298);
+            vat_label.Location = new Point(125, 290);
             vat_label.Name = "vat_label";
             vat_label.Size = new Size(29, 15);
             vat_label.TabIndex = 28;
@@ -161,9 +161,9 @@
             subscription_error.AutoSize = true;
             subscription_error.Location = new Point(266, 264);
             subscription_error.Name = "subscription_error";
-            subscription_error.Size = new Size(65, 15);
+            subscription_error.Size = new Size(57, 15);
             subscription_error.TabIndex = 26;
-            subscription_error.Text = "input_error";
+            subscription_error.Text = "text_error";
             subscription_error.Visible = false;
             // 
             // cogeneration_error
@@ -171,9 +171,9 @@
             cogeneration_error.AutoSize = true;
             cogeneration_error.Location = new Point(266, 235);
             cogeneration_error.Name = "cogeneration_error";
-            cogeneration_error.Size = new Size(65, 15);
+            cogeneration_error.Size = new Size(57, 15);
             cogeneration_error.TabIndex = 25;
-            cogeneration_error.Text = "input_error";
+            cogeneration_error.Text = "text_error";
             cogeneration_error.Visible = false;
             // 
             // oze_error
@@ -181,9 +181,9 @@
             oze_error.AutoSize = true;
             oze_error.Location = new Point(266, 206);
             oze_error.Name = "oze_error";
-            oze_error.Size = new Size(65, 15);
+            oze_error.Size = new Size(57, 15);
             oze_error.TabIndex = 24;
-            oze_error.Text = "input_error";
+            oze_error.Text = "text_error";
             oze_error.Visible = false;
             // 
             // quality_error
@@ -191,9 +191,9 @@
             quality_error.AutoSize = true;
             quality_error.Location = new Point(266, 177);
             quality_error.Name = "quality_error";
-            quality_error.Size = new Size(65, 15);
+            quality_error.Size = new Size(57, 15);
             quality_error.TabIndex = 23;
-            quality_error.Text = "input_error";
+            quality_error.Text = "text_error";
             quality_error.Visible = false;
             // 
             // network_variable_error
@@ -201,9 +201,9 @@
             network_variable_error.AutoSize = true;
             network_variable_error.Location = new Point(266, 148);
             network_variable_error.Name = "network_variable_error";
-            network_variable_error.Size = new Size(65, 15);
+            network_variable_error.Size = new Size(57, 15);
             network_variable_error.TabIndex = 22;
-            network_variable_error.Text = "input_error";
+            network_variable_error.Text = "text_error";
             network_variable_error.Visible = false;
             // 
             // capacirt_error
@@ -211,9 +211,9 @@
             capacirt_error.AutoSize = true;
             capacirt_error.Location = new Point(266, 119);
             capacirt_error.Name = "capacirt_error";
-            capacirt_error.Size = new Size(65, 15);
+            capacirt_error.Size = new Size(57, 15);
             capacirt_error.TabIndex = 21;
-            capacirt_error.Text = "input_error";
+            capacirt_error.Text = "text_error";
             capacirt_error.Visible = false;
             // 
             // transation_error
@@ -221,9 +221,9 @@
             transation_error.AutoSize = true;
             transation_error.Location = new Point(266, 90);
             transation_error.Name = "transation_error";
-            transation_error.Size = new Size(65, 15);
+            transation_error.Size = new Size(57, 15);
             transation_error.TabIndex = 20;
-            transation_error.Text = "input_error";
+            transation_error.Text = "text_error";
             transation_error.Visible = false;
             // 
             // fixed_network_error
@@ -231,9 +231,9 @@
             fixed_network_error.AutoSize = true;
             fixed_network_error.Location = new Point(266, 61);
             fixed_network_error.Name = "fixed_network_error";
-            fixed_network_error.Size = new Size(65, 15);
+            fixed_network_error.Size = new Size(57, 15);
             fixed_network_error.TabIndex = 19;
-            fixed_network_error.Text = "input_error";
+            fixed_network_error.Text = "text_error";
             fixed_network_error.Visible = false;
             // 
             // label9
@@ -257,7 +257,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(81, 206);
+            label7.Location = new Point(85, 206);
             label7.Name = "label7";
             label7.Size = new Size(69, 15);
             label7.TabIndex = 15;
@@ -397,9 +397,9 @@
             kwh_sell_error.AutoSize = true;
             kwh_sell_error.Location = new Point(266, 25);
             kwh_sell_error.Name = "kwh_sell_error";
-            kwh_sell_error.Size = new Size(65, 15);
+            kwh_sell_error.Size = new Size(57, 15);
             kwh_sell_error.TabIndex = 22;
-            kwh_sell_error.Text = "input_error";
+            kwh_sell_error.Text = "text_error";
             kwh_sell_error.Visible = false;
             // 
             // kwh_sell_label

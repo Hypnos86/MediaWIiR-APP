@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEnergyData));
-            energy_data_groupbox = new GroupBox();
+            estimationGroupBox = new GroupBox();
             text_error_month = new Label();
             text_error_power = new Label();
             text_error_kwh = new Label();
@@ -41,23 +41,23 @@
             kwh_input = new TextBox();
             add_button = new Button();
             cancel_button = new Button();
-            energy_data_groupbox.SuspendLayout();
+            estimationGroupBox.SuspendLayout();
             SuspendLayout();
             // 
-            // energy_data_groupbox
+            // estimationGroupBox
             // 
-            resources.ApplyResources(energy_data_groupbox, "energy_data_groupbox");
-            energy_data_groupbox.Controls.Add(text_error_month);
-            energy_data_groupbox.Controls.Add(text_error_power);
-            energy_data_groupbox.Controls.Add(text_error_kwh);
-            energy_data_groupbox.Controls.Add(month_need_label);
-            energy_data_groupbox.Controls.Add(month_input);
-            energy_data_groupbox.Controls.Add(power_need_label);
-            energy_data_groupbox.Controls.Add(power_input);
-            energy_data_groupbox.Controls.Add(kwh_need_label);
-            energy_data_groupbox.Controls.Add(kwh_input);
-            energy_data_groupbox.Name = "energy_data_groupbox";
-            energy_data_groupbox.TabStop = false;
+            resources.ApplyResources(estimationGroupBox, "estimationGroupBox");
+            estimationGroupBox.Controls.Add(text_error_month);
+            estimationGroupBox.Controls.Add(text_error_power);
+            estimationGroupBox.Controls.Add(text_error_kwh);
+            estimationGroupBox.Controls.Add(month_need_label);
+            estimationGroupBox.Controls.Add(month_input);
+            estimationGroupBox.Controls.Add(power_need_label);
+            estimationGroupBox.Controls.Add(power_input);
+            estimationGroupBox.Controls.Add(kwh_need_label);
+            estimationGroupBox.Controls.Add(kwh_input);
+            estimationGroupBox.Name = "estimationGroupBox";
+            estimationGroupBox.TabStop = false;
             // 
             // text_error_month
             // 
@@ -124,17 +124,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(cancel_button);
             Controls.Add(add_button);
-            Controls.Add(energy_data_groupbox);
+            Controls.Add(estimationGroupBox);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormEnergyData";
-            energy_data_groupbox.ResumeLayout(false);
-            energy_data_groupbox.PerformLayout();
+            estimationGroupBox.ResumeLayout(false);
+            estimationGroupBox.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private GroupBox energy_data_groupbox;
+        private GroupBox estimationGroupBox;
         private Label text_error_month;
         private Label text_error_power;
         private Label text_error_kwh;

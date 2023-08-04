@@ -1,6 +1,6 @@
 ﻿namespace MediaWIiR_APP
 {
-    partial class FormHeatingFee
+    partial class FormGasEstimation
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGasEstimation));
             SuspendLayout();
             // 
-            // FormHeatingFee
+            // FormGasEstimation
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "FormHeatingFee";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "HeatingFee";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "FormGasEstimation";
+            Text = "FormGasEstimation";
             ResumeLayout(false);
         }
 

@@ -12,6 +12,11 @@ namespace MediaWIiR_APP
         public static EnergyTariff? EnergyTariff { get; set; } = null;
         public static WaterData? WaterData { get; set; } = null;
         public static WaterTariff? WaterTariff { get; set; } = null;
+        public static HeatData? HeatData { get; set; } = null;
+        public static HeatTariff? HeatTariff { get; set; } = null;
+        public static GasData? GasData { get; set; } = null;
+        public static GasTariff? GasTariff { get; set; } = null;
+
         public static string estimationDate { get; set; } = null;
 
         public MainForm()
@@ -36,7 +41,7 @@ namespace MediaWIiR_APP
             bool address_validator = servis.validating_text(address_input, address_error);
             int option = media_type_select.SelectedIndex;
 
-            if (unit_validator && media_type_validator && county_validator && zip_code_validator && city_validator && address_validator && ((option == 0 && EnergyData != null && EnergyTariff != null) || (option == 2 && WaterData != null && WaterTariff != null)))
+            if (unit_validator && media_type_validator && county_validator && zip_code_validator && city_validator && address_validator && ((option == 0 && EnergyData != null && EnergyTariff != null) || (option == 1 && HeatData != null && HeatTariff != null) || (option == 2 && WaterData != null && WaterTariff != null) || (option == 3 && GasData != null && GasTariff != null)))
             {
                 Unit = new Unit();
                 Unit.City = city_input.Text;
@@ -54,11 +59,20 @@ namespace MediaWIiR_APP
                         this.DialogResult = DialogResult.OK;
                         formEnergyEstimation.Show();
                         break;
-
+                    case 1:
+                        FormHeatEstimation formHeatingEstimation = new FormHeatEstimation();
+                        this.DialogResult = DialogResult.OK;
+                        formHeatingEstimation.Show();
+                        break;
                     case 2:
                         FormWaterEstimation formWaterEstimation = new FormWaterEstimation();
                         this.DialogResult = DialogResult.OK;
                         formWaterEstimation.Show();
+                        break;
+                    case 3:
+                        FormGasEstimation formGasEstimation = new FormGasEstimation();
+                        this.DialogResult = DialogResult.OK;
+                        formGasEstimation.Show();
                         break;
                 }
             }
@@ -89,7 +103,7 @@ namespace MediaWIiR_APP
                     break;
 
                 case 1://co
-                    FormHeatingFee formHeatingFee = new FormHeatingFee();
+                    FormHeatFee formHeatingFee = new FormHeatFee(HeatTariff);
                     formHeatingFee.ShowDialog();
                     break;
 
@@ -99,7 +113,7 @@ namespace MediaWIiR_APP
                     break;
 
                 case 3: //gaz
-                    FormGasFee formGasFee = new FormGasFee();
+                    FormGasFee formGasFee = new FormGasFee(GasTariff);
                     formGasFee.ShowDialog();
                     break;
             }
@@ -116,7 +130,7 @@ namespace MediaWIiR_APP
                     break;
 
                 case 1: //co
-                    FormHeatingData formHeatingData = new FormHeatingData();
+                    FormHeatData formHeatingData = new FormHeatData(HeatData);
                     formHeatingData.ShowDialog();
                     break;
                 case 2: //woda
@@ -126,7 +140,7 @@ namespace MediaWIiR_APP
                     formWaterData.ShowDialog();
                     break;
                 case 3: //gaz
-                    FormGasData formGasData = new FormGasData();
+                    FormGasData formGasData = new FormGasData(GasData);
                     formGasData.ShowDialog();
                     break;
             }
