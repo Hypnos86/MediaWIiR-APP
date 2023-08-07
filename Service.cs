@@ -173,7 +173,7 @@ namespace MediaWIiR_APP
             waterResult.SubscriptionSewage = Math.Round(waterTariff.SubscriptionSewage * waterData.Month, 2);
 
             waterResult.SumNetto = Math.Round(waterResult.Water + waterResult.Sewage + waterResult.SubscriptionWater + waterResult.SubscriptionSewage, 2);
-            waterResult.SumVat = Math.Round(waterResult.SumNetto + (waterResult.SumNetto * (waterTariff.VatValue * 0.01m)), 2);
+            waterResult.SumBrutto = Math.Round(waterResult.SumNetto + (waterResult.SumNetto * (waterTariff.VatValue * 0.01m)), 2);
             waterResult.SumWater = waterData.WaterAmount * waterData.Month;
 
             return waterResult;
@@ -190,8 +190,14 @@ namespace MediaWIiR_APP
                 heatResult.Tariff = heatResult.Tariff.Trim();
             }
             heatResult.HeatFee = Math.Round((heatTariff.HeatFee * heatData.Heat) * heatData.Month, 2);
-            heatResult.FixedShippingFee = Math.Round((heatTariff.FixedShippingFee*heatData.Power)*heatData.Month,2);
-            //TOO dokończyć przeliczanie kosztów
+            heatResult.FixedShippingFee = Math.Round((heatTariff.FixedShippingFee * heatData.Power) * heatData.Month, 2);
+            heatResult.VariableShippingFee = Math.Round((heatTariff.VariableShippingFee * heatData.Power) * heatData.Month, 2);
+            heatResult.SubscriptionFee = Math.Round(heatTariff.SubscriptionFee * heatData.Month, 2);
+            heatResult.CarrerFee = Math.Round((heatTariff.CarrerFee * heatData.Carrier) * heatData.Month, 2);
+            heatResult.OrderedThermalPower = Math.Round((heatTariff.OrderedThermalPower * heatData.Power) * heatData.Month, 2);
+            heatResult.SumGj = heatData.Heat * heatData.Month;
+            heatResult.SumNetto = Math.Round(heatResult.HeatFee + heatResult.FixedShippingFee + heatResult.VariableShippingFee + heatResult.SubscriptionFee + heatResult.CarrerFee + heatResult.OrderedThermalPower, 2);
+            heatResult.SumBrutto = Math.Round(heatResult.SumNetto + (heatResult.SumNetto * (heatResult.VatValue * 0.01m)), 2);
             return heatResult;
         }
 

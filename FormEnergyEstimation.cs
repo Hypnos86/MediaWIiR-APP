@@ -20,26 +20,26 @@ namespace MediaWIiR_APP
             month_text.Text = MainForm.EnergyData.Month.ToString();
 
             tariff_text.Text = MainForm.EnergyTariff.Tariff;
-            fixedNetworkFee_text.Text = MainForm.EnergyTariff.FixedNetworkFee.ToString();
-            transitionFee_text.Text = MainForm.EnergyTariff.TransitionFee.ToString();
-            capacirtFee_text.Text = MainForm.EnergyTariff.CapacirtFee.ToString();
-            networkVariableFee_text.Text = MainForm.EnergyTariff.NetworkVariableFee.ToString();
-            qualityFee_text.Text = MainForm.EnergyTariff.QualityFee.ToString();
+            fixedNetworkFee_text.Text = string.Format("{0} zł",MainForm.EnergyTariff.FixedNetworkFee.ToString()); ;
+            transitionFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.TransitionFee.ToString());
+            capacirtFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.CapacirtFee.ToString());
+            networkVariableFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.NetworkVariableFee.ToString());
+            qualityFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.QualityFee.ToString());
             vat_text.Text = string.Format("{0}%", MainForm.EnergyTariff.VatValue.ToString());
-            renewableEnergySourcesFee_text.Text = MainForm.EnergyTariff.QualityFee.ToString();
-            cogenerationFee_text.Text = MainForm.EnergyTariff.CogenerationFee.ToString();
-            subscriptionFee_text.Text = MainForm.EnergyTariff.SubscriptionFee.ToString();
-            kwhSell_text.Text = MainForm.EnergyTariff.KwhSell.ToString();
+            renewableEnergySourcesFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.QualityFee.ToString());
+            cogenerationFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.CogenerationFee.ToString());
+            subscriptionFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.SubscriptionFee.ToString());
+            kwhSell_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.KwhSell.ToString());
 
             //przypisywanie wynikow do wyswietlenia
-            cogenerationFee_result.Text = energyResult.CogenerationFee.ToString();
-            capacirtFee_result.Text = energyResult.CapacirtFee.ToString();
-            fixedNetworkFee_result.Text = energyResult.FixedNetworkFee.ToString();
-            networkVariableFee_result.Text = energyResult.NetworkVariableFee.ToString();
-            qualityFee_result.Text = energyResult.QualityFee.ToString();
-            subscriptionFee_result.Text = energyResult.SubscriptionFee.ToString();
-            renewableEnergySourcesFee_result.Text = energyResult.RenewableEnergySourcesFee.ToString();
-            transitionFee_result.Text = energyResult.TransitionFee.ToString();
+            cogenerationFee_result.Text = string.Format("{0} zł", energyResult.CogenerationFee.ToString());
+            capacirtFee_result.Text = string.Format("{0} zł", energyResult.CapacirtFee.ToString());
+            fixedNetworkFee_result.Text = string.Format("{0} zł", energyResult.FixedNetworkFee.ToString());
+            networkVariableFee_result.Text = string.Format("{0} zł", energyResult.NetworkVariableFee.ToString());
+            qualityFee_result.Text = string.Format("{0} zł", energyResult.QualityFee.ToString());
+            subscriptionFee_result.Text = string.Format("{0} zł", energyResult.SubscriptionFee.ToString());
+            renewableEnergySourcesFee_result.Text = string.Format("{0} zł", energyResult.RenewableEnergySourcesFee.ToString());
+            transitionFee_result.Text = string.Format("{0} zł", energyResult.TransitionFee.ToString());
             kwhSellResultNetto.Text = string.Format("{0} zł", energyResult.SumNettoSell.ToString());
             kwhSellResultBrutto.Text = string.Format("{0} zł", energyResult.SumBruttoSell.ToString());
             kwhOsdResultNetto.Text = string.Format("{0} zł", energyResult.SumNettoOsd.ToString());

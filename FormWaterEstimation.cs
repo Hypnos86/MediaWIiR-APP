@@ -17,19 +17,19 @@ namespace MediaWIiR_APP
 
             tariff_text.Text = MainForm.WaterTariff.Tariff.ToString();
             month_text.Text = MainForm.WaterData.Month.ToString();
-            estimate_text.Text = MainForm.WaterData.WaterAmount.ToString();
-            vat_text.Text = MainForm.WaterTariff.VatValue.ToString();
-            water_text.Text = MainForm.WaterTariff.Water.ToString();
-            sewage_text.Text = MainForm.WaterTariff.Sewage.ToString();
-            water_subscription_text.Text = MainForm.WaterTariff.SubscriptionWater.ToString();
-            sewage_subscription_text.Text = MainForm.WaterTariff.SubscriptionSewage.ToString();
+            estimate_text.Text = string.Format("{0} m3", MainForm.WaterData.WaterAmount.ToString());
+            vat_text.Text = string.Format("{0}%", MainForm.WaterTariff.VatValue.ToString());
+            water_text.Text = string.Format("{0} zł", MainForm.WaterTariff.Water.ToString());
+            sewage_text.Text = string.Format("{0} zł", MainForm.WaterTariff.Sewage.ToString());
+            water_subscription_text.Text = string.Format("{0} zł", MainForm.WaterTariff.SubscriptionWater.ToString());
+            sewage_subscription_text.Text = string.Format("{0} zł", MainForm.WaterTariff.SubscriptionSewage.ToString());
 
-            water_result.Text = waterResult.Water.ToString();
-            sewage_result.Text = waterResult.Sewage.ToString();
-            water_subscribe_result.Text = waterResult.SubscriptionWater.ToString();
-            sewage_subscribtion_result.Text = waterResult.SubscriptionSewage.ToString();
-            netto_label.Text = waterResult.SumNetto.ToString();
-            brutto_label.Text = waterResult.SumVat.ToString();
+            water_result.Text = string.Format("{0} zł", waterResult.Water.ToString());
+            sewage_result.Text = string.Format("{0} zł", waterResult.Sewage.ToString());
+            water_subscribe_result.Text = string.Format("{0} zł", waterResult.SubscriptionWater.ToString());
+            sewage_subscribtion_result.Text = string.Format("{0} zł", waterResult.SubscriptionSewage.ToString());
+            netto_label.Text = string.Format("{0} zł", waterResult.SumNetto.ToString());
+            brutto_label.Text = string.Format("{0} zł", waterResult.SumBrutto.ToString());
             water_sum_text.Text = waterResult.SumWater.ToString();
 
 
@@ -75,7 +75,7 @@ namespace MediaWIiR_APP
             Paragraph feeDataTitle = section.AddParagraph();
             feeDataTitle.Format.Alignment = ParagraphAlignment.Left;
             feeDataTitle.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
-            feeDataTitle.AddText(string.Format("Wartości kosztów przyjęte do szacowania", MainForm.WaterData.WaterAmount.ToString()));
+            feeDataTitle.AddText(string.Format("Wartości kosztów przyjęte do szacowania"));
             feeDataTitle.Format.Font.Bold = true;
 
             //Dane do obliczen
@@ -111,7 +111,7 @@ namespace MediaWIiR_APP
             estimationResult.Format.SpaceAfter = Unit.FromPoint(30); //puste miejscemiedzy elementami
             estimationResult.AddText(string.Format("Całkowity koszt netto: {0} zł\n", waterResult.SumNetto.ToString()));
             estimationResult.AddText(string.Format("Vat: {0}%\n", MainForm.WaterTariff.VatValue.ToString()));
-            estimationResult.AddText(string.Format("Całkowity koszt brutto: {0} zł", waterResult.SumVat.ToString()));
+            estimationResult.AddText(string.Format("Całkowity koszt brutto: {0} zł", waterResult.SumBrutto.ToString()));
             estimationResult.Format.SpaceAfter = Unit.FromPoint(100); //puste miejscemiedzy elementami
             // podpis prcownika
             Paragraph author = new Paragraph();

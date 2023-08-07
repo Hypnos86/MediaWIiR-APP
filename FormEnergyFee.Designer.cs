@@ -74,7 +74,7 @@
             cancel_button.Location = new Point(262, 430);
             cancel_button.Name = "cancel_button";
             cancel_button.Size = new Size(150, 25);
-            cancel_button.TabIndex = 11;
+            cancel_button.TabIndex = 13;
             cancel_button.Text = "Anuluj";
             cancel_button.UseVisualStyleBackColor = true;
             cancel_button.Click += cancel_button_Click;
@@ -85,7 +85,7 @@
             add_button.Location = new Point(12, 430);
             add_button.Name = "add_button";
             add_button.Size = new Size(150, 25);
-            add_button.TabIndex = 10;
+            add_button.TabIndex = 12;
             add_button.Text = "Dodaj dane";
             add_button.UseVisualStyleBackColor = true;
             add_button.Click += add_tariff_button_Click;
@@ -388,7 +388,7 @@
             sell_tariff.Location = new Point(12, 348);
             sell_tariff.Name = "sell_tariff";
             sell_tariff.Size = new Size(400, 66);
-            sell_tariff.TabIndex = 12;
+            sell_tariff.TabIndex = 10;
             sell_tariff.TabStop = false;
             sell_tariff.Text = "Dane dotyczące sprzedaży";
             // 
@@ -416,7 +416,7 @@
             kWh_sell_input.Location = new Point(160, 22);
             kWh_sell_input.Name = "kWh_sell_input";
             kWh_sell_input.Size = new Size(100, 23);
-            kWh_sell_input.TabIndex = 20;
+            kWh_sell_input.TabIndex = 11;
             // 
             // FormEnergyFee
             // 

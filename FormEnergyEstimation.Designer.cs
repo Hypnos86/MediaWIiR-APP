@@ -63,7 +63,11 @@
             kwh_text = new TextBox();
             month_text = new TextBox();
             tariff_text = new TextBox();
-            estimztionGroupBox = new GroupBox();
+            estimationGroupBox = new GroupBox();
+            kwhSellResultBrutto = new Label();
+            label2 = new Label();
+            kwhSellResultNetto = new Label();
+            kwhFee = new Label();
             kwh_sum_text = new Label();
             kwh = new Label();
             kwhOsdResultBrutto = new Label();
@@ -86,12 +90,8 @@
             capacirtFee = new Label();
             transitionFee = new Label();
             networkVariableFee = new Label();
-            kwhSellResultNetto = new Label();
-            kwhFee = new Label();
-            kwhSellResultBrutto = new Label();
-            label2 = new Label();
             inputDataGroupBox.SuspendLayout();
-            estimztionGroupBox.SuspendLayout();
+            estimationGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // save_to_pdf_click
@@ -284,9 +284,9 @@
             kwhSell_label.AutoSize = true;
             kwhSell_label.Location = new Point(149, 263);
             kwhSell_label.Name = "kwhSell_label";
-            kwhSell_label.Size = new Size(77, 15);
+            kwhSell_label.Size = new Size(76, 15);
             kwhSell_label.TabIndex = 47;
-            kwhSell_label.Text = "Koszt 1 kWh: ";
+            kwhSell_label.Text = "koszt 1 kWh: ";
             // 
             // unit_text
             // 
@@ -417,40 +417,76 @@
             tariff_text.Size = new Size(100, 23);
             tariff_text.TabIndex = 31;
             // 
-            // estimztionGroupBox
+            // estimationGroupBox
             // 
-            estimztionGroupBox.Controls.Add(kwhSellResultBrutto);
-            estimztionGroupBox.Controls.Add(label2);
-            estimztionGroupBox.Controls.Add(kwhSellResultNetto);
-            estimztionGroupBox.Controls.Add(kwhFee);
-            estimztionGroupBox.Controls.Add(kwh_sum_text);
-            estimztionGroupBox.Controls.Add(kwh);
-            estimztionGroupBox.Controls.Add(kwhOsdResultBrutto);
-            estimztionGroupBox.Controls.Add(brutto);
-            estimztionGroupBox.Controls.Add(kwhOsdResultNetto);
-            estimztionGroupBox.Controls.Add(nettto);
-            estimztionGroupBox.Controls.Add(subscriptionFee_result);
-            estimztionGroupBox.Controls.Add(subscriptionFee);
-            estimztionGroupBox.Controls.Add(cogenerationFee_result);
-            estimztionGroupBox.Controls.Add(renewableEnergySourcesFee_result);
-            estimztionGroupBox.Controls.Add(qualityFee_result);
-            estimztionGroupBox.Controls.Add(networkVariableFee_result);
-            estimztionGroupBox.Controls.Add(capacirtFee_result);
-            estimztionGroupBox.Controls.Add(transitionFee_result);
-            estimztionGroupBox.Controls.Add(fixedNetworkFee_result);
-            estimztionGroupBox.Controls.Add(cogenerationFee);
-            estimztionGroupBox.Controls.Add(fixedNetworkFee);
-            estimztionGroupBox.Controls.Add(renewableEnergySourcesFee);
-            estimztionGroupBox.Controls.Add(qualityFee);
-            estimztionGroupBox.Controls.Add(capacirtFee);
-            estimztionGroupBox.Controls.Add(transitionFee);
-            estimztionGroupBox.Controls.Add(networkVariableFee);
-            estimztionGroupBox.Location = new Point(12, 346);
-            estimztionGroupBox.Name = "estimztionGroupBox";
-            estimztionGroupBox.Size = new Size(760, 268);
-            estimztionGroupBox.TabIndex = 32;
-            estimztionGroupBox.TabStop = false;
-            estimztionGroupBox.Text = "Szcunek kosztów";
+            estimationGroupBox.Controls.Add(kwhSellResultBrutto);
+            estimationGroupBox.Controls.Add(label2);
+            estimationGroupBox.Controls.Add(kwhSellResultNetto);
+            estimationGroupBox.Controls.Add(kwhFee);
+            estimationGroupBox.Controls.Add(kwh_sum_text);
+            estimationGroupBox.Controls.Add(kwh);
+            estimationGroupBox.Controls.Add(kwhOsdResultBrutto);
+            estimationGroupBox.Controls.Add(brutto);
+            estimationGroupBox.Controls.Add(kwhOsdResultNetto);
+            estimationGroupBox.Controls.Add(nettto);
+            estimationGroupBox.Controls.Add(subscriptionFee_result);
+            estimationGroupBox.Controls.Add(subscriptionFee);
+            estimationGroupBox.Controls.Add(cogenerationFee_result);
+            estimationGroupBox.Controls.Add(renewableEnergySourcesFee_result);
+            estimationGroupBox.Controls.Add(qualityFee_result);
+            estimationGroupBox.Controls.Add(networkVariableFee_result);
+            estimationGroupBox.Controls.Add(capacirtFee_result);
+            estimationGroupBox.Controls.Add(transitionFee_result);
+            estimationGroupBox.Controls.Add(fixedNetworkFee_result);
+            estimationGroupBox.Controls.Add(cogenerationFee);
+            estimationGroupBox.Controls.Add(fixedNetworkFee);
+            estimationGroupBox.Controls.Add(renewableEnergySourcesFee);
+            estimationGroupBox.Controls.Add(qualityFee);
+            estimationGroupBox.Controls.Add(capacirtFee);
+            estimationGroupBox.Controls.Add(transitionFee);
+            estimationGroupBox.Controls.Add(networkVariableFee);
+            estimationGroupBox.Location = new Point(12, 346);
+            estimationGroupBox.Name = "estimationGroupBox";
+            estimationGroupBox.Size = new Size(760, 268);
+            estimationGroupBox.TabIndex = 32;
+            estimationGroupBox.TabStop = false;
+            estimationGroupBox.Text = "Szcunek kosztów";
+            // 
+            // kwhSellResultBrutto
+            // 
+            kwhSellResultBrutto.AutoSize = true;
+            kwhSellResultBrutto.Location = new Point(559, 169);
+            kwhSellResultBrutto.Name = "kwhSellResultBrutto";
+            kwhSellResultBrutto.Size = new Size(38, 15);
+            kwhSellResultBrutto.TabIndex = 57;
+            kwhSellResultBrutto.Text = "label3";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(393, 169);
+            label2.Name = "label2";
+            label2.Size = new Size(160, 15);
+            label2.TabIndex = 56;
+            label2.Text = "Koszt kWh - sprzedaż brutto: ";
+            // 
+            // kwhSellResultNetto
+            // 
+            kwhSellResultNetto.AutoSize = true;
+            kwhSellResultNetto.Location = new Point(559, 139);
+            kwhSellResultNetto.Name = "kwhSellResultNetto";
+            kwhSellResultNetto.Size = new Size(38, 15);
+            kwhSellResultNetto.TabIndex = 55;
+            kwhSellResultNetto.Text = "label3";
+            // 
+            // kwhFee
+            // 
+            kwhFee.AutoSize = true;
+            kwhFee.Location = new Point(398, 139);
+            kwhFee.Name = "kwhFee";
+            kwhFee.Size = new Size(155, 15);
+            kwhFee.TabIndex = 54;
+            kwhFee.Text = "Koszt kWh - sprzedaż netto: ";
             // 
             // kwh_sum_text
             // 
@@ -470,11 +506,11 @@
             kwh.TabIndex = 52;
             kwh.Text = "Suma kWh: ";
             // 
-            // brutto_label
+            // kwhOsdResultBrutto
             // 
             kwhOsdResultBrutto.AutoSize = true;
             kwhOsdResultBrutto.Location = new Point(559, 49);
-            kwhOsdResultBrutto.Name = "brutto_label";
+            kwhOsdResultBrutto.Name = "kwhOsdResultBrutto";
             kwhOsdResultBrutto.Size = new Size(38, 15);
             kwhOsdResultBrutto.TabIndex = 51;
             kwhOsdResultBrutto.Text = "label4";
@@ -488,11 +524,11 @@
             brutto.TabIndex = 50;
             brutto.Text = "Suma kosztów OSD brutto:";
             // 
-            // netto_label
+            // kwhOsdResultNetto
             // 
             kwhOsdResultNetto.AutoSize = true;
             kwhOsdResultNetto.Location = new Point(559, 19);
-            kwhOsdResultNetto.Name = "netto_label";
+            kwhOsdResultNetto.Name = "kwhOsdResultNetto";
             kwhOsdResultNetto.Size = new Size(38, 15);
             kwhOsdResultNetto.TabIndex = 49;
             kwhOsdResultNetto.Text = "label3";
@@ -650,48 +686,12 @@
             networkVariableFee.TabIndex = 32;
             networkVariableFee.Text = "opłata zmienna sieciowa: ";
             // 
-            // kwhSellResultNetto
-            // 
-            kwhSellResultNetto.AutoSize = true;
-            kwhSellResultNetto.Location = new Point(559, 139);
-            kwhSellResultNetto.Name = "kwhSellResultNetto";
-            kwhSellResultNetto.Size = new Size(38, 15);
-            kwhSellResultNetto.TabIndex = 55;
-            kwhSellResultNetto.Text = "label3";
-            // 
-            // kwhFee
-            // 
-            kwhFee.AutoSize = true;
-            kwhFee.Location = new Point(398, 139);
-            kwhFee.Name = "kwhFee";
-            kwhFee.Size = new Size(155, 15);
-            kwhFee.TabIndex = 54;
-            kwhFee.Text = "Koszt kWh - sprzedaż netto: ";
-            // 
-            // kwhSellResultBrutto
-            // 
-            kwhSellResultBrutto.AutoSize = true;
-            kwhSellResultBrutto.Location = new Point(559, 169);
-            kwhSellResultBrutto.Name = "kwhSellResultBrutto";
-            kwhSellResultBrutto.Size = new Size(38, 15);
-            kwhSellResultBrutto.TabIndex = 57;
-            kwhSellResultBrutto.Text = "label3";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(393, 169);
-            label2.Name = "label2";
-            label2.Size = new Size(160, 15);
-            label2.TabIndex = 56;
-            label2.Text = "Koszt kWh - sprzedaż brutto: ";
-            // 
             // FormEnergyEstimation
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(788, 667);
-            Controls.Add(estimztionGroupBox);
+            Controls.Add(estimationGroupBox);
             Controls.Add(inputDataGroupBox);
             Controls.Add(title);
             Controls.Add(cancel_button);
@@ -703,8 +703,8 @@
             Text = "Analiza szacowania kosztów";
             inputDataGroupBox.ResumeLayout(false);
             inputDataGroupBox.PerformLayout();
-            estimztionGroupBox.ResumeLayout(false);
-            estimztionGroupBox.PerformLayout();
+            estimationGroupBox.ResumeLayout(false);
+            estimationGroupBox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -740,7 +740,7 @@
         private TextBox kwh_text;
         private TextBox month_text;
         private TextBox tariff_text;
-        private GroupBox estimztionGroupBox;
+        private GroupBox estimationGroupBox;
         private Label cogenerationFee_result;
         private Label renewableEnergySourcesFee_result;
         private Label qualityFee_result;

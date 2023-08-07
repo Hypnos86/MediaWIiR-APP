@@ -14,5 +14,9 @@ namespace MediaWIiR_APP.Models
         public string City { get; set; }
         public string County { get; set; }
 
+        internal static MigraDoc.DocumentObjectModel.Unit FromPoint(int v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

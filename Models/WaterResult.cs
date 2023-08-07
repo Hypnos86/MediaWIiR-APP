@@ -9,7 +9,7 @@ namespace MediaWIiR_APP.Models
     internal class WaterResult: WaterTariff
     {
         public decimal SumNetto { get; set; }
-        public decimal SumVat { get; set; }
+        public decimal SumBrutto { get; set; }
         public int SumWater { get; set; }
     }
 }

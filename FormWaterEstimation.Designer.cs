@@ -49,7 +49,7 @@
             water_subscription_label = new Label();
             sewage_label = new Label();
             sewage_subscription_label = new Label();
-            estimztionGroupBox = new GroupBox();
+            estimationWaterGroupBox = new GroupBox();
             water_sum_text = new Label();
             sumWater = new Label();
             brutto_label = new Label();
@@ -67,7 +67,7 @@
             cancel_button = new Button();
             save_to_pdf_click = new Button();
             inputDataGroupBox.SuspendLayout();
-            estimztionGroupBox.SuspendLayout();
+            estimationWaterGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // title
@@ -259,28 +259,28 @@
             sewage_subscription_label.TabIndex = 18;
             sewage_subscription_label.Text = "Ścieki - abonament: ";
             // 
-            // estimztionGroupBox
+            // estimationWaterGroupBox
             // 
-            estimztionGroupBox.Controls.Add(water_sum_text);
-            estimztionGroupBox.Controls.Add(sumWater);
-            estimztionGroupBox.Controls.Add(brutto_label);
-            estimztionGroupBox.Controls.Add(brutto);
-            estimztionGroupBox.Controls.Add(netto_label);
-            estimztionGroupBox.Controls.Add(label2);
-            estimztionGroupBox.Controls.Add(sewage_subscribtion_result);
-            estimztionGroupBox.Controls.Add(water_subscribe_result);
-            estimztionGroupBox.Controls.Add(sewage_result);
-            estimztionGroupBox.Controls.Add(water_result);
-            estimztionGroupBox.Controls.Add(water);
-            estimztionGroupBox.Controls.Add(water_subscription);
-            estimztionGroupBox.Controls.Add(sewage);
-            estimztionGroupBox.Controls.Add(sewage_subscription);
-            estimztionGroupBox.Location = new Point(12, 314);
-            estimztionGroupBox.Name = "estimztionGroupBox";
-            estimztionGroupBox.Size = new Size(690, 169);
-            estimztionGroupBox.TabIndex = 19;
-            estimztionGroupBox.TabStop = false;
-            estimztionGroupBox.Text = "Szcunek kosztów";
+            estimationWaterGroupBox.Controls.Add(water_sum_text);
+            estimationWaterGroupBox.Controls.Add(sumWater);
+            estimationWaterGroupBox.Controls.Add(brutto_label);
+            estimationWaterGroupBox.Controls.Add(brutto);
+            estimationWaterGroupBox.Controls.Add(netto_label);
+            estimationWaterGroupBox.Controls.Add(label2);
+            estimationWaterGroupBox.Controls.Add(sewage_subscribtion_result);
+            estimationWaterGroupBox.Controls.Add(water_subscribe_result);
+            estimationWaterGroupBox.Controls.Add(sewage_result);
+            estimationWaterGroupBox.Controls.Add(water_result);
+            estimationWaterGroupBox.Controls.Add(water);
+            estimationWaterGroupBox.Controls.Add(water_subscription);
+            estimationWaterGroupBox.Controls.Add(sewage);
+            estimationWaterGroupBox.Controls.Add(sewage_subscription);
+            estimationWaterGroupBox.Location = new Point(12, 314);
+            estimationWaterGroupBox.Name = "estimationWaterGroupBox";
+            estimationWaterGroupBox.Size = new Size(690, 169);
+            estimationWaterGroupBox.TabIndex = 19;
+            estimationWaterGroupBox.TabStop = false;
+            estimationWaterGroupBox.Text = "Szacunek kosztów";
             // 
             // water_sum_text
             // 
@@ -435,7 +435,7 @@
             ClientSize = new Size(714, 531);
             Controls.Add(cancel_button);
             Controls.Add(save_to_pdf_click);
-            Controls.Add(estimztionGroupBox);
+            Controls.Add(estimationWaterGroupBox);
             Controls.Add(inputDataGroupBox);
             Controls.Add(title);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -445,8 +445,8 @@
             Text = "Analiza szacowania kosztów";
             inputDataGroupBox.ResumeLayout(false);
             inputDataGroupBox.PerformLayout();
-            estimztionGroupBox.ResumeLayout(false);
-            estimztionGroupBox.PerformLayout();
+            estimationWaterGroupBox.ResumeLayout(false);
+            estimationWaterGroupBox.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -483,7 +483,7 @@
         private Label water_subscription_label;
         private Label sewage_label;
         private Label sewage_subscription_label;
-        private GroupBox estimztionGroupBox;
+        private GroupBox estimationWaterGroupBox;
         private Label water_sum_text;
         private Label sumWater;
         private Label brutto_label;
