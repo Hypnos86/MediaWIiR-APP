@@ -10,6 +10,6 @@ namespace MediaWIiR_APP.Models
     {
         public decimal SumNetto { get; set; }
         public decimal SumBrutto { get; set; }
-        public int SumGj { get; set; }
+        public decimal SumGj { get; set; }
     }
 }

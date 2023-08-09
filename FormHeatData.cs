@@ -28,10 +28,10 @@ namespace MediaWIiR_APP
         private void add_button_Click(object sender, EventArgs e)
         {
             Service service = new Service();
-            bool heat = service.validating_data_forms(heat_input, heat_error, out int heatValue);
-            bool power = service.validating_data_forms(power_input, power_error, out int powerValue);
-            bool carrer = service.validating_data_forms(carrier_input, carrer_error, out int carrerValue);
-            bool month = service.validating_data_forms(month_input, mont_error, out int monthValue);
+            bool heat = service.validating_data_forms_decimal(heat_input, heat_error, out decimal heatValue);
+            bool power = service.validating_data_forms_int(power_input, power_error, out int powerValue);
+            bool carrer = service.validating_data_forms_int(carrier_input, carrer_error, out int carrerValue);
+            bool month = service.validating_data_forms_int(month_input, mont_error, out int monthValue);
 
             if (heat && power && carrer && month)
             {

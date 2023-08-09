@@ -55,7 +55,7 @@ namespace MediaWIiR_APP
                 MainForm.HeatTariff.CarrerFee = carrerFeeValue;
                 MainForm.HeatTariff.OrderedThermalPower = orderedThermalPowerValue;
                 MainForm.HeatTariff.VatValue = Convert.ToInt32(vatComboBox.SelectedItem);
-               
+
 
                 MessageBox.Show("Dane zostałyzapisane", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;

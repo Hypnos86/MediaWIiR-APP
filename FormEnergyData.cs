@@ -31,9 +31,9 @@ namespace MediaWIiR_APP
         public void accept_button_Click(object sender, EventArgs e)
         {
             Service service = new Service();
-            bool kwh = service.validating_data_forms(kwh_input, text_error_kwh, out int kwhValue);
-            bool power = service.validating_data_forms(power_input, text_error_power, out int powerValue);
-            bool month = service.validating_data_forms(month_input, text_error_month, out int monthValue);
+            bool kwh = service.validating_data_forms_int(kwh_input, text_error_kwh, out int kwhValue);
+            bool power = service.validating_data_forms_int(power_input, text_error_power, out int powerValue);
+            bool month = service.validating_data_forms_int(month_input, text_error_month, out int monthValue);
 
             if (kwh && power && month)
             {

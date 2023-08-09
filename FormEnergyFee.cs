@@ -33,16 +33,10 @@ namespace MediaWIiR_APP
             }
         }
 
-
-
         private void cancel_button_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
 
         private void add_tariff_button_Click(object sender, EventArgs e)

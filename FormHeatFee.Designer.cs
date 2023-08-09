@@ -60,7 +60,7 @@
             // 
             // cancel_button
             // 
-            cancel_button.Location = new Point(282, 294);
+            cancel_button.Location = new Point(332, 294);
             cancel_button.Name = "cancel_button";
             cancel_button.Size = new Size(130, 25);
             cancel_button.TabIndex = 0;
@@ -105,7 +105,7 @@
             estimationGroupBox.Controls.Add(tariff_label);
             estimationGroupBox.Location = new Point(12, 12);
             estimationGroupBox.Name = "estimationGroupBox";
-            estimationGroupBox.Size = new Size(400, 270);
+            estimationGroupBox.Size = new Size(450, 270);
             estimationGroupBox.TabIndex = 2;
             estimationGroupBox.TabStop = false;
             estimationGroupBox.Text = "Dane taryfy";
@@ -113,7 +113,7 @@
             // vat_error
             // 
             vat_error.AutoSize = true;
-            vat_error.Location = new Point(316, 228);
+            vat_error.Location = new Point(356, 228);
             vat_error.Name = "vat_error";
             vat_error.Size = new Size(57, 15);
             vat_error.TabIndex = 32;
@@ -123,7 +123,7 @@
             // vat_label
             // 
             vat_label.AutoSize = true;
-            vat_label.Location = new Point(175, 228);
+            vat_label.Location = new Point(215, 228);
             vat_label.Name = "vat_label";
             vat_label.Size = new Size(29, 15);
             vat_label.TabIndex = 31;
@@ -133,14 +133,14 @@
             // 
             vatComboBox.FormattingEnabled = true;
             vatComboBox.Items.AddRange(new object[] { "0", "5", "8", "23" });
-            vatComboBox.Location = new Point(210, 225);
+            vatComboBox.Location = new Point(250, 225);
             vatComboBox.Name = "vatComboBox";
             vatComboBox.Size = new Size(100, 23);
             vatComboBox.TabIndex = 30;
             // 
             // ordered_thermal_power_input
             // 
-            ordered_thermal_power_input.Location = new Point(210, 196);
+            ordered_thermal_power_input.Location = new Point(250, 196);
             ordered_thermal_power_input.Name = "ordered_thermal_power_input";
             ordered_thermal_power_input.Size = new Size(100, 23);
             ordered_thermal_power_input.TabIndex = 20;
@@ -148,7 +148,7 @@
             // ordered_thermal_power_error
             // 
             ordered_thermal_power_error.AutoSize = true;
-            ordered_thermal_power_error.Location = new Point(316, 199);
+            ordered_thermal_power_error.Location = new Point(356, 199);
             ordered_thermal_power_error.Name = "ordered_thermal_power_error";
             ordered_thermal_power_error.Size = new Size(57, 15);
             ordered_thermal_power_error.TabIndex = 19;
@@ -158,15 +158,15 @@
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(13, 199);
+            label14.Location = new Point(20, 199);
             label14.Name = "label14";
-            label14.Size = new Size(191, 15);
+            label14.Size = new Size(224, 15);
             label14.TabIndex = 18;
-            label14.Text = "Opłata za zamówioną moc cieplną:";
+            label14.Text = "Opłata za zamówioną moc cieplną - MW:";
             // 
             // carrer_fee_input
             // 
-            carrer_fee_input.Location = new Point(210, 167);
+            carrer_fee_input.Location = new Point(250, 167);
             carrer_fee_input.Name = "carrer_fee_input";
             carrer_fee_input.Size = new Size(100, 23);
             carrer_fee_input.TabIndex = 17;
@@ -174,7 +174,7 @@
             // carrer_fee_error
             // 
             carrer_fee_error.AutoSize = true;
-            carrer_fee_error.Location = new Point(316, 170);
+            carrer_fee_error.Location = new Point(356, 170);
             carrer_fee_error.Name = "carrer_fee_error";
             carrer_fee_error.Size = new Size(57, 15);
             carrer_fee_error.TabIndex = 16;
@@ -184,15 +184,15 @@
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(107, 170);
+            label12.Location = new Point(119, 170);
             label12.Name = "label12";
-            label12.Size = new Size(97, 15);
+            label12.Size = new Size(125, 15);
             label12.TabIndex = 15;
-            label12.Text = "Opłata za nośnik:";
+            label12.Text = "Opłata za nośnik - m3:";
             // 
             // subscription_fee_input
             // 
-            subscription_fee_input.Location = new Point(210, 138);
+            subscription_fee_input.Location = new Point(250, 138);
             subscription_fee_input.Name = "subscription_fee_input";
             subscription_fee_input.Size = new Size(100, 23);
             subscription_fee_input.TabIndex = 14;
@@ -200,7 +200,7 @@
             // subscription_fee_error
             // 
             subscription_fee_error.AutoSize = true;
-            subscription_fee_error.Location = new Point(316, 141);
+            subscription_fee_error.Location = new Point(356, 141);
             subscription_fee_error.Name = "subscription_fee_error";
             subscription_fee_error.Size = new Size(57, 15);
             subscription_fee_error.TabIndex = 13;
@@ -210,15 +210,15 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(73, 141);
+            label10.Location = new Point(85, 141);
             label10.Name = "label10";
-            label10.Size = new Size(131, 15);
+            label10.Size = new Size(159, 15);
             label10.TabIndex = 12;
-            label10.Text = "Opłata abonamentowa:";
+            label10.Text = "Opłata abonamentowa - mc:";
             // 
             // variable_shipping_fee_input
             // 
-            variable_shipping_fee_input.Location = new Point(210, 109);
+            variable_shipping_fee_input.Location = new Point(250, 109);
             variable_shipping_fee_input.Name = "variable_shipping_fee_input";
             variable_shipping_fee_input.Size = new Size(100, 23);
             variable_shipping_fee_input.TabIndex = 11;
@@ -226,7 +226,7 @@
             // variable_shipping_fee_error
             // 
             variable_shipping_fee_error.AutoSize = true;
-            variable_shipping_fee_error.Location = new Point(316, 112);
+            variable_shipping_fee_error.Location = new Point(356, 112);
             variable_shipping_fee_error.Name = "variable_shipping_fee_error";
             variable_shipping_fee_error.Size = new Size(57, 15);
             variable_shipping_fee_error.TabIndex = 10;
@@ -236,15 +236,15 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(60, 112);
+            label8.Location = new Point(75, 117);
             label8.Name = "label8";
-            label8.Size = new Size(146, 15);
+            label8.Size = new Size(169, 15);
             label8.TabIndex = 9;
-            label8.Text = "Opłata zmianna za przesył:";
+            label8.Text = "Opłata zmianna za przesył - GJ:";
             // 
             // fixed_shipping_fee_input
             // 
-            fixed_shipping_fee_input.Location = new Point(210, 80);
+            fixed_shipping_fee_input.Location = new Point(250, 80);
             fixed_shipping_fee_input.Name = "fixed_shipping_fee_input";
             fixed_shipping_fee_input.Size = new Size(100, 23);
             fixed_shipping_fee_input.TabIndex = 8;
@@ -252,7 +252,7 @@
             // fixed_shipping_fee_error
             // 
             fixed_shipping_fee_error.AutoSize = true;
-            fixed_shipping_fee_error.Location = new Point(316, 83);
+            fixed_shipping_fee_error.Location = new Point(356, 83);
             fixed_shipping_fee_error.Name = "fixed_shipping_fee_error";
             fixed_shipping_fee_error.Size = new Size(57, 15);
             fixed_shipping_fee_error.TabIndex = 7;
@@ -262,15 +262,15 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(79, 83);
+            label6.Location = new Point(86, 83);
             label6.Name = "label6";
-            label6.Size = new Size(125, 15);
+            label6.Size = new Size(158, 15);
             label6.TabIndex = 6;
-            label6.Text = "Opłata stała za przesył:";
+            label6.Text = "Opłata stała za przesył - MW:";
             // 
             // heat_fee_input
             // 
-            heat_fee_input.Location = new Point(210, 51);
+            heat_fee_input.Location = new Point(250, 51);
             heat_fee_input.Name = "heat_fee_input";
             heat_fee_input.Size = new Size(100, 23);
             heat_fee_input.TabIndex = 5;
@@ -278,15 +278,15 @@
             // heat_label
             // 
             heat_label.AutoSize = true;
-            heat_label.Location = new Point(110, 54);
+            heat_label.Location = new Point(127, 59);
             heat_label.Name = "heat_label";
-            heat_label.Size = new Size(94, 15);
+            heat_label.Size = new Size(117, 15);
             heat_label.TabIndex = 3;
-            heat_label.Text = "Opłata za ciepło:";
+            heat_label.Text = "Opłata za ciepło - GJ:";
             // 
             // tariff_input
             // 
-            tariff_input.Location = new Point(210, 22);
+            tariff_input.Location = new Point(250, 22);
             tariff_input.Name = "tariff_input";
             tariff_input.Size = new Size(100, 23);
             tariff_input.TabIndex = 2;
@@ -294,7 +294,7 @@
             // heat_fee_error
             // 
             heat_fee_error.AutoSize = true;
-            heat_fee_error.Location = new Point(316, 54);
+            heat_fee_error.Location = new Point(356, 54);
             heat_fee_error.Name = "heat_fee_error";
             heat_fee_error.Size = new Size(57, 15);
             heat_fee_error.TabIndex = 1;
@@ -304,7 +304,7 @@
             // tariff_label
             // 
             tariff_label.AutoSize = true;
-            tariff_label.Location = new Point(163, 25);
+            tariff_label.Location = new Point(203, 25);
             tariff_label.Name = "tariff_label";
             tariff_label.Size = new Size(41, 15);
             tariff_label.TabIndex = 0;
@@ -314,7 +314,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(429, 331);
+            ClientSize = new Size(474, 331);
             Controls.Add(estimationGroupBox);
             Controls.Add(add_button);
             Controls.Add(cancel_button);

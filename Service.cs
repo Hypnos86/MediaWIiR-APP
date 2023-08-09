@@ -76,11 +76,30 @@ namespace MediaWIiR_APP
 
         }
 
-        public bool validating_data_forms(TextBox textBox, Label label_error, out int validateed_data)
+        public bool validating_data_forms_int(TextBox textBox, Label label_error, out int validateed_data)
         {
             string inputValue = textBox.Text.Trim();
 
             if (!string.IsNullOrEmpty(textBox.Text) && int.TryParse(inputValue, out validateed_data))
+            {
+                label_error.Visible = false;
+                return true;
+            }
+            else
+            {
+                label_error.Visible = true;
+                label_error.Text = "Uzupełnij pole";
+                label_error.BackColor = Color.Aquamarine;
+                validateed_data = 0;
+            }
+            return false;
+        }
+
+        public bool validating_data_forms_decimal(TextBox textBox, Label label_error, out decimal validateed_data)
+        {
+            string inputValue = textBox.Text.Trim();
+
+            if (!string.IsNullOrEmpty(textBox.Text) && decimal.TryParse(inputValue, out validateed_data))
             {
                 label_error.Visible = false;
                 return true;
@@ -195,7 +214,7 @@ namespace MediaWIiR_APP
             heatResult.SubscriptionFee = Math.Round(heatTariff.SubscriptionFee * heatData.Month, 2);
             heatResult.CarrerFee = Math.Round((heatTariff.CarrerFee * heatData.Carrier) * heatData.Month, 2);
             heatResult.OrderedThermalPower = Math.Round((heatTariff.OrderedThermalPower * heatData.Power) * heatData.Month, 2);
-            heatResult.SumGj = heatData.Heat * heatData.Month;
+            heatResult.SumGj = Math.Round(heatData.Heat * heatData.Month,2);
             heatResult.SumNetto = Math.Round(heatResult.HeatFee + heatResult.FixedShippingFee + heatResult.VariableShippingFee + heatResult.SubscriptionFee + heatResult.CarrerFee + heatResult.OrderedThermalPower, 2);
             heatResult.SumBrutto = Math.Round(heatResult.SumNetto + (heatResult.SumNetto * (heatResult.VatValue * 0.01m)), 2);
             return heatResult;

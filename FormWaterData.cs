@@ -26,8 +26,8 @@ namespace MediaWIiR_APP
         private void add_button_Click(object sender, EventArgs e)
         {
             Service service = new Service();
-            bool water = service.validating_data_forms(water_input, water_error, out int waterAmountValue);
-            bool month = service.validating_data_forms(month_input, month_error, out int monthValue);
+            bool water = service.validating_data_forms_int(water_input, water_error, out int waterAmountValue);
+            bool month = service.validating_data_forms_int(month_input, month_error, out int monthValue);
 
             if (water && month)
             {

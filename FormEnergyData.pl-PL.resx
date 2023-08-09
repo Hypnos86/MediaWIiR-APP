@@ -142,17 +142,10 @@
   <data name="kwh_need_label.Text" xml:space="preserve">
     <value>Szacowane miesięczne - kWh:</value>
   </data>
-  <data name="estimationGroupBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 12</value>
-  </data>
-  <data name="estimationGroupBox.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="dataGroupBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>380, 130</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="estimationGroupBox.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="estimationGroupBox.Text" xml:space="preserve">
+  <data name="dataGroupBox.Text" xml:space="preserve">
     <value>Dane do szacowania</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
