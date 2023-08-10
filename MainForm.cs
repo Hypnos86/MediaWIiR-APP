@@ -113,7 +113,7 @@ namespace MediaWIiR_APP
                     break;
 
                 case 3: //gaz
-                    FormGasFee formGasFee = new FormGasFee(GasTariff);
+                    FormGasFee formGasFee = new FormGasFee(GasTariff, GasData);
                     formGasFee.ShowDialog();
                     break;
             }

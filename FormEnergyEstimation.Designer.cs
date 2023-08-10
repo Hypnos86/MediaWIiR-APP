@@ -59,9 +59,9 @@
             transitionFee_text = new TextBox();
             fixedNetworkFee_text = new TextBox();
             textBox5 = new TextBox();
-            power_text = new TextBox();
-            kwh_text = new TextBox();
-            month_text = new TextBox();
+            powerInput = new TextBox();
+            kwgInput = new TextBox();
+            monthInput = new TextBox();
             tariff_text = new TextBox();
             estimationGroupBox = new GroupBox();
             kwhSellResultBrutto = new Label();
@@ -248,9 +248,9 @@
             inputDataGroupBox.Controls.Add(transitionFee_text);
             inputDataGroupBox.Controls.Add(fixedNetworkFee_text);
             inputDataGroupBox.Controls.Add(textBox5);
-            inputDataGroupBox.Controls.Add(power_text);
-            inputDataGroupBox.Controls.Add(kwh_text);
-            inputDataGroupBox.Controls.Add(month_text);
+            inputDataGroupBox.Controls.Add(powerInput);
+            inputDataGroupBox.Controls.Add(kwgInput);
+            inputDataGroupBox.Controls.Add(monthInput);
             inputDataGroupBox.Controls.Add(tariff_text);
             inputDataGroupBox.Controls.Add(tariff_label);
             inputDataGroupBox.Controls.Add(subscriptionFee_label);
@@ -387,27 +387,27 @@
             // 
             // power_text
             // 
-            power_text.Location = new Point(232, 193);
-            power_text.Name = "power_text";
-            power_text.ReadOnly = true;
-            power_text.Size = new Size(100, 23);
-            power_text.TabIndex = 34;
+            powerInput.Location = new Point(232, 193);
+            powerInput.Name = "power_text";
+            powerInput.ReadOnly = true;
+            powerInput.Size = new Size(100, 23);
+            powerInput.TabIndex = 34;
             // 
             // kwh_text
             // 
-            kwh_text.Location = new Point(232, 159);
-            kwh_text.Name = "kwh_text";
-            kwh_text.ReadOnly = true;
-            kwh_text.Size = new Size(100, 23);
-            kwh_text.TabIndex = 33;
+            kwgInput.Location = new Point(232, 159);
+            kwgInput.Name = "kwh_text";
+            kwgInput.ReadOnly = true;
+            kwgInput.Size = new Size(100, 23);
+            kwgInput.TabIndex = 33;
             // 
             // month_text
             // 
-            month_text.Location = new Point(232, 126);
-            month_text.Name = "month_text";
-            month_text.ReadOnly = true;
-            month_text.Size = new Size(100, 23);
-            month_text.TabIndex = 32;
+            monthInput.Location = new Point(232, 126);
+            monthInput.Name = "month_text";
+            monthInput.ReadOnly = true;
+            monthInput.Size = new Size(100, 23);
+            monthInput.TabIndex = 32;
             // 
             // tariff_text
             // 
@@ -736,9 +736,9 @@
         private TextBox transitionFee_text;
         private TextBox fixedNetworkFee_text;
         private TextBox textBox5;
-        private TextBox power_text;
-        private TextBox kwh_text;
-        private TextBox month_text;
+        private TextBox powerInput;
+        private TextBox kwgInput;
+        private TextBox monthInput;
         private TextBox tariff_text;
         private GroupBox estimationGroupBox;
         private Label cogenerationFee_result;

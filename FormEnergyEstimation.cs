@@ -14,13 +14,14 @@ namespace MediaWIiR_APP
             Service service = new Service();
             EnergyResult energyResult = service.estimating_energy(MainForm.EnergyData, MainForm.EnergyTariff);
 
+            unit_text.Text = String.Format("Jednostka: {0}\n{1}, {2} {3}\nPowiat:{4}", MainForm.Unit.UnitType, MainForm.Unit.Address, MainForm.Unit.ZipCode, MainForm.Unit.City, MainForm.Unit.County);
             //Dane z MainForm gdzie przechowywane są wartosci zmiennych tylko do wyswietlania
-            kwh_text.Text = string.Format("{0} kWh", MainForm.EnergyData.Kwh.ToString());
-            power_text.Text = string.Format("{0} kW", MainForm.EnergyData.Power.ToString());
-            month_text.Text = MainForm.EnergyData.Month.ToString();
+            kwgInput.Text = string.Format("{0} kWh", MainForm.EnergyData.Kwh.ToString());
+            powerInput.Text = string.Format("{0} kW", MainForm.EnergyData.Power.ToString());
+            monthInput.Text = MainForm.EnergyData.Month.ToString();
 
             tariff_text.Text = MainForm.EnergyTariff.Tariff;
-            fixedNetworkFee_text.Text = string.Format("{0} zł",MainForm.EnergyTariff.FixedNetworkFee.ToString()); ;
+            fixedNetworkFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.FixedNetworkFee.ToString()); ;
             transitionFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.TransitionFee.ToString());
             capacirtFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.CapacirtFee.ToString());
             networkVariableFee_text.Text = string.Format("{0} zł", MainForm.EnergyTariff.NetworkVariableFee.ToString());
@@ -45,9 +46,6 @@ namespace MediaWIiR_APP
             kwhOsdResultNetto.Text = string.Format("{0} zł", energyResult.SumNettoOsd.ToString());
             kwhOsdResultBrutto.Text = string.Format("{0} zł", energyResult.SumBruttoOsd.ToString());
             kwh_sum_text.Text = energyResult.SumKwh.ToString();
-
-            unit_text.Text = String.Format("Jednostka: {0}\n{1}, {2} {3}\nPowiat:{4}", MainForm.Unit.UnitType, MainForm.Unit.Address, MainForm.Unit.ZipCode, MainForm.Unit.City, MainForm.Unit.County);
-
         }
 
         private void save_to_pdf_click_Click(object sender, EventArgs e)

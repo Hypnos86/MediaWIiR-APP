@@ -49,7 +49,7 @@ namespace MediaWIiR_APP
                 bool power = service.validating_data_forms_int(power_input, power_error, out int powerValue);
                 bool conversion = service.validating_data_forms_decimal(conversion_input, conversion_error, out decimal conversionValue);
 
-                if (gas && month && power && conversion)
+                if (tariff && gas && month && power && conversion)
                 {
                     MainForm.GasData = new GasData();
                     MainForm.GasData.Tariff = tariff_input.SelectedItem.ToString();
@@ -64,7 +64,7 @@ namespace MediaWIiR_APP
             }
             else
             {   //warunek jesli wybrana taryfa to nie W-5
-                if (gas && month)
+                if (tariff && gas && month)
                 {
                     MainForm.GasData = new GasData();
                     MainForm.GasData.Tariff = tariff_input.SelectedItem.ToString();
@@ -79,6 +79,7 @@ namespace MediaWIiR_APP
 
         private void tariff_input_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Sprawdza jaką taryfe wybrano i pokazuje lub ukrywa pola w zależności od taryfy
             if (tariff_input.SelectedItem.ToString() == "W-5")
             {
                 power_need_label.Visible = true;

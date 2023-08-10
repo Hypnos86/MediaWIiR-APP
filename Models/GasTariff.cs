@@ -13,5 +13,6 @@ namespace MediaWIiR_APP.Models
         public string Tariff { get; set; }
         public decimal FixedDistribution { get; set; }
         public decimal VariableDistribution { get; set; }
+        public int VatValue { get; set; }
     }
 }
