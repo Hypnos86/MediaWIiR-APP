@@ -37,24 +37,22 @@ namespace MediaWIiR_APP
                 variableDistributionFeeInput.PlaceholderText = "Wybież taryfę";
                 vatComboBox.Visible = false;
             }
-            else
+            else if (gasData.Tariff != null && gasData.Tariff == "W-5")
             {
-                if (gasData.Tariff != null && gasData.Tariff.ToString() == "W-5")
-                {
-                    tariffGroupBox.Text = string.Format("Dane taryfy {0}", gasData.Tariff.ToString());
-                    gasFeeInput.PlaceholderText = "zł";
-                    subscribeFeeInput.PlaceholderText = "zł";
-                    fixedDistributionFeeInput.PlaceholderText = "gr";
-                    variableDistributionFeeInput.PlaceholderText = "gr";
-                }
-                else if (gasData.Tariff != null && gasData.Tariff.ToString() != "W-5")
-                {
-                    tariffGroupBox.Text = string.Format("Dane taryfy {0}", gasData.Tariff.ToString());
-                    gasFeeInput.PlaceholderText = "zł";
-                    subscribeFeeInput.PlaceholderText = "zł";
-                    fixedDistributionFeeInput.PlaceholderText = "zł";
-                    variableDistributionFeeInput.PlaceholderText = "gr";
-                }
+
+                tariffGroupBox.Text = string.Format("Dane taryfy {0}", gasData.Tariff.ToString());
+                gasFeeInput.PlaceholderText = "zł";
+                subscribeFeeInput.PlaceholderText = "zł";
+                fixedDistributionFeeInput.PlaceholderText = "gr";
+                variableDistributionFeeInput.PlaceholderText = "gr";
+            }
+            else if (gasData.Tariff != null && gasData.Tariff != "W-5")
+            {
+                tariffGroupBox.Text = string.Format("Dane taryfy {0}", gasData.Tariff.ToString());
+                gasFeeInput.PlaceholderText = "zł";
+                subscribeFeeInput.PlaceholderText = "zł";
+                fixedDistributionFeeInput.PlaceholderText = "zł";
+                variableDistributionFeeInput.PlaceholderText = "gr";
             }
         }
 
