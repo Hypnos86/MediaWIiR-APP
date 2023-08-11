@@ -78,30 +78,28 @@
             // 
             conversion_error.AutoSize = true;
             conversion_error.ImeMode = ImeMode.NoControl;
-            conversion_error.Location = new Point(316, 144);
+            conversion_error.Location = new Point(316, 115);
             conversion_error.Name = "conversion_error";
             conversion_error.Size = new Size(57, 15);
-            conversion_error.TabIndex = 15;
+            conversion_error.TabIndex = 12;
             conversion_error.Text = "text_error";
             conversion_error.Visible = false;
             // 
             // conversion_input
             // 
-            conversion_input.Location = new Point(210, 141);
+            conversion_input.Location = new Point(210, 112);
             conversion_input.Name = "conversion_input";
             conversion_input.Size = new Size(100, 23);
-            conversion_input.TabIndex = 14;
-            conversion_input.Visible = false;
+            conversion_input.TabIndex = 11;
             // 
             // conversion_label
             // 
             conversion_label.AutoSize = true;
-            conversion_label.Location = new Point(68, 144);
+            conversion_label.Location = new Point(68, 115);
             conversion_label.Name = "conversion_label";
             conversion_label.Size = new Size(136, 15);
-            conversion_label.TabIndex = 13;
+            conversion_label.TabIndex = 10;
             conversion_label.Text = "Współczynnik konwersji:";
-            conversion_label.Visible = false;
             // 
             // tariff_input
             // 
@@ -149,10 +147,10 @@
             // 
             power_error.AutoSize = true;
             power_error.ImeMode = ImeMode.NoControl;
-            power_error.Location = new Point(316, 115);
+            power_error.Location = new Point(316, 144);
             power_error.Name = "power_error";
             power_error.Size = new Size(57, 15);
-            power_error.TabIndex = 12;
+            power_error.TabIndex = 15;
             power_error.Text = "text_error";
             power_error.Visible = false;
             // 
@@ -188,19 +186,19 @@
             // 
             power_need_label.AutoSize = true;
             power_need_label.ImeMode = ImeMode.NoControl;
-            power_need_label.Location = new Point(38, 115);
+            power_need_label.Location = new Point(38, 144);
             power_need_label.Name = "power_need_label";
             power_need_label.Size = new Size(166, 15);
-            power_need_label.TabIndex = 10;
+            power_need_label.TabIndex = 13;
             power_need_label.Text = "Zpotrzebowanie na moc - kW:";
             power_need_label.Visible = false;
             // 
             // power_input
             // 
-            power_input.Location = new Point(210, 112);
+            power_input.Location = new Point(210, 141);
             power_input.Name = "power_input";
             power_input.Size = new Size(100, 23);
-            power_input.TabIndex = 11;
+            power_input.TabIndex = 14;
             power_input.Visible = false;
             // 
             // gas_label

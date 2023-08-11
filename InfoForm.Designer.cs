@@ -32,13 +32,13 @@
             version = new Label();
             information = new Label();
             author = new Label();
+            unit_label = new Label();
             SuspendLayout();
             // 
             // version
             // 
             resources.ApplyResources(version, "version");
             version.Name = "version";
-            version.Click += version_Click;
             // 
             // information
             // 
@@ -50,10 +50,16 @@
             resources.ApplyResources(author, "author");
             author.Name = "author";
             // 
+            // unit_label
+            // 
+            resources.ApplyResources(unit_label, "unit_label");
+            unit_label.Name = "unit_label";
+            // 
             // InfoForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(unit_label);
             Controls.Add(author);
             Controls.Add(information);
             Controls.Add(version);
@@ -68,5 +74,6 @@
         private Label version;
         private Label information;
         private Label author;
+        private Label unit_label;
     }
 }

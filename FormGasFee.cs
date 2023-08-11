@@ -41,18 +41,18 @@ namespace MediaWIiR_APP
             {
 
                 tariffGroupBox.Text = string.Format("Dane taryfy {0}", gasData.Tariff.ToString());
-                gasFeeInput.PlaceholderText = "zł";
-                subscribeFeeInput.PlaceholderText = "zł";
-                fixedDistributionFeeInput.PlaceholderText = "gr";
-                variableDistributionFeeInput.PlaceholderText = "gr";
+                gasFeeLabel.Text = "Opłata za paliwo gazowe [zł]:";
+                subscribeFeeLabel.Text = "Opłata abonamentowa - gaz [zł]:";
+                fixedDistributionFeeLabel.Text = "Dystrybucja stała [gr]:";
+                variableDistributionFeeLabel.Text = "Dystrybucja zmienna [gr]:";
             }
             else if (gasData.Tariff != null && gasData.Tariff != "W-5")
             {
                 tariffGroupBox.Text = string.Format("Dane taryfy {0}", gasData.Tariff.ToString());
-                gasFeeInput.PlaceholderText = "zł";
-                subscribeFeeInput.PlaceholderText = "zł";
-                fixedDistributionFeeInput.PlaceholderText = "zł";
-                variableDistributionFeeInput.PlaceholderText = "gr";
+                gasFeeLabel.Text = "Opłata za paliwo gazowe [zł]:";
+                subscribeFeeLabel.Text = "Opłata abonamentowa - gaz [zł]:";
+                fixedDistributionFeeLabel.Text = "Dystrybucja stała [zł]:";
+                variableDistributionFeeLabel.Text = "Dystrybucja zmienna [gr]:";
             }
         }
 

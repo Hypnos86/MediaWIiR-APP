@@ -20,11 +20,8 @@ namespace MediaWIiR_APP
             version.Text = string.Format("Wersja programu: {0}", versionProgram);
             string authorProgram = "Kamil Kubiak";
             author.Text = string.Format("Autor: {0}", authorProgram);
-        }
-
-        private void version_Click(object sender, EventArgs e)
-        {
-
+            string unit = "Wydział Inwestycji i Remontów Komendy Wojewódzkiej Policji w Poznaniu";
+            unit_label.Text = unit;
         }
     }
 }

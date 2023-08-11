@@ -92,6 +92,7 @@ namespace MediaWIiR_APP
             feeDataTitle.Format.Alignment = ParagraphAlignment.Left;
             feeDataTitle.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
             feeDataTitle.AddText(string.Format("Składniki kosztów Operatora Systemu Dystrybucji przyjęte do szacowania: "));
+            feeDataTitle.Format.SpaceAfter = Unit.FromPoint(10); //puste miejscemiedzy elementami
             feeDataTitle.Format.Font.Bold = true;
 
             //Dane do obliczen
@@ -117,6 +118,7 @@ namespace MediaWIiR_APP
             estimationTitle.Format.Alignment = ParagraphAlignment.Left;
             estimationTitle.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
             estimationTitle.AddText(string.Format("Oszacowanie kosztów OSD:"));
+            estimationTitle.Format.SpaceAfter = Unit.FromPoint(10); //puste miejscemiedzy elementami
             estimationTitle.Format.Font.Bold = true;
 
             // Obliczenia szacunku - OSD
@@ -141,6 +143,7 @@ namespace MediaWIiR_APP
             estimationTitleSell.Format.Alignment = ParagraphAlignment.Left;
             estimationTitleSell.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
             estimationTitleSell.AddText(string.Format("Oszacowanie kosztów kWh - sprzedaż:"));
+            estimationTitleSell.Format.SpaceAfter = Unit.FromPoint(10); //puste miejscemiedzy elementami
             estimationTitleSell.Format.Font.Bold = true;
 
 

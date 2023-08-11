@@ -214,10 +214,39 @@ namespace MediaWIiR_APP
             heatResult.SubscriptionFee = Math.Round(heatTariff.SubscriptionFee * heatData.Month, 2);
             heatResult.CarrerFee = Math.Round((heatTariff.CarrerFee * heatData.Carrier) * heatData.Month, 2);
             heatResult.OrderedThermalPower = Math.Round((heatTariff.OrderedThermalPower * heatData.Power) * heatData.Month, 2);
-            heatResult.SumGj = Math.Round(heatData.Heat * heatData.Month,2);
+            heatResult.SumGj = Math.Round(heatData.Heat * heatData.Month, 2);
             heatResult.SumNetto = Math.Round(heatResult.HeatFee + heatResult.FixedShippingFee + heatResult.VariableShippingFee + heatResult.SubscriptionFee + heatResult.CarrerFee + heatResult.OrderedThermalPower, 2);
             heatResult.SumBrutto = Math.Round(heatResult.SumNetto + (heatResult.SumNetto * (heatResult.VatValue * 0.01m)), 2);
             return heatResult;
+        }
+
+        public GasResult estimating_gas(GasData gasData, GasTariff gasTariff)
+        {
+            GasResult gasResult = new GasResult();
+            if (gasData.Tariff == "W-5")
+            {
+                gasResult.Gas = Math.Round(((gasData.Gas * gasData.Conversion) * gasTariff.Gas) * gasData.Month, 2);
+                gasResult.Subscribe = Math.Round(gasData.Month * gasTariff.Subscribe, 2);
+                //specjalne obliczenia dla W-5 - moc razy ilosc dni razy 24h razy stawka dzielone na 100 potrzebne do wyniku w zł
+                gasResult.FixedDistribution = Math.Round((((gasData.Power * 30) * 24) * gasTariff.FixedDistribution) / 100, 2);
+                gasResult.VariableDistribution = Math.Round(((gasData.Gas * gasData.Conversion) * gasTariff.VariableDistribution) / 100, 2);
+                gasResult.SumNetto = Math.Round(gasResult.Gas + gasResult.Subscribe + gasResult.FixedDistribution + gasResult.VariableDistribution, 2);
+                gasResult.SumBrutto = Math.Round(gasResult.SumNetto + (gasResult.SumNetto * (gasTariff.VatValue * 0.01m)), 2);
+                gasResult.SumKwh = Math.Round((gasData.Gas * gasData.Conversion) * gasData.Month, 2);
+                gasResult.SumM3 = Math.Round(gasData.Gas * (decimal)gasData.Month, 2);
+            }
+            else
+            {
+                gasResult.Gas = Math.Round(((gasData.Gas * gasData.Conversion) * gasTariff.Gas) * gasData.Month, 2);
+                gasResult.Subscribe = Math.Round(gasData.Month * gasTariff.Subscribe, 2);
+                gasResult.FixedDistribution = Math.Round((gasData.Month * gasTariff.FixedDistribution), 2);
+                gasResult.VariableDistribution = Math.Round(((gasData.Gas * gasData.Conversion) * gasTariff.VariableDistribution) / 100, 2);
+                gasResult.SumNetto = Math.Round(gasResult.Gas + gasResult.Subscribe + gasResult.FixedDistribution + gasResult.VariableDistribution, 2);
+                gasResult.SumBrutto = Math.Round(gasResult.SumNetto + (gasResult.SumNetto * (gasTariff.VatValue * 0.01m)), 2);
+                gasResult.SumKwh = Math.Round((gasData.Gas * gasData.Conversion) * gasData.Month, 2);
+                gasResult.SumM3 = Math.Round(gasData.Gas * (decimal)gasData.Month, 2);
+            }
+            return gasResult;
         }
 
         public string genering_date_now()

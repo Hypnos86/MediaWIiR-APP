@@ -106,7 +106,7 @@
             inputDataGroupBox.Controls.Add(month_text);
             inputDataGroupBox.Location = new Point(12, 40);
             inputDataGroupBox.Name = "inputDataGroupBox";
-            inputDataGroupBox.Size = new Size(765, 270);
+            inputDataGroupBox.Size = new Size(760, 270);
             inputDataGroupBox.TabIndex = 0;
             inputDataGroupBox.TabStop = false;
             inputDataGroupBox.Text = "Dane wejściowe";
@@ -319,7 +319,7 @@
             // 
             // cancel_button
             // 
-            cancel_button.Location = new Point(627, 617);
+            cancel_button.Location = new Point(624, 584);
             cancel_button.Name = "cancel_button";
             cancel_button.Size = new Size(150, 25);
             cancel_button.TabIndex = 21;
@@ -329,7 +329,7 @@
             // 
             // save_to_pdf_click
             // 
-            save_to_pdf_click.Location = new Point(12, 617);
+            save_to_pdf_click.Location = new Point(12, 584);
             save_to_pdf_click.Name = "save_to_pdf_click";
             save_to_pdf_click.Size = new Size(150, 25);
             save_to_pdf_click.TabIndex = 20;
@@ -359,7 +359,7 @@
             estimationGroupBox.Controls.Add(label6);
             estimationGroupBox.Location = new Point(12, 316);
             estimationGroupBox.Name = "estimationGroupBox";
-            estimationGroupBox.Size = new Size(765, 260);
+            estimationGroupBox.Size = new Size(760, 260);
             estimationGroupBox.TabIndex = 22;
             estimationGroupBox.TabStop = false;
             estimationGroupBox.Text = "Szacunek kosztów";
@@ -530,7 +530,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(789, 675);
+            ClientSize = new Size(784, 621);
             Controls.Add(estimationGroupBox);
             Controls.Add(cancel_button);
             Controls.Add(save_to_pdf_click);

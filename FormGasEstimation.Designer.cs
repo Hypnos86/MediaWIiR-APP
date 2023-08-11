@@ -34,8 +34,8 @@
             unit_text = new Label();
             vat_text = new TextBox();
             vat_label = new Label();
-            qualityFee_text = new TextBox();
-            FixedDistribution_text = new TextBox();
+            variableDistribution_text = new TextBox();
+            fixedDistribution_text = new TextBox();
             subscribeFee_text = new TextBox();
             gasFee_text = new TextBox();
             confersion_text = new TextBox();
@@ -49,27 +49,27 @@
             fixedNetworkFee_label = new Label();
             kwh_label = new Label();
             power_label = new Label();
-            qualityFee_label = new Label();
+            variableDistribution_label = new Label();
             subscribe_label = new Label();
             gassFee_label = new Label();
-            FixedDistribution_label = new Label();
+            fixedDistribution_label = new Label();
             estimationGroupBox = new GroupBox();
-            kwh_sum_text = new Label();
+            sumM3 = new Label();
+            label2 = new Label();
+            sumKwh = new Label();
             kwh = new Label();
-            kwhOsdResultBrutto = new Label();
+            ResultBrutto = new Label();
             brutto = new Label();
-            kwhOsdResultNetto = new Label();
+            ResultNetto = new Label();
             nettto = new Label();
-            qualityFee_result = new Label();
-            networkVariableFee_result = new Label();
-            capacirtFee_result = new Label();
-            transitionFee_result = new Label();
-            fixedNetworkFee_result = new Label();
+            variableDistributionResult = new Label();
+            fixedDistributionResult = new Label();
+            subscribeFeeResult = new Label();
+            gasFeeResult = new Label();
             fixedNetworkFee = new Label();
-            qualityFee = new Label();
-            capacirtFee = new Label();
-            transitionFee = new Label();
-            networkVariableFee = new Label();
+            fixedDistribution = new Label();
+            subscribeFee = new Label();
+            variableDistribution = new Label();
             cancel_button = new Button();
             save_to_pdf_click = new Button();
             inputDataGroupBox.SuspendLayout();
@@ -91,8 +91,8 @@
             inputDataGroupBox.Controls.Add(unit_text);
             inputDataGroupBox.Controls.Add(vat_text);
             inputDataGroupBox.Controls.Add(vat_label);
-            inputDataGroupBox.Controls.Add(qualityFee_text);
-            inputDataGroupBox.Controls.Add(FixedDistribution_text);
+            inputDataGroupBox.Controls.Add(variableDistribution_text);
+            inputDataGroupBox.Controls.Add(fixedDistribution_text);
             inputDataGroupBox.Controls.Add(subscribeFee_text);
             inputDataGroupBox.Controls.Add(gasFee_text);
             inputDataGroupBox.Controls.Add(confersion_text);
@@ -106,10 +106,10 @@
             inputDataGroupBox.Controls.Add(fixedNetworkFee_label);
             inputDataGroupBox.Controls.Add(kwh_label);
             inputDataGroupBox.Controls.Add(power_label);
-            inputDataGroupBox.Controls.Add(qualityFee_label);
+            inputDataGroupBox.Controls.Add(variableDistribution_label);
             inputDataGroupBox.Controls.Add(subscribe_label);
             inputDataGroupBox.Controls.Add(gassFee_label);
-            inputDataGroupBox.Controls.Add(FixedDistribution_label);
+            inputDataGroupBox.Controls.Add(fixedDistribution_label);
             inputDataGroupBox.Location = new Point(12, 40);
             inputDataGroupBox.Name = "inputDataGroupBox";
             inputDataGroupBox.Size = new Size(730, 274);
@@ -143,21 +143,21 @@
             vat_label.TabIndex = 44;
             vat_label.Text = "Vat: ";
             // 
-            // qualityFee_text
+            // variableDistribution_text
             // 
-            qualityFee_text.Location = new Point(559, 227);
-            qualityFee_text.Name = "qualityFee_text";
-            qualityFee_text.ReadOnly = true;
-            qualityFee_text.Size = new Size(100, 23);
-            qualityFee_text.TabIndex = 40;
+            variableDistribution_text.Location = new Point(559, 227);
+            variableDistribution_text.Name = "variableDistribution_text";
+            variableDistribution_text.ReadOnly = true;
+            variableDistribution_text.Size = new Size(100, 23);
+            variableDistribution_text.TabIndex = 40;
             // 
-            // FixedDistribution_text
+            // fixedDistribution_text
             // 
-            FixedDistribution_text.Location = new Point(559, 193);
-            FixedDistribution_text.Name = "FixedDistribution_text";
-            FixedDistribution_text.ReadOnly = true;
-            FixedDistribution_text.Size = new Size(100, 23);
-            FixedDistribution_text.TabIndex = 39;
+            fixedDistribution_text.Location = new Point(559, 193);
+            fixedDistribution_text.Name = "fixedDistribution_text";
+            fixedDistribution_text.ReadOnly = true;
+            fixedDistribution_text.Size = new Size(100, 23);
+            fixedDistribution_text.TabIndex = 39;
             // 
             // subscribeFee_text
             // 
@@ -267,14 +267,14 @@
             power_label.TabIndex = 21;
             power_label.Text = "Szacowane zapotrzebowanie na moc: ";
             // 
-            // qualityFee_label
+            // variableDistribution_label
             // 
-            qualityFee_label.AutoSize = true;
-            qualityFee_label.Location = new Point(446, 230);
-            qualityFee_label.Name = "qualityFee_label";
-            qualityFee_label.Size = new Size(107, 15);
-            qualityFee_label.TabIndex = 26;
-            qualityFee_label.Text = "opłata jakościowa: ";
+            variableDistribution_label.AutoSize = true;
+            variableDistribution_label.Location = new Point(393, 230);
+            variableDistribution_label.Name = "variableDistribution_label";
+            variableDistribution_label.Size = new Size(160, 15);
+            variableDistribution_label.TabIndex = 26;
+            variableDistribution_label.Text = "Opłata dystrybucja zmienna: ";
             // 
             // subscribe_label
             // 
@@ -294,48 +294,66 @@
             gassFee_label.TabIndex = 25;
             gassFee_label.Text = "Opłata za paliwo gazowe:";
             // 
-            // FixedDistribution_label
+            // fixedDistribution_label
             // 
-            FixedDistribution_label.AutoSize = true;
-            FixedDistribution_label.Location = new Point(404, 196);
-            FixedDistribution_label.Name = "FixedDistribution_label";
-            FixedDistribution_label.Size = new Size(149, 15);
-            FixedDistribution_label.TabIndex = 24;
-            FixedDistribution_label.Text = "Opłata dystrybucyjna stała:";
+            fixedDistribution_label.AutoSize = true;
+            fixedDistribution_label.Location = new Point(404, 196);
+            fixedDistribution_label.Name = "fixedDistribution_label";
+            fixedDistribution_label.Size = new Size(149, 15);
+            fixedDistribution_label.TabIndex = 24;
+            fixedDistribution_label.Text = "Opłata dystrybucyjna stała:";
             // 
             // estimationGroupBox
             // 
-            estimationGroupBox.Controls.Add(kwh_sum_text);
+            estimationGroupBox.Controls.Add(sumM3);
+            estimationGroupBox.Controls.Add(label2);
+            estimationGroupBox.Controls.Add(sumKwh);
             estimationGroupBox.Controls.Add(kwh);
-            estimationGroupBox.Controls.Add(kwhOsdResultBrutto);
+            estimationGroupBox.Controls.Add(ResultBrutto);
             estimationGroupBox.Controls.Add(brutto);
-            estimationGroupBox.Controls.Add(kwhOsdResultNetto);
+            estimationGroupBox.Controls.Add(ResultNetto);
             estimationGroupBox.Controls.Add(nettto);
-            estimationGroupBox.Controls.Add(qualityFee_result);
-            estimationGroupBox.Controls.Add(networkVariableFee_result);
-            estimationGroupBox.Controls.Add(capacirtFee_result);
-            estimationGroupBox.Controls.Add(transitionFee_result);
-            estimationGroupBox.Controls.Add(fixedNetworkFee_result);
+            estimationGroupBox.Controls.Add(variableDistributionResult);
+            estimationGroupBox.Controls.Add(fixedDistributionResult);
+            estimationGroupBox.Controls.Add(subscribeFeeResult);
+            estimationGroupBox.Controls.Add(gasFeeResult);
             estimationGroupBox.Controls.Add(fixedNetworkFee);
-            estimationGroupBox.Controls.Add(qualityFee);
-            estimationGroupBox.Controls.Add(capacirtFee);
-            estimationGroupBox.Controls.Add(transitionFee);
-            estimationGroupBox.Controls.Add(networkVariableFee);
+            estimationGroupBox.Controls.Add(fixedDistribution);
+            estimationGroupBox.Controls.Add(subscribeFee);
+            estimationGroupBox.Controls.Add(variableDistribution);
             estimationGroupBox.Location = new Point(12, 320);
             estimationGroupBox.Name = "estimationGroupBox";
-            estimationGroupBox.Size = new Size(730, 200);
+            estimationGroupBox.Size = new Size(730, 150);
             estimationGroupBox.TabIndex = 33;
             estimationGroupBox.TabStop = false;
             estimationGroupBox.Text = "Szcunek kosztów";
             // 
-            // kwh_sum_text
+            // sumM3
             // 
-            kwh_sum_text.AutoSize = true;
-            kwh_sum_text.Location = new Point(559, 79);
-            kwh_sum_text.Name = "kwh_sum_text";
-            kwh_sum_text.Size = new Size(38, 15);
-            kwh_sum_text.TabIndex = 53;
-            kwh_sum_text.Text = "label4";
+            sumM3.AutoSize = true;
+            sumM3.Location = new Point(559, 109);
+            sumM3.Name = "sumM3";
+            sumM3.Size = new Size(38, 15);
+            sumM3.TabIndex = 55;
+            sumM3.Text = "label4";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(490, 109);
+            label2.Name = "label2";
+            label2.Size = new Size(63, 15);
+            label2.TabIndex = 54;
+            label2.Text = "Suma m3: ";
+            // 
+            // sumKwh
+            // 
+            sumKwh.AutoSize = true;
+            sumKwh.Location = new Point(559, 79);
+            sumKwh.Name = "sumKwh";
+            sumKwh.Size = new Size(38, 15);
+            sumKwh.TabIndex = 53;
+            sumKwh.Text = "label4";
             // 
             // kwh
             // 
@@ -346,135 +364,117 @@
             kwh.TabIndex = 52;
             kwh.Text = "Suma kWh: ";
             // 
-            // kwhOsdResultBrutto
+            // ResultBrutto
             // 
-            kwhOsdResultBrutto.AutoSize = true;
-            kwhOsdResultBrutto.Location = new Point(559, 49);
-            kwhOsdResultBrutto.Name = "kwhOsdResultBrutto";
-            kwhOsdResultBrutto.Size = new Size(38, 15);
-            kwhOsdResultBrutto.TabIndex = 51;
-            kwhOsdResultBrutto.Text = "label4";
+            ResultBrutto.AutoSize = true;
+            ResultBrutto.Location = new Point(559, 49);
+            ResultBrutto.Name = "ResultBrutto";
+            ResultBrutto.Size = new Size(38, 15);
+            ResultBrutto.TabIndex = 51;
+            ResultBrutto.Text = "label4";
             // 
             // brutto
             // 
             brutto.AutoSize = true;
-            brutto.Location = new Point(405, 49);
+            brutto.Location = new Point(431, 49);
             brutto.Name = "brutto";
-            brutto.Size = new Size(148, 15);
+            brutto.Size = new Size(122, 15);
             brutto.TabIndex = 50;
-            brutto.Text = "Suma kosztów OSD brutto:";
+            brutto.Text = "Suma kosztów brutto:";
             // 
-            // kwhOsdResultNetto
+            // ResultNetto
             // 
-            kwhOsdResultNetto.AutoSize = true;
-            kwhOsdResultNetto.Location = new Point(559, 19);
-            kwhOsdResultNetto.Name = "kwhOsdResultNetto";
-            kwhOsdResultNetto.Size = new Size(38, 15);
-            kwhOsdResultNetto.TabIndex = 49;
-            kwhOsdResultNetto.Text = "label3";
+            ResultNetto.AutoSize = true;
+            ResultNetto.Location = new Point(559, 19);
+            ResultNetto.Name = "ResultNetto";
+            ResultNetto.Size = new Size(38, 15);
+            ResultNetto.TabIndex = 49;
+            ResultNetto.Text = "label3";
             // 
             // nettto
             // 
             nettto.AutoSize = true;
-            nettto.Location = new Point(407, 19);
+            nettto.Location = new Point(436, 19);
             nettto.Name = "nettto";
-            nettto.Size = new Size(146, 15);
+            nettto.Size = new Size(117, 15);
             nettto.TabIndex = 48;
-            nettto.Text = "Suma kosztów OSD netto: ";
+            nettto.Text = "Suma kosztów netto:";
             // 
-            // qualityFee_result
+            // variableDistributionResult
             // 
-            qualityFee_result.AutoSize = true;
-            qualityFee_result.Location = new Point(232, 139);
-            qualityFee_result.Name = "qualityFee_result";
-            qualityFee_result.Size = new Size(44, 15);
-            qualityFee_result.TabIndex = 43;
-            qualityFee_result.Text = "label14";
+            variableDistributionResult.AutoSize = true;
+            variableDistributionResult.Location = new Point(232, 109);
+            variableDistributionResult.Name = "variableDistributionResult";
+            variableDistributionResult.Size = new Size(44, 15);
+            variableDistributionResult.TabIndex = 42;
+            variableDistributionResult.Text = "label13";
             // 
-            // networkVariableFee_result
+            // fixedDistributionResult
             // 
-            networkVariableFee_result.AutoSize = true;
-            networkVariableFee_result.Location = new Point(232, 109);
-            networkVariableFee_result.Name = "networkVariableFee_result";
-            networkVariableFee_result.Size = new Size(44, 15);
-            networkVariableFee_result.TabIndex = 42;
-            networkVariableFee_result.Text = "label13";
+            fixedDistributionResult.AutoSize = true;
+            fixedDistributionResult.Location = new Point(232, 79);
+            fixedDistributionResult.Name = "fixedDistributionResult";
+            fixedDistributionResult.Size = new Size(44, 15);
+            fixedDistributionResult.TabIndex = 41;
+            fixedDistributionResult.Text = "label12";
             // 
-            // capacirtFee_result
+            // subscribeFeeResult
             // 
-            capacirtFee_result.AutoSize = true;
-            capacirtFee_result.Location = new Point(232, 79);
-            capacirtFee_result.Name = "capacirtFee_result";
-            capacirtFee_result.Size = new Size(44, 15);
-            capacirtFee_result.TabIndex = 41;
-            capacirtFee_result.Text = "label12";
+            subscribeFeeResult.AutoSize = true;
+            subscribeFeeResult.Location = new Point(232, 49);
+            subscribeFeeResult.Name = "subscribeFeeResult";
+            subscribeFeeResult.Size = new Size(44, 15);
+            subscribeFeeResult.TabIndex = 40;
+            subscribeFeeResult.Text = "label11";
             // 
-            // transitionFee_result
+            // gasFeeResult
             // 
-            transitionFee_result.AutoSize = true;
-            transitionFee_result.Location = new Point(232, 49);
-            transitionFee_result.Name = "transitionFee_result";
-            transitionFee_result.Size = new Size(44, 15);
-            transitionFee_result.TabIndex = 40;
-            transitionFee_result.Text = "label11";
-            // 
-            // fixedNetworkFee_result
-            // 
-            fixedNetworkFee_result.AutoSize = true;
-            fixedNetworkFee_result.Location = new Point(232, 19);
-            fixedNetworkFee_result.Name = "fixedNetworkFee_result";
-            fixedNetworkFee_result.Size = new Size(44, 15);
-            fixedNetworkFee_result.TabIndex = 39;
-            fixedNetworkFee_result.Text = "label10";
+            gasFeeResult.AutoSize = true;
+            gasFeeResult.Location = new Point(232, 19);
+            gasFeeResult.Name = "gasFeeResult";
+            gasFeeResult.Size = new Size(44, 15);
+            gasFeeResult.TabIndex = 39;
+            gasFeeResult.Text = "label10";
             // 
             // fixedNetworkFee
             // 
             fixedNetworkFee.AutoSize = true;
-            fixedNetworkFee.Location = new Point(102, 19);
+            fixedNetworkFee.Location = new Point(87, 19);
             fixedNetworkFee.Name = "fixedNetworkFee";
-            fixedNetworkFee.Size = new Size(121, 15);
+            fixedNetworkFee.Size = new Size(140, 15);
             fixedNetworkFee.TabIndex = 36;
-            fixedNetworkFee.Text = "opłata stała sieciowa: ";
+            fixedNetworkFee.Text = "Opłata za paliwo gazowe:";
             // 
-            // qualityFee
+            // fixedDistribution
             // 
-            qualityFee.AutoSize = true;
-            qualityFee.Location = new Point(112, 139);
-            qualityFee.Name = "qualityFee";
-            qualityFee.Size = new Size(107, 15);
-            qualityFee.TabIndex = 34;
-            qualityFee.Text = "opłata jakościowa: ";
+            fixedDistribution.AutoSize = true;
+            fixedDistribution.Location = new Point(77, 79);
+            fixedDistribution.Name = "fixedDistribution";
+            fixedDistribution.Size = new Size(149, 15);
+            fixedDistribution.TabIndex = 31;
+            fixedDistribution.Text = "Opłata dystrybucyjna stała:";
             // 
-            // capacirtFee
+            // subscribeFee
             // 
-            capacirtFee.AutoSize = true;
-            capacirtFee.Location = new Point(127, 79);
-            capacirtFee.Name = "capacirtFee";
-            capacirtFee.Size = new Size(95, 15);
-            capacirtFee.TabIndex = 31;
-            capacirtFee.Text = "opłata mocowa: ";
+            subscribeFee.AutoSize = true;
+            subscribeFee.Location = new Point(95, 49);
+            subscribeFee.Name = "subscribeFee";
+            subscribeFee.Size = new Size(131, 15);
+            subscribeFee.TabIndex = 33;
+            subscribeFee.Text = "Opłata abonamentowa:";
             // 
-            // transitionFee
+            // variableDistribution
             // 
-            transitionFee.AutoSize = true;
-            transitionFee.Location = new Point(112, 49);
-            transitionFee.Name = "transitionFee";
-            transitionFee.Size = new Size(110, 15);
-            transitionFee.TabIndex = 33;
-            transitionFee.Text = "opłata przejściowa: ";
-            // 
-            // networkVariableFee
-            // 
-            networkVariableFee.AutoSize = true;
-            networkVariableFee.Location = new Point(81, 109);
-            networkVariableFee.Name = "networkVariableFee";
-            networkVariableFee.Size = new Size(142, 15);
-            networkVariableFee.TabIndex = 32;
-            networkVariableFee.Text = "opłata zmienna sieciowa: ";
+            variableDistribution.AutoSize = true;
+            variableDistribution.Location = new Point(57, 109);
+            variableDistribution.Name = "variableDistribution";
+            variableDistribution.Size = new Size(170, 15);
+            variableDistribution.TabIndex = 32;
+            variableDistribution.Text = "Opłata dystrybucyjna zmienna:";
             // 
             // cancel_button
             // 
-            cancel_button.Location = new Point(592, 534);
+            cancel_button.Location = new Point(592, 484);
             cancel_button.Name = "cancel_button";
             cancel_button.Size = new Size(150, 25);
             cancel_button.TabIndex = 35;
@@ -484,7 +484,7 @@
             // 
             // save_to_pdf_click
             // 
-            save_to_pdf_click.Location = new Point(12, 534);
+            save_to_pdf_click.Location = new Point(12, 484);
             save_to_pdf_click.Name = "save_to_pdf_click";
             save_to_pdf_click.Size = new Size(150, 25);
             save_to_pdf_click.TabIndex = 34;
@@ -496,7 +496,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(754, 571);
+            ClientSize = new Size(754, 521);
             Controls.Add(cancel_button);
             Controls.Add(save_to_pdf_click);
             Controls.Add(estimationGroupBox);
@@ -520,8 +520,8 @@
         private Label unit_text;
         private TextBox vat_text;
         private Label vat_label;
-        private TextBox qualityFee_text;
-        private TextBox FixedDistribution_text;
+        private TextBox variableDistribution_text;
+        private TextBox fixedDistribution_text;
         private TextBox subscribeFee_text;
         private TextBox gasFee_text;
         private TextBox confersion_text;
@@ -535,28 +535,28 @@
         private Label fixedNetworkFee_label;
         private Label kwh_label;
         private Label power_label;
-        private Label qualityFee_label;
+        private Label variableDistribution_label;
         private Label subscribe_label;
         private Label gassFee_label;
-        private Label FixedDistribution_label;
+        private Label fixedDistribution_label;
         private GroupBox estimationGroupBox;
-        private Label kwh_sum_text;
+        private Label sumKwh;
         private Label kwh;
-        private Label kwhOsdResultBrutto;
+        private Label ResultBrutto;
         private Label brutto;
-        private Label kwhOsdResultNetto;
+        private Label ResultNetto;
         private Label nettto;
-        private Label qualityFee_result;
-        private Label networkVariableFee_result;
-        private Label capacirtFee_result;
-        private Label transitionFee_result;
-        private Label fixedNetworkFee_result;
+        private Label variableDistributionResult;
+        private Label fixedDistributionResult;
+        private Label subscribeFeeResult;
+        private Label gasFeeResult;
         private Label fixedNetworkFee;
-        private Label qualityFee;
-        private Label capacirtFee;
-        private Label transitionFee;
-        private Label networkVariableFee;
+        private Label fixedDistribution;
+        private Label subscribeFee;
+        private Label variableDistribution;
         private Button cancel_button;
         private Button save_to_pdf_click;
+        private Label sumM3;
+        private Label label2;
     }
 }

@@ -42,12 +42,13 @@ namespace MediaWIiR_APP
             bool tariff = service.validating_selectors(tariff_input, tariff_error);
             bool gas = service.validating_data_forms_int(gas_input, gas_error, out int gasValue);
             bool month = service.validating_data_forms_int(month_input, month_error, out int monthValue);
+            bool conversion = service.validating_data_forms_decimal(conversion_input, conversion_error, out decimal conversionValue);
 
             //sprawdzanie czy wybrana taryfa to W-5
             if (tariff && tariff_input.SelectedItem.ToString() == "W-5")
             {
                 bool power = service.validating_data_forms_int(power_input, power_error, out int powerValue);
-                bool conversion = service.validating_data_forms_decimal(conversion_input, conversion_error, out decimal conversionValue);
+
 
                 if (gas && month && power && conversion)
                 {
@@ -62,13 +63,14 @@ namespace MediaWIiR_APP
                     this.DialogResult = DialogResult.OK;
                 }
             }
-            else if (tariff && gas && month)
-            {   
+            else if (tariff && gas && month && conversion)
+            {
                 //warunek jesli wybrana taryfa to nie W-5
                 MainForm.GasData = new GasData();
                 MainForm.GasData.Tariff = tariff_input.SelectedItem.ToString();
                 MainForm.GasData.Gas = gasValue;
                 MainForm.GasData.Month = monthValue;
+                MainForm.GasData.Conversion = conversionValue;
 
                 MessageBox.Show("Dane zostały zapisane", "Informacja", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.DialogResult = DialogResult.OK;
@@ -82,15 +84,11 @@ namespace MediaWIiR_APP
             {
                 power_need_label.Visible = true;
                 power_input.Visible = true;
-                conversion_input.Visible = true;
-                conversion_label.Visible = true;
             }
             else
             {
                 power_need_label.Visible = false;
                 power_input.Visible = false;
-                conversion_input.Visible = false;
-                conversion_label.Visible = false;
             }
         }
     }
