@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace MediaWIiR_APP.Models
 {
-    public class GasResult
+    public class GasResult : GasTariff
     {
         public decimal SumNetto { get; set; }
         public decimal SumBrutto { get; set; }
-        public int SumKwh { get; set; }
+        public decimal SumKwh { get; set; }
+        public decimal SumM3 { get; set; }
     }
 }
