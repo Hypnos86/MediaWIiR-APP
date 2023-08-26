@@ -98,12 +98,31 @@ namespace MediaWIiR_APP
             {
                 feeData.AddText(string.Format("Na podstawie taryfy: {0}\n", MainForm.HeatTariff.Tariff.ToString()));
             }
-            feeData.AddText(string.Format("Koszt 1 GJ netto: {0} zł\n", MainForm.HeatTariff.HeatFee.ToString()));
-            feeData.AddText(string.Format("Opłata za przesył netto: {0} zł\n", MainForm.HeatTariff.FixedShippingFee.ToString()));
-            feeData.AddText(string.Format("Opłata zamienna za przesył netto: {0} zł\n", MainForm.HeatTariff.VariableShippingFee.ToString()));
-            feeData.AddText(string.Format("Opłata za abonament 1 mc netto: {0} zł\n", MainForm.HeatTariff.SubscriptionFee.ToString()));
-            feeData.AddText(string.Format("Opłata za nośnik netto: {0} zł\n", MainForm.HeatTariff.CarrerFee.ToString()));
-            feeData.AddText(string.Format("Opłata za zamówioną moc cieplną netto: {0} zł\n", MainForm.HeatTariff.OrderedThermalPower.ToString()));
+            if (MainForm.HeatTariff.HeatFee != 0)
+            {
+                feeData.AddText(string.Format("Koszt 1 GJ netto: {0} zł\n", MainForm.HeatTariff.HeatFee.ToString()));
+            }
+            if (MainForm.HeatTariff.FixedShippingFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata za przesył netto: {0} zł\n", MainForm.HeatTariff.FixedShippingFee.ToString()));
+            }
+            if (MainForm.HeatTariff.VariableShippingFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata zamienna za przesył netto: {0} zł\n", MainForm.HeatTariff.VariableShippingFee.ToString()));
+            }
+            if (MainForm.HeatTariff.SubscriptionFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata za abonament 1 mc netto: {0} zł\n", MainForm.HeatTariff.SubscriptionFee.ToString()));
+            }
+            if (MainForm.HeatTariff.CarrerFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata za nośnik netto: {0} zł\n", MainForm.HeatTariff.CarrerFee.ToString()));
+            }
+            if (MainForm.HeatTariff.OrderedThermalPower != 0)
+            {
+                feeData.AddText(string.Format("Opłata za zamówioną moc cieplną netto: {0} zł\n", MainForm.HeatTariff.OrderedThermalPower.ToString()));
+            }
+
 
             feeData.Format.SpaceAfter = Unit.FromPoint(30);
 
@@ -119,12 +138,31 @@ namespace MediaWIiR_APP
             estimationResult = section.AddParagraph();
             estimationResult.Format.Alignment = ParagraphAlignment.Left;
             estimationResult.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
-            estimationResult.AddText(string.Format("Opłata za ciepło: {0} zł netto\n", heatResult.HeatFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata za stały przesył: {0} zł netto\n", heatResult.FixedShippingFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata zmienna za przesył: {0} zł netto\n", heatResult.VariableShippingFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", heatResult.SubscriptionFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata za nośnik: {0} zł netto\n", heatResult.CarrerFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata za zamówioną moc cieplną: {0} zł netto\n", heatResult.OrderedThermalPower.ToString()));
+            if (MainForm.HeatTariff.HeatFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata za ciepło: {0} zł netto\n", heatResult.HeatFee.ToString()));
+            }
+            if (MainForm.HeatTariff.FixedShippingFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata za stały przesył: {0} zł netto\n", heatResult.FixedShippingFee.ToString()));
+            }
+            if (MainForm.HeatTariff.VariableShippingFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata zmienna za przesył: {0} zł netto\n", heatResult.VariableShippingFee.ToString()));
+            }
+            if (MainForm.HeatTariff.SubscriptionFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", heatResult.SubscriptionFee.ToString()));
+            }
+            if (MainForm.HeatTariff.CarrerFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata za nośnik: {0} zł netto\n", heatResult.CarrerFee.ToString()));
+            }
+            if (MainForm.HeatTariff.OrderedThermalPower != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata za zamówioną moc cieplną: {0} zł netto\n", heatResult.OrderedThermalPower.ToString()));
+            }
+
             estimationResult.Format.SpaceAfter = Unit.FromPoint(30); //puste miejscemiedzy elementami
             estimationResult.AddText(string.Format("Całkowity koszt netto: {0} zł\n", heatResult.SumNetto.ToString()));
             estimationResult.AddText(string.Format("Vat: {0}%\n", MainForm.HeatTariff.VatValue.ToString()));

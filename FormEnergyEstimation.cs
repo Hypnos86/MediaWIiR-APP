@@ -81,7 +81,7 @@ namespace MediaWIiR_APP
             Paragraph estimationData = section.AddParagraph();
             estimationData.Format.Alignment = ParagraphAlignment.Left;
             estimationData.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 13);
-            estimationData.AddText(string.Format("Szacunkowe zużycie na miesiąć: {0} kWh\n", MainForm.EnergyData.Kwh.ToString()));
+            estimationData.AddText(string.Format("Szacunkowe zużycie na miesiąc: {0} kWh\n", MainForm.EnergyData.Kwh.ToString()));
             estimationData.AddText(string.Format("Szacunkowe zapotrzebowanie na moc: {0} kW\n", MainForm.EnergyData.Power.ToString()));
             estimationData.AddText(string.Format("Szacowanie na okres {0} miesięcy\n", MainForm.EnergyData.Month.ToString()));
             estimationData.AddText(string.Format("Zużycie w ciągu {0} miesięcy: {1} kWh ", MainForm.EnergyData.Month, energyResult.SumKwh.ToString()));
@@ -103,14 +103,39 @@ namespace MediaWIiR_APP
             {
                 feeData.AddText(string.Format("Na podstawie taryfy: {0}\n", MainForm.EnergyTariff.Tariff.ToString()));
             }
-            feeData.AddText(string.Format("Opłata stała sieciowa: {0} zł netto\n", MainForm.EnergyTariff.FixedNetworkFee.ToString()));
-            feeData.AddText(string.Format("Opłata przejściowa: {0} zł netto\n", MainForm.EnergyTariff.TransitionFee.ToString()));
-            feeData.AddText(string.Format("Opłata mocowa: {0} zł netto\n", MainForm.EnergyTariff.CapacirtFee.ToString()));
-            feeData.AddText(string.Format("Opłata zmienna sieciowa: {0} zł netto\n", MainForm.EnergyTariff.NetworkVariableFee.ToString()));
-            feeData.AddText(string.Format("Opłata jakościowa: {0} zł netto\n", MainForm.EnergyTariff.QualityFee.ToString()));
-            feeData.AddText(string.Format("Opłata OZE: {0} zł netto\n", MainForm.EnergyTariff.RenewableEnergySourcesFee.ToString()));
-            feeData.AddText(string.Format("Opłata kogeneracyjna: {0} zł netto\n", MainForm.EnergyTariff.CogenerationFee.ToString()));
-            feeData.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", MainForm.EnergyTariff.SubscriptionFee.ToString()));
+            if (MainForm.EnergyTariff.FixedNetworkFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata stała sieciowa: {0} zł netto\n", MainForm.EnergyTariff.FixedNetworkFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.TransitionFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata przejściowa: {0} zł netto\n", MainForm.EnergyTariff.TransitionFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.CapacirtFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata mocowa: {0} zł netto\n", MainForm.EnergyTariff.CapacirtFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.NetworkVariableFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata zmienna sieciowa: {0} zł netto\n", MainForm.EnergyTariff.NetworkVariableFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.QualityFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata jakościowa: {0} zł netto\n", MainForm.EnergyTariff.QualityFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.RenewableEnergySourcesFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata OZE: {0} zł netto\n", MainForm.EnergyTariff.RenewableEnergySourcesFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.CogenerationFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata kogeneracyjna: {0} zł netto\n", MainForm.EnergyTariff.CogenerationFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.SubscriptionFee != 0)
+            {
+                feeData.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", MainForm.EnergyTariff.SubscriptionFee.ToString()));
+            }
+
             feeData.Format.SpaceAfter = Unit.FromPoint(20);
 
             //Dodanie tytulu kolejnego akapitu - OSD
@@ -125,14 +150,39 @@ namespace MediaWIiR_APP
             Paragraph estimationResult = section.AddParagraph();
             estimationResult.Format.Alignment = ParagraphAlignment.Left;
             estimationResult.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
-            estimationResult.AddText(string.Format("Opłata stała sieciowa: {0} zł netto\n", energyResult.FixedNetworkFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata przejściowa {0} zł netto\n", energyResult.TransitionFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata mocowa: {0} zł netto\n", energyResult.CapacirtFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata zmienna sieciowa: {0} zł netto\n", energyResult.NetworkVariableFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata jakościowa netto: {0} zł netto\n", energyResult.QualityFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata OZE: {0} zł netto\n", energyResult.RenewableEnergySourcesFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata kogeneracyjna: {0} zł netto\n", energyResult.CogenerationFee.ToString()));
-            estimationResult.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", energyResult.SubscriptionFee.ToString()));
+            if (MainForm.EnergyTariff.FixedNetworkFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata stała sieciowa: {0} zł netto\n", energyResult.FixedNetworkFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.TransitionFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata przejściowa {0} zł netto\n", energyResult.TransitionFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.CapacirtFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata mocowa: {0} zł netto\n", energyResult.CapacirtFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.NetworkVariableFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata zmienna sieciowa: {0} zł netto\n", energyResult.NetworkVariableFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.QualityFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata jakościowa netto: {0} zł netto\n", energyResult.QualityFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.RenewableEnergySourcesFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata OZE: {0} zł netto\n", energyResult.RenewableEnergySourcesFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.CogenerationFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata kogeneracyjna: {0} zł netto\n", energyResult.CogenerationFee.ToString()));
+            }
+            if (MainForm.EnergyTariff.SubscriptionFee != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata abonamentowa: {0} zł netto\n", energyResult.SubscriptionFee.ToString()));
+            }
+
             estimationResult.AddText(string.Format("Całkowity koszt netto: {0} zł\n", energyResult.SumNettoOsd.ToString()));
             estimationResult.AddText(string.Format("Vat: {0}%\n", MainForm.EnergyTariff.VatValue.ToString()));
             estimationResult.AddText(string.Format("Całkowity koszt brutto: {0} zł", energyResult.SumBruttoOsd.ToString()));

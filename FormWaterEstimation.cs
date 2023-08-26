@@ -86,10 +86,22 @@ namespace MediaWIiR_APP
             {
                 feeData.AddText(string.Format("Na podstawie taryfy: {0}\n", MainForm.WaterTariff.Tariff.ToString()));
             }
-            feeData.AddText(string.Format("Koszt m3 wody netto: {0} zł\n", MainForm.WaterTariff.Water.ToString()));
-            feeData.AddText(string.Format("Koszt m3 ścieków netto: {0} zł\n", MainForm.WaterTariff.Sewage.ToString()));
-            feeData.AddText(string.Format("Abonament Woda 1 mc netto: {0} zł\n", MainForm.WaterTariff.SubscriptionWater.ToString()));
-            feeData.AddText(string.Format("Abonament Ścieki 1 mc netto: {0} zł\n", MainForm.WaterTariff.SubscriptionSewage.ToString()));
+            if (MainForm.WaterTariff.Water != 0)
+            {
+                feeData.AddText(string.Format("Koszt m3 wody netto: {0} zł\n", MainForm.WaterTariff.Water.ToString()));
+            }
+            if (MainForm.WaterTariff.Sewage != 0)
+            {
+                feeData.AddText(string.Format("Koszt m3 ścieków netto: {0} zł\n", MainForm.WaterTariff.Sewage.ToString()));
+            }
+            if (MainForm.WaterTariff.SubscriptionWater != 0)
+            {
+                feeData.AddText(string.Format("Abonament Woda 1 mc netto: {0} zł\n", MainForm.WaterTariff.SubscriptionWater.ToString()));
+            }
+            if (MainForm.WaterTariff.SubscriptionSewage != 0)
+            {
+                feeData.AddText(string.Format("Abonament Ścieki 1 mc netto: {0} zł\n", MainForm.WaterTariff.SubscriptionSewage.ToString()));
+            }
             feeData.Format.SpaceAfter = Unit.FromPoint(30);
 
             //Dodanie tytulu kolejnego akapitu
@@ -104,10 +116,23 @@ namespace MediaWIiR_APP
             estimationResult = section.AddParagraph();
             estimationResult.Format.Alignment = ParagraphAlignment.Left;
             estimationResult.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
-            estimationResult.AddText(string.Format("Koszt wody: {0} zł netto\n", waterResult.Water.ToString()));
-            estimationResult.AddText(string.Format("Koszt ścieków: {0} zł netto\n", waterResult.Sewage.ToString()));
-            estimationResult.AddText(string.Format("Koszt abonamentu wody: {0} zł netto\n", waterResult.SubscriptionWater.ToString()));
-            estimationResult.AddText(string.Format("Koszt abonamentu Ścieków: {0} zł netto\n", waterResult.SubscriptionSewage.ToString()));
+            if (MainForm.WaterTariff.Water != 0)
+            {
+                estimationResult.AddText(string.Format("Koszt wody: {0} zł netto\n", waterResult.Water.ToString()));
+            }
+            if (MainForm.WaterTariff.Sewage != 0)
+            {
+                estimationResult.AddText(string.Format("Koszt ścieków: {0} zł netto\n", waterResult.Sewage.ToString()));
+            }
+            if (MainForm.WaterTariff.SubscriptionWater != 0)
+            {
+                estimationResult.AddText(string.Format("Koszt abonamentu wody: {0} zł netto\n", waterResult.SubscriptionWater.ToString()));
+            }
+            if (MainForm.WaterTariff.SubscriptionSewage != 0)
+            {
+                estimationResult.AddText(string.Format("Koszt abonamentu Ścieków: {0} zł netto\n", waterResult.SubscriptionSewage.ToString()));
+            }
+
             estimationResult.Format.SpaceAfter = Unit.FromPoint(30); //puste miejscemiedzy elementami
             estimationResult.AddText(string.Format("Całkowity koszt netto: {0} zł\n", waterResult.SumNetto.ToString()));
             estimationResult.AddText(string.Format("Vat: {0}%\n", MainForm.WaterTariff.VatValue.ToString()));

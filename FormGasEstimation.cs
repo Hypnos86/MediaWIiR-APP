@@ -110,8 +110,14 @@ namespace MediaWIiR_APP
             feeData.Format.Alignment = ParagraphAlignment.Left;
             feeData.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
             feeData.AddText(string.Format("Na podstawie taryfy: {0}\n", MainForm.GasData.Tariff.ToString()));
-            feeData.AddText(string.Format("Koszt 1 kWh netto: {0} zł\n", MainForm.GasTariff.Gas.ToString()));
-            feeData.AddText(string.Format("Opłata abonamentowa - gaz netto: {0} zł\n", MainForm.GasTariff.Subscribe.ToString()));
+            if (MainForm.GasTariff.Gas != 0)
+            {
+                feeData.AddText(string.Format("Koszt 1 kWh netto: {0} zł\n", MainForm.GasTariff.Gas.ToString()));
+            }
+            if (MainForm.GasTariff.Subscribe != 0)
+            {
+                feeData.AddText(string.Format("Opłata abonamentowa - gaz netto: {0} zł\n", MainForm.GasTariff.Subscribe.ToString()));
+            }
 
             if (MainForm.GasData.Tariff == "W-5")
             {
@@ -121,8 +127,11 @@ namespace MediaWIiR_APP
             {
                 feeData.AddText(string.Format("Dystrybucja stała netto: {0} zł\n", MainForm.GasTariff.FixedDistribution.ToString()));
             }
+            if (MainForm.GasTariff.VariableDistribution != 0)
+            {
+                feeData.AddText(string.Format("Dystrybucja zmienna netto: {0} zł\n", MainForm.GasTariff.VariableDistribution.ToString()));
+            }
 
-            feeData.AddText(string.Format("Dystrybucja zmienna netto: {0} zł\n", MainForm.GasTariff.VariableDistribution.ToString()));
             feeData.Format.SpaceAfter = Unit.FromPoint(30);
 
             //Dodanie tytulu kolejnego akapitu
@@ -137,10 +146,23 @@ namespace MediaWIiR_APP
             estimationResult = section.AddParagraph();
             estimationResult.Format.Alignment = ParagraphAlignment.Left;
             estimationResult.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
-            estimationResult.AddText(string.Format("Opłata za gaz: {0} zł netto\n", gasResult.Gas.ToString()));
-            estimationResult.AddText(string.Format("Opłata za abonamen: {0} zł netto\n", gasResult.Subscribe.ToString()));
-            estimationResult.AddText(string.Format("Opłata dystrybucyjna stała: {0} zł netto\n", gasResult.FixedDistribution.ToString()));
-            estimationResult.AddText(string.Format("Opłata dystrybucyjna zmienna: {0} zł netto\n", gasResult.VariableDistribution.ToString()));
+            if (MainForm.GasTariff.Gas != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata za gaz: {0} zł netto\n", gasResult.Gas.ToString()));
+            }
+            if (MainForm.GasTariff.Subscribe != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata za abonament: {0} zł netto\n", gasResult.Subscribe.ToString()));
+            }
+            if (MainForm.GasTariff.FixedDistribution != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata dystrybucyjna stała: {0} zł netto\n", gasResult.FixedDistribution.ToString()));
+            }
+            if (MainForm.GasTariff.VariableDistribution != 0)
+            {
+                estimationResult.AddText(string.Format("Opłata dystrybucyjna zmienna: {0} zł netto\n", gasResult.VariableDistribution.ToString()));
+            }
+
             estimationResult.AddText(string.Format("Całkowity koszt netto: {0} zł\n", gasResult.SumNetto.ToString()));
             estimationResult.AddText(string.Format("Vat: {0}%\n", MainForm.GasTariff.VatValue.ToString()));
             estimationResult.AddText(string.Format("Całkowity koszt brutto: {0} zł", gasResult.SumBrutto.ToString()));
