@@ -66,7 +66,7 @@ namespace MediaWIiR_APP
             Paragraph estimationData = section.AddParagraph();
             estimationData.Format.Alignment = ParagraphAlignment.Left;
             estimationData.Format.Font = new MigraDoc.DocumentObjectModel.Font("Arial", 12);
-            estimationData.AddText(string.Format("Szacunkowe zużycie na miesiąć: {0} m3\n", MainForm.WaterData.WaterAmount.ToString()));
+            estimationData.AddText(string.Format("Szacunkowe zużycie na miesiąc: {0} m3\n", MainForm.WaterData.WaterAmount.ToString()));
             estimationData.AddText(string.Format("Szacowanie na okres {0} miesięcy\n", MainForm.WaterData.Month.ToString()));
             estimationData.AddText(string.Format("Zużycie w ciągu {0} miesięcy: {1} m3 ", MainForm.WaterData.Month.ToString(), waterResult.SumWater.ToString()));
             estimationData.Format.SpaceAfter = Unit.FromPoint(40); //puste miejscemiedzy elementami
